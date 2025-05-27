@@ -2,4 +2,5 @@
 Foro académico, proyecto de estructura de datos 
 
 
-https://es.pornhub.com/view_video.php?viewkey=6483f3c02b2d1
+
+![ChatGPT Image May 24, 2025, 10_47_38 PM](https://github.com/user-attachments/assets/2210b0b2-f707-4d9b-8fcd-280fadec5d04)
