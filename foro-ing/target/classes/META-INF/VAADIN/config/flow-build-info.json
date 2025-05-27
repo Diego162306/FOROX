@@ -1,6 +1,7 @@
 {
   "productionMode": false,
   "eagerServerLoad": false,
+<<<<<<< HEAD
   "npmFolder": "/home/juan/Documentos/FOROX/foro-ing",
   "node.version": "v22.14.0",
   "frontend.hotdeploy": true,
@@ -11,6 +12,31 @@
   "connect.applicationProperties": "/home/juan/Documentos/FOROX/foro-ing/src/main/resources/application.properties",
   "connect.openApiFile": "/home/juan/Documentos/FOROX/foro-ing/target/generated-resources/openapi.json",
   "project.frontend.generated": "/home/juan/Documentos/FOROX/foro-ing/src/main/frontend/generated",
+=======
+<<<<<<< HEAD
+  "npmFolder": "/home/wfb23/Escritorio/FOROX/foro-ing",
+  "node.version": "v22.14.0",
+  "frontend.hotdeploy": true,
+  "node.download.root": "https://nodejs.org/dist/",
+  "frontendFolder": "/home/wfb23/Escritorio/FOROX/foro-ing/src/main/frontend",
+  "connect.javaSourceFolder": "/home/wfb23/Escritorio/FOROX/foro-ing/src/main/java",
+  "javaResourceFolder": "/home/wfb23/Escritorio/FOROX/foro-ing/src/main/resources",
+  "connect.applicationProperties": "/home/wfb23/Escritorio/FOROX/foro-ing/src/main/resources/application.properties",
+  "connect.openApiFile": "/home/wfb23/Escritorio/FOROX/foro-ing/target/generated-resources/openapi.json",
+  "project.frontend.generated": "/home/wfb23/Escritorio/FOROX/foro-ing/src/main/frontend/generated",
+=======
+  "npmFolder": "/home/carlos/Documentos/PROYECTO/FOROX/foro-ing",
+  "node.version": "v22.14.0",
+  "frontend.hotdeploy": true,
+  "node.download.root": "https://nodejs.org/dist/",
+  "frontendFolder": "/home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/frontend",
+  "connect.javaSourceFolder": "/home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/java",
+  "javaResourceFolder": "/home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/resources",
+  "connect.applicationProperties": "/home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/resources/application.properties",
+  "connect.openApiFile": "/home/carlos/Documentos/PROYECTO/FOROX/foro-ing/target/generated-resources/openapi.json",
+  "project.frontend.generated": "/home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/frontend/generated",
+>>>>>>> origin/Carlos-Guajala
+>>>>>>> Wagner-Balcazar
   "pnpm.enable": false,
   "bun.enable": false,
   "require.home.node": false,
