@@ -1,4 +1,8 @@
+PreguntaService.ts
+RespuestaService.ts
 TaskService.ts
+fori/ing/com/base/models/Pregunta.ts
+fori/ing/com/base/models/Respuesta.ts
 com/vaadin/hilla/mappedtypes/Pageable.ts
 fori/ing/com/taskmanagement/domain/Task.ts
 com/vaadin/hilla/mappedtypes/Sort.ts
@@ -8,6 +12,8 @@ org/springframework/data/domain/Sort/Direction.ts
 org/springframework/data/domain/Sort/NullHandling.ts
 connect-client.default.ts
 endpoints.ts
+fori/ing/com/base/models/PreguntaModel.ts
+fori/ing/com/base/models/RespuestaModel.ts
 com/vaadin/hilla/mappedtypes/PageableModel.ts
 fori/ing/com/taskmanagement/domain/TaskModel.ts
 com/vaadin/hilla/mappedtypes/SortModel.ts
