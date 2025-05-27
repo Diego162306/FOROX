@@ -1,5 +1,6 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   "frontendFolder": "/home/juan/Documentos/FOROX/foro-ing/src/main/frontend",
 =======
 <<<<<<< HEAD
@@ -34,6 +35,20 @@
   "clientServiceWorkerSource": "/home/carlos/Documentos/PROYECTO/FOROX/foro-ing/target/sw.ts",
 >>>>>>> origin/Carlos-Guajala
 >>>>>>> Wagner-Balcazar
+=======
+  "frontendFolder": "/home/usuario/Descargas/FOROX/foro-ing/src/main/frontend",
+  "themeFolder": "themes",
+  "themeResourceFolder": "/home/usuario/Descargas/FOROX/foro-ing/src/main/frontend/generated/jar-resources",
+  "staticOutput": "/home/usuario/Descargas/FOROX/foro-ing/target/classes/META-INF/VAADIN/webapp/VAADIN/static",
+  "generatedFolder": "generated",
+  "statsOutput": "/home/usuario/Descargas/FOROX/foro-ing/target/classes/META-INF/VAADIN/config",
+  "frontendBundleOutput": "/home/usuario/Descargas/FOROX/foro-ing/target/classes/META-INF/VAADIN/webapp",
+  "devBundleOutput": "/home/usuario/Descargas/FOROX/foro-ing/target/dev-bundle/webapp",
+  "devBundleStatsOutput": "/home/usuario/Descargas/FOROX/foro-ing/target/dev-bundle/config",
+  "jarResourcesFolder": "/home/usuario/Descargas/FOROX/foro-ing/src/main/frontend/generated/jar-resources",
+  "themeName": "default",
+  "clientServiceWorkerSource": "/home/usuario/Descargas/FOROX/foro-ing/target/sw.ts",
+>>>>>>> Roberto-Lliguin
   "pwaEnabled": false,
   "offlineEnabled": false,
   "offlinePath": "'offline.html'"
