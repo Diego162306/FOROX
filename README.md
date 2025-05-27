@@ -1,2 +1,2 @@
-# FOROX
-Foro académico, proyecto de estructura de datos 
+# FOROX 
+Foro académico, proyecto de estructura de datos  con la finalidad de mejorar la calidad de la educación en los estudiantes
