@@ -1,9 +1,26 @@
-/home/juan/New cicle/foro-ing/src/main/java/fori/ing/com/Application.java
-/home/juan/New cicle/foro-ing/src/main/java/fori/ing/com/base/domain/AbstractEntity.java
-/home/juan/New cicle/foro-ing/src/main/java/fori/ing/com/base/domain/package-info.java
-/home/juan/New cicle/foro-ing/src/main/java/fori/ing/com/taskmanagement/domain/Task.java
-/home/juan/New cicle/foro-ing/src/main/java/fori/ing/com/taskmanagement/domain/TaskRepository.java
-/home/juan/New cicle/foro-ing/src/main/java/fori/ing/com/taskmanagement/domain/package-info.java
-/home/juan/New cicle/foro-ing/src/main/java/fori/ing/com/taskmanagement/package-info.java
-/home/juan/New cicle/foro-ing/src/main/java/fori/ing/com/taskmanagement/service/TaskService.java
-/home/juan/New cicle/foro-ing/src/main/java/fori/ing/com/taskmanagement/service/package-info.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/Application.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/DataStruc/List/Linkendlist.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/DataStruc/List/Node.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/DataStruc/queque/QuequeIMplementatioin.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/DataStruc/queque/Queue.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/DataStruc/stack/Stack.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/DataStruc/stack/StackImpementation.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/dao/AdapterDao.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/dao/InterfaceDao.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/dao/dao_models/DaoPregunta.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/dao/dao_models/DaoRespuesta.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/excepcion/LabelException.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/excepcion/ListEmptyException.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/excepcion/OverFlowException.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/services/PreguntaService.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/services/RespuestaService.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/base/domain/AbstractEntity.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/base/domain/package-info.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/base/models/Pregunta.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/base/models/Respuesta.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/taskmanagement/domain/Task.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/taskmanagement/domain/TaskRepository.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/taskmanagement/domain/package-info.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/taskmanagement/package-info.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/taskmanagement/service/TaskService.java
+/home/juan/Documentos/FOROX/foro-ing/src/main/java/fori/ing/com/taskmanagement/service/package-info.java
