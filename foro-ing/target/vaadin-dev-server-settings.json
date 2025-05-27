@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "frontendFolder": "/home/wfb23/Escritorio/FOROX/foro-ing/src/main/frontend",
   "themeFolder": "themes",
   "themeResourceFolder": "/home/wfb23/Escritorio/FOROX/foro-ing/src/main/frontend/generated/jar-resources",
@@ -11,6 +12,20 @@
   "jarResourcesFolder": "/home/wfb23/Escritorio/FOROX/foro-ing/src/main/frontend/generated/jar-resources",
   "themeName": "default",
   "clientServiceWorkerSource": "/home/wfb23/Escritorio/FOROX/foro-ing/target/sw.ts",
+=======
+  "frontendFolder": "/home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/frontend",
+  "themeFolder": "themes",
+  "themeResourceFolder": "/home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/frontend/generated/jar-resources",
+  "staticOutput": "/home/carlos/Documentos/PROYECTO/FOROX/foro-ing/target/classes/META-INF/VAADIN/webapp/VAADIN/static",
+  "generatedFolder": "generated",
+  "statsOutput": "/home/carlos/Documentos/PROYECTO/FOROX/foro-ing/target/classes/META-INF/VAADIN/config",
+  "frontendBundleOutput": "/home/carlos/Documentos/PROYECTO/FOROX/foro-ing/target/classes/META-INF/VAADIN/webapp",
+  "devBundleOutput": "/home/carlos/Documentos/PROYECTO/FOROX/foro-ing/target/dev-bundle/webapp",
+  "devBundleStatsOutput": "/home/carlos/Documentos/PROYECTO/FOROX/foro-ing/target/dev-bundle/config",
+  "jarResourcesFolder": "/home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/frontend/generated/jar-resources",
+  "themeName": "default",
+  "clientServiceWorkerSource": "/home/carlos/Documentos/PROYECTO/FOROX/foro-ing/target/sw.ts",
+>>>>>>> origin/Carlos-Guajala
   "pwaEnabled": false,
   "offlineEnabled": false,
   "offlinePath": "'offline.html'"
