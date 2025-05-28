@@ -15,7 +15,7 @@ public class AdapterDao <T> implements InterfaceDao <T> {
 
     private Class<T> clazz;
     private Gson g;
-    protected static String base_path= "data" + File.separatorChar;
+    protected static String base_path= "foro-ing/data" + File.separatorChar;
 
     public AdapterDao(Class<T> clazz) {
         this.clazz = clazz;

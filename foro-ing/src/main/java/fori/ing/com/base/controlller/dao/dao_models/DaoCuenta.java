@@ -59,13 +59,14 @@ public class DaoCuenta extends AdapterDao<Cuenta> {
 
 
     
+       
     public static void main(String[] args) {
         DaoCuenta dp = new DaoCuenta();
         dp.getObj().setId(dp.listAll().getLength() + 1);
-        dp.getObj().setCorreo("correo");
-        dp.getObj().setClave("clave");
+        dp.getObj().setCorreo("correo@gm.com");
+        dp.getObj().setClave("clavee");
         dp.getObj().setId_usuario(1);
-        dp.getObj().setRol("rol");
+        dp.getObj().setRol("Admini");
         
         if (dp.save()) {
             System.out.println("Guardado");
@@ -76,7 +77,6 @@ public class DaoCuenta extends AdapterDao<Cuenta> {
         System.out.println(dp.getListAll().print());
       
     }
-
    
     
 }
