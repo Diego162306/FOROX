@@ -7,6 +7,15 @@ public class Cuenta {
     private String clave;
     private Integer id_usuario;
     private String rol;
+    private boolean estado;
+
+    public boolean isEstado() {
+        return this.estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 
     
     public Integer getId() {

@@ -4,5 +4,6 @@ interface Cuenta {
     clave?: string;
     id_usuario?: number;
     rol?: string;
+    estado: boolean;
 }
 export default Cuenta;

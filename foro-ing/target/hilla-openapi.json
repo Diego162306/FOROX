@@ -436,39 +436,16 @@
                   "correo" : {
                     "type" : "string",
                     "nullable" : true,
-                    "x-validation-constraints" : [
-                      {
-                        "simpleName" : "Email"
-                      },
-                      {
-                        "simpleName" : "NotEmpty"
-                      },
-                      {
-                        "simpleName" : "NotBlank"
-                      }
-                    ],
                     "x-java-type" : "java.lang.String"
                   },
                   "clave" : {
                     "type" : "string",
                     "nullable" : true,
-                    "x-validation-constraints" : [
-                      {
-                        "simpleName" : "NotEmpty"
-                      }
-                    ],
                     "x-java-type" : "java.lang.String"
                   },
-                  "idUsuario" : {
-                    "type" : "integer",
-                    "format" : "int32",
-                    "nullable" : true,
-                    "x-java-type" : "java.lang.Integer"
-                  },
-                  "rol" : {
-                    "type" : "string",
-                    "nullable" : true,
-                    "x-java-type" : "java.lang.String"
+                  "estado" : {
+                    "type" : "boolean",
+                    "x-java-type" : "boolean"
                   }
                 }
               }
@@ -508,117 +485,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/CuentaService/listAll" : {
-      "post" : {
-        "tags" : [
-          "CuentaService"
-        ],
-        "operationId" : "CuentaService_listAll_POST",
-        "responses" : {
-          "200" : {
-            "description" : "",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "array",
-                  "nullable" : true,
-                  "items" : {
-                    "type" : "object",
-                    "additionalProperties" : {
-                      "type" : "object"
-                    },
-                    "nullable" : true,
-                    "x-java-type" : "java.util.HashMap"
-                  },
-                  "x-java-type" : "java.util.List"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/CuentaService/listaUsuarioCombo" : {
-      "post" : {
-        "tags" : [
-          "CuentaService"
-        ],
-        "operationId" : "CuentaService_listaUsuarioCombo_POST",
-        "responses" : {
-          "200" : {
-            "description" : "",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "array",
-                  "nullable" : true,
-                  "items" : {
-                    "type" : "object",
-                    "additionalProperties" : {
-                      "type" : "object"
-                    },
-                    "nullable" : true,
-                    "x-java-type" : "java.util.HashMap"
-                  },
-                  "x-java-type" : "java.util.List"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/CuentaService/updateCuenta" : {
-      "post" : {
-        "tags" : [
-          "CuentaService"
-        ],
-        "operationId" : "CuentaService_updateCuenta_POST",
-        "requestBody" : {
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "type" : "object",
-                "properties" : {
-                  "id" : {
-                    "type" : "integer",
-                    "format" : "int32",
-                    "nullable" : true,
-                    "x-java-type" : "java.lang.Integer"
-                  },
-                  "clave" : {
-                    "type" : "string",
-                    "nullable" : true,
-                    "x-validation-constraints" : [
-                      {
-                        "simpleName" : "NotEmpty"
-                      }
-                    ],
-                    "x-java-type" : "java.lang.String"
-                  },
-                  "idUsuario" : {
-                    "type" : "integer",
-                    "format" : "int32",
-                    "nullable" : true,
-                    "x-java-type" : "java.lang.Integer"
-                  },
-                  "rol" : {
-                    "type" : "string",
-                    "nullable" : true,
-                    "x-java-type" : "java.lang.String"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses" : {
-          "200" : {
-            "description" : ""
           }
         }
       }
@@ -1188,6 +1054,10 @@
             "type" : "string",
             "nullable" : true,
             "x-java-type" : "java.lang.String"
+          },
+          "estado" : {
+            "type" : "boolean",
+            "x-java-type" : "boolean"
           }
         }
       },

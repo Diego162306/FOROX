@@ -3,11 +3,9 @@ package fori.ing.com.base.controlller.dao.dao_models;
 import fori.ing.com.base.models.Cuenta;
 import fori.ing.com.base.controlller.dao.AdapterDao;
 import fori.ing.com.base.controlller.DataStruc.List.Linkendlist;
-
 public class DaoCuenta extends AdapterDao<Cuenta> {
-
-    private Linkendlist<Cuenta> listAll;
     private Cuenta obj;
+    private Linkendlist<Cuenta> listAll;
 
     public DaoCuenta() {
         super(Cuenta.class);
@@ -28,8 +26,8 @@ public class DaoCuenta extends AdapterDao<Cuenta> {
     }
 
     public Boolean save() {
+        obj.setId(listAll().getLength() + 1);
         try {
-            obj.setId(listAll().getLength() + 1);
             this.persist(obj);
             return true;
         } catch (Exception e) {
@@ -58,25 +56,22 @@ public class DaoCuenta extends AdapterDao<Cuenta> {
     }
 
 
-    
-       
     public static void main(String[] args) {
-        DaoCuenta dp = new DaoCuenta();
-        dp.getObj().setId(dp.listAll().getLength() + 1);
-        dp.getObj().setCorreo("correo@gm.com");
-        dp.getObj().setClave("clavee");
-        dp.getObj().setId_usuario(1);
-        dp.getObj().setRol("Admini");
-        
-        if (dp.save()) {
+        DaoCuenta da = new DaoCuenta();
+        da.getObj().setId(da.listAll().getLength() + 1);
+        da.getObj().setCorreo("wagner@.com");
+        da.getObj().setClave("xxxxx");
+        da.getObj().setEstado(true);
+
+        if (da.save()) {
             System.out.println("Guardado");
         } else {
             System.out.println("Error al guardar");
 
         }
-        System.out.println(dp.getListAll().print());
-      
+        System.out.println(da.getListAll().getLength());
+        
     }
-   
     
+
 }

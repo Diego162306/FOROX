@@ -1,5 +1,5 @@
 import { ViewConfig } from '@vaadin/hilla-file-router/types.js';
-import { Button, ComboBox, DatePicker, Dialog, Grid, GridColumn, GridItemModel, NumberField, PasswordField, TextField, VerticalLayout } from '@vaadin/react-components';
+import { Button, ComboBox, Dialog, Grid, GridColumn, GridItemModel, PasswordField, TextField, VerticalLayout } from '@vaadin/react-components';
 import { Notification } from '@vaadin/react-components/Notification';
 
 import { useSignal } from '@vaadin/hilla-react-signals';
@@ -7,14 +7,9 @@ import handleError from 'Frontend/views/_ErrorHandler';
 import { Group, ViewToolbar } from 'Frontend/components/ViewToolbar';
 
 import { useDataProvider } from '@vaadin/hilla-react-crud';
-import { CuentaService, UsuarioService } from 'Frontend/generated/endpoints';
-
+import { CuentaService } from 'Frontend/generated/endpoints';
 import { useEffect, useState } from 'react';
-import Usuario from 'Frontend/generated/fori/ing/com/base/models/Usuario';
 import Cuenta from 'Frontend/generated/fori/ing/com/base/models/Cuenta';
-
-
-
 
 export const config: ViewConfig = {
   title: 'Cuenta',
@@ -28,14 +23,10 @@ export const config: ViewConfig = {
 type CuentaEntryFormProps = {
   onCuentaCreated?: () => void;
 };
-type CuentaEntryFormUpdateProps = {
-  onCuentaUpdate: () => void;
-};
 
 function CuentaEntryForm(props: CuentaEntryFormProps) {
   const dialogOpened = useSignal(false);
-  const [usuarios, setUsuarios] = useState<Usuario[]>([]);
-
+  const [tipos, setTipos] = useState<String[]>([]);
 
 
   const open = () => {
@@ -48,27 +39,27 @@ function CuentaEntryForm(props: CuentaEntryFormProps) {
 
   const correo = useSignal('');
   const clave = useSignal('');
-  const id_usuario = useSignal('');
-  const rol = useSignal('');
+  const estado = useSignal('');
+
+
+
+
 
 
   const createCuenta = async () => {
     try {
-      if (correo.value.trim().length > 0 && clave.value.trim().length > 0 && id_usuario.value.trim().length > 0 && rol.value.trim().length > 0) {
-        const id_usuariovalue = parseInt(id_usuario.value) + 1;
-        await CuentaService.createCuenta(correo.value, clave.value, id_usuariovalue, rol.value);
-
-
-
+      if (correo.value.trim().length > 0 && clave.value.trim().length > 0 && estado.value.trim().length > 0) {
+        await CuentaService.createCuenta(correo.value, clave.value, estado.value.toLowerCase() === 'true');
+    
+        
         if (props.onCuentaCreated) {
           props.onCuentaCreated();
         }
         correo.value = '';
         clave.value = '';
-        id_usuario.value = '';
-        rol.value = '';
+        estado.value = '';
         dialogOpened.value = false;
-        Notification.show('Cuenta creada exitosamente', { duration: 5000, position: 'bottom-end', theme: 'success' });
+        Notification.show('Cuenta creada exitosamsrc/main/frontend/views/persona-list.tsxente', { duration: 5000, position: 'bottom-end', theme: 'success' });
       } else {
         Notification.show('No se pudo crear, faltan datos', { duration: 5000, position: 'top-center', theme: 'error' });
       }
@@ -77,13 +68,6 @@ function CuentaEntryForm(props: CuentaEntryFormProps) {
       handleError(error);
     }
   };
-  useEffect(() => {
-    CuentaService.listaUsuarioCombo()
-      .then((result) => setUsuarios(result))
-      .catch(console.error);
-  }, []);
-   
-
   
 
 
@@ -126,44 +110,27 @@ function CuentaEntryForm(props: CuentaEntryFormProps) {
           style={{ width: '300px', maxWidth: '100%', alignItems: 'stretch' }}
         >
           <VerticalLayout style={{ alignItems: 'stretch' }}>
-            <TextField label="correo"
-              placeholder='Ingrese el email de la Cuenta'
-              aria-label='Ingrese el email de la Cuenta'
+            <TextField label="mail"
+              placeholder='Ingrese el nombre de la Cuenta'
+              aria-label='Ingrese el nombre de la Cuenta'
               value={correo.value}
               onValueChanged={(evt) => (correo.value = evt.detail.value)}
             />
-            <PasswordField
-              label="Clave"
-              placeholder="Ingrese la clave de la Cuenta"
-              aria-label="Ingrese la clave de la Cuenta"
+            <TextField label="clave"
+              placeholder='Ingrese la edad de la Cuenta'
+              aria-label='Ingrese la edad de la Cuenta'
               value={clave.value}
               onValueChanged={(evt) => (clave.value = evt.detail.value)}
-              errorMessage="La contraseña debe tener al menos 6 caracteres"
-              invalid={clave.value.length > 0 && clave.value.length < 6}
+            />
+            <ComboBox label="Estado"
+              placeholder='Seleccione el estado de la Cuenta'
+              aria-label='Seleccione el estado de la Cuenta'
+              items={['true', 'false']}
+              value={estado.value}
+              onValueChanged={(evt) => (estado.value = evt.detail.value)}
             />
 
-            <ComboBox
-              label="Rol"
-              placeholder="Seleccione el rol de la Cuenta"
-              items={[
-                { label: 'Administrador', value: 'ADMIN' },
-                { label: 'Usuario', value: 'USER' }
-              ]}
-              itemLabelPath="label"
-              itemValuePath="value"
-              value={rol.value}
-              onValueChanged={(e) => (rol.value = e.detail.value)}
-            />
-           <ComboBox
-              label="Usuarios"
-              items={usuarios}
-              value={id_usuario.value}
-              onValueChanged={(e) => (id_usuario.value = e.detail.value)}
-              placeholder="Seleccione la Persona"
-            />  
           
-
-
           </VerticalLayout>
         </VerticalLayout>
       </Dialog>
@@ -173,125 +140,23 @@ function CuentaEntryForm(props: CuentaEntryFormProps) {
   );
 }
 
-// CuentaEntryFormUpdate
+const dateFormatter = new Intl.DateTimeFormat(undefined, {
+  dateStyle: 'medium',
+});
 
-function CuentaEntryFormUpdate(props: CuentaEntryFormUpdateProps) {
-  const dialogOpened = useSignal(false);
-  const [Usuarios, setUsuarios] = useState<String[]>([]);
-
-  const open = () => {
-    dialogOpened.value = true;
-  };
-
-  const close = () => {
-    dialogOpened.value = false;
-  };
-
-  const clave = useSignal(props.arguments.clave);
-  const estado = useSignal(props.arguments.estado);
-  const ident = useSignal(props.arguments.id);
-  const id_usuario = useSignal(props.arguments.id_usuario);
-  const rol = useSignal(props.arguments.rol);   
-
-
-
-  const updateCuenta = async () => {
-    try {
-      if (clave.value.trim().length > 0 && estado.value.trim().length > 0) {
-        const idUsuariovalue = parseInt(id_usuario.value) + 1;
-
-        await CuentaService.updateCuenta(parseInt(ident.value), clave.value,idUsuariovalue, estado.value, rol.value);
-        if (props.onCuentaUpdate) {
-          props.onCuentaUpdate();
-        }
-        clave.value = '';
-        id_usuario.value = '';
-        rol.value = '';
-        dialogOpened.value = false;
-
-        Notification.show('Cuenta actualizada exitosamente', { duration: 5000, position: 'bottom-end', theme: 'success' });
-      } else {
-        Notification.show('No se pudo actualizar, faltan datos', { duration: 5000, position: 'top-center', theme: 'error' });
-      }
-    } catch (error) {
-      console.log(error);
-      handleError(error);
-
-    }
-
-
-  };
-  
-
-
+function link({ item }: { item: Cuenta }) {
   return (
-    <>
-      <Dialog
-        aria-label="Actualizar Cuenta"
-        draggable
-        modeless
-        opened={dialogOpened.value}
-        onOpenedChanged={(event) => {
-          dialogOpened.value = event.detail.value;
-        }}
-        header={
-          <h2
-            className="draggable"
-            style={{
-              flex: 1,
-              cursor: 'move',
-              margin: 0,
-              fontSize: '1.5em',
-              fontWeight: 'bold',
-              padding: 'var(--lumo-space-m) 0',
-            }}
-          >
-            Actualizar Cuenta
-          </h2>
-        }
-        footerRenderer={() => (
-          <>
-            <Button onClick={close}>Cancelar</Button>
-            <Button theme="primary" onClick={updateCuenta}>
-              Actualizar
-            </Button>
-          </>
-        )}
-      >
-        <VerticalLayout
-          theme="spacing"
-          style={{ width: '300px', maxWidth: '100%', alignItems: 'stretch' }}
-        >
-           <VerticalLayout style={{ alignItems: 'stretch' }}>
-           
-            <PasswordField
-              label="Clave"
-              placeholder="Ingrese la clave de la Cuenta"
-              aria-label="Ingrese la clave de la Cuenta"
-              value={clave.value}
-              onValueChanged={(evt) => (clave.value = evt.detail.value)}
-              errorMessage="La contraseña debe tener al menos 6 caracteres"
-              invalid={clave.value.length > 0 && clave.value.length < 6}
-            />
-
-            
-          <ComboBox
-              label="Usuarios"
-              items={Usuarios}
-              value={id_usuario.value}
-              onValueChanged={(e) => (id_usuario.value = e.detail.value)}
-              placeholder="Seleccione el tipo de archivo"
-            />
-          </VerticalLayout>
-        </VerticalLayout>
-      </Dialog>
-      <Button onClick={open}>Editar</Button>
-    </>
+    <span>
+      <Button>
+        Editar
+      </Button>
+      <Button>
+        Eliminar
+      </Button>
+      
+    </span>
   );
 }
-
-
-
 
 
 
@@ -306,43 +171,29 @@ function index({ model }: { model: GridItemModel<Cuenta> }) {
 
 
 
-
 export default function CuentaLisView() {
   const dataProvider = useDataProvider<Cuenta>({
-    list: () => CuentaService.listAll(),
+    list: () => CuentaService.lisAllCuenta(),
   });
-
-  const link = ({ item }: { item: Cuenta }) => {
-    return (
-      <span>
-        <CuentaEntryFormUpdate arguments={item} onCuentaUpdate={dataProvider.refresh} />
-      </span>
-    );
-  };
-
 
   return (
     <main className="w-full h-full flex flex-col box-border gap-s p-m">
-      <ViewToolbar title="Cuentas">
+      <ViewToolbar title="Cuentaes">
         <Group>
           <CuentaEntryForm onCuentaCreated={() => dataProvider.refresh()} />
         </Group>
       </ViewToolbar>
       <Grid dataProvider={dataProvider.dataProvider}>
         <GridColumn path="index" header="Index" renderer={index} />
-        <GridColumn path="correo" header="Email" />
-        <GridColumn
-          header="Clave"
-          renderer={({ item }) => <span>{'*'.repeat(item.clave.length)}</span>}
-        />
-       
-        <GridColumn path="id_usuario" header=" Usuario" />
-        <GridColumn path="rol" header="Rol" />
-
+        <GridColumn path="correo" header="Usuario" />
+        <GridColumn path="clave" header="clave" />
+        <GridColumn path="estado" header="Estado" />
+        
+        
 
         <GridColumn header="Acciones" renderer={link} />
-
       </Grid>
     </main>
   );
 }
+
