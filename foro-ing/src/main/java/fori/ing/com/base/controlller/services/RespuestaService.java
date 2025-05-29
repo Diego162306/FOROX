@@ -9,8 +9,13 @@ import java.util.List;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import com.vaadin.hilla.BrowserCallable;
 
+import fori.ing.com.base.controlller.dao.dao_models.DaoArchivoAdjunto;
+import fori.ing.com.base.controlller.dao.dao_models.DaoCategoria;
 import fori.ing.com.base.controlller.dao.dao_models.DaoRespuesta;
+import fori.ing.com.base.controlller.dao.dao_models.DaoUsuario;
+import fori.ing.com.base.controlller.excepcion.ListEmptyException;
 import fori.ing.com.base.models.Respuesta;
+import fori.ing.com.base.models.TipoArchivo;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 
@@ -50,39 +55,39 @@ public class RespuestaService {
     }
 
     //Proximamente
-    // public List<HashMap> lisAll() throws ListEmptyException {
-    //     List<HashMap> list = new ArrayList<>();
-    //     if (!dp.listAll().isEmpty()) {
-    //         Respuesta[] arreglo = dp.listAll().toArray();
-    //         DaoCategoria dg = new DaoCtegoria();
-    //         DaoUsuario da = new DaoUsuario();
-    //         DaoArchivoAdjunto da = new DaoArchivoAdjunto();
-    //         for (int i = 0; i < arreglo.length; i++) {
-    //             HashMap<String, String> aux = new HashMap<>();
-    //             aux.put("id", arreglo[i].getId().toString());
-    //             aux.put("contenido", arreglo[i].getContenido());
-    //             aux.put("id_album", da.listAll().get(arreglo[i].getIdArchivoadjunto() - 1).getNombre());
-    //             aux.put("fecha", arreglo[i].getFecha().toString());
-    //             aux.put("id_usuario", da.listAll().get(arreglo[i].getIdUsuario() - 1).getNombre());
-    //             aux.put("id_categoria", dg.listAll().get(arreglo[i].getIdCategoria() - 1).getNombre());
-    //             list.add(aux);
-    //         }
-    //     }
-    //     return list;
-    // }
+    public List<HashMap> lisAll() throws ListEmptyException {
+        List<HashMap> list = new ArrayList<>();
+        if (!dp.listAll().isEmpty()) {
+            Respuesta[] arreglo = dp.listAll().toArray();
+            DaoCategoria dg = new DaoCategoria();
+            DaoUsuario da = new DaoUsuario();
+            DaoArchivoAdjunto ds = new DaoArchivoAdjunto();
+            for (int i = 0; i < arreglo.length; i++) {
+                HashMap<String, String> aux = new HashMap<>();
+                aux.put("id", arreglo[i].getId().toString());
+                aux.put("contenido", arreglo[i].getContenido());
+                aux.put("id_album", ds.listAll().get(arreglo[i].getIdtipoArchivo() - 1).getNombre());
+                aux.put("fecha", arreglo[i].getFecha().toString());
+                aux.put("id_usuario", da.listAll().get(arreglo[i].getIdUsuario() - 1).getNombre());
+                aux.put("id_categoria", dg.listAll().get(arreglo[i].getId() - 1).getNombre());
+                list.add(aux);
+            }
+        }
+        return list;
+    }
 
     public List<Respuesta> lisAllRespuesta(){
         return Arrays.asList(dp.listAll().toArray());
         
     }
 
-    // public List<String> listTipoArchivo() {
-    //     List<String> lista = new ArrayList<>();
-    //     for (TipoArchivo tipo : TipoArchivo.values()) {
-    //         lista.add(tipo.name()); 
-    //     }
-    //     return lista;
-    // }
+    public List<String> listTipoArchivo() {
+        List<String> lista = new ArrayList<>();
+        for (TipoArchivo tipo : TipoArchivo.values()) {
+            lista.add(tipo.name()); 
+        }
+        return lista;
+    }
     
     
     

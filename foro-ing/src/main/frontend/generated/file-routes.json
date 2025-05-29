@@ -15,6 +15,17 @@
         "title": "Main"
       },
       {
+        "route": "pregunta-list",
+        "title": "Pregunta",
+        "menu": {
+          "icon": "vaadin:clipboard-check",
+          "order": 2,
+          "title": "Pregunta"
+        },
+        "flowLayout": false,
+        "params": {}
+      },
+      {
         "route": "task-list",
         "title": "Task List",
         "menu": {
