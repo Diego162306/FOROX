@@ -32,7 +32,7 @@ type CategoriaEntryFormUpdateProps = {
 
 
 //GUARDAR CATEGORIA
-function CancionEntryForm(props: CategoriaEntryFormProps) {
+function CategoriaEntryForm(props: CategoriaEntryFormProps) {
   const open= () =>{
     dialogOpened.value= true;
   };
@@ -45,7 +45,7 @@ function CancionEntryForm(props: CategoriaEntryFormProps) {
   const descripcion = useSignal('');
 
 
-  const createCancion = async () => {
+  const createCategoria = async () => {
     try {
       if (nombre.value.trim().length > 0 && descripcion.value.trim().length > 0) {
         await CategoriaService.create(nombre.value,descripcion.value);
@@ -227,7 +227,7 @@ const dateFormatter= new Intl.DateTimeFormat(undefined,{
 export default function CategoriaView() {
   
   const dataProvider = useDataProvider<Categoria>({
-    list: () => CategoriaService.listCategoria(),
+    list: () => CategoriaService.listAllCategoria(),
   });
 
   function link({item}: {item: Categoria}){
@@ -247,7 +247,7 @@ export default function CategoriaView() {
 
   return (
     <main className="w-full h-full flex flex-col box-border gap-s p-m">
-      <ViewToolbar title="Canciones">
+      <ViewToolbar title="Categorias">
         <Group>
           <CategoriaEntryForm onCategoriaCreated={dataProvider.refresh}/>
         </Group>
