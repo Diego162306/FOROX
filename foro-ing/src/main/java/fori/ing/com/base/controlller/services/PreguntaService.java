@@ -1,11 +1,11 @@
 package fori.ing.com.base.controlller.services;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-
 
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import com.vaadin.hilla.BrowserCallable;
@@ -27,12 +27,15 @@ import jakarta.validation.constraints.NotEmpty;
 public class PreguntaService {
 
     private DaoPregunta dp;
+
     public PreguntaService() {
         dp = new DaoPregunta();
     }
-    public void createPregunta(@NotBlank @NotEmpty String contenido, TipoArchivo tipoArchivo, @NonNull Date fecha, Integer idUsuario, Integer idCategoria) throws Exception {
+
+    public void createPregunta(@NotBlank @NotEmpty String contenido, TipoArchivo tipoArchivo, @NonNull Date fecha,
+            Integer idUsuario, Integer idCategoria) throws Exception {
         if (contenido.trim().length() > 0 && tipoArchivo != null && idUsuario > 0 && idCategoria > 0) {
-           dp.getObj().setContenido(contenido);
+            dp.getObj().setContenido(contenido);
             dp.getObj().setIdArchivoadjunto(tipoArchivo);
             dp.getObj().setFecha(fecha);
             dp.getObj().setIdUsuario(idUsuario);
@@ -43,28 +46,30 @@ public class PreguntaService {
         }
     }
 
-    // public void updatePregunta(Integer id, String contenido, Integer idTipoArchivo, Date fecha, Integer idUsuario, Integer idCategoria) throws Exception {
-    //     if (id != null && id > 0 && contenido.trim().length() > 0 && idTipoArchivo > 0 && idUsuario > 0 && idCategoria > 0) {
-    //         dp.setObj(dp.listAll().get(id - 1));
-    //         dp.getObj().setContenido(contenido);
-    //         dp.getObj().setIdArchivoadjunto(idTipoArchivo);
-    //         dp.getObj().setFecha(fecha);
-    //         dp.getObj().setIdUsuario(idUsuario);
-    //         dp.getObj().setIdCategoria(idCategoria);
-    //         if (!dp.update(id - 1)) {
-    //             throw new Exception("Error al actualizar la Pregunta");
-    //         }
-    //     }
-    // }
+    public void updatePregunta(Integer id, @NotBlank @NotEmpty String contenido, TipoArchivo tipoArchivo,
+            @NonNull Date fecha, Integer idUsuario, Integer idCategoria) throws Exception {
+        if (id != null && id > 0 && contenido.trim().length() > 0 && tipoArchivo != null && idUsuario > 0
+                && idCategoria > 0) {
+            dp.setObj(dp.listAll().get(id - 1));
+            dp.getObj().setContenido(contenido);
+            dp.getObj().setIdArchivoadjunto(tipoArchivo);
+            dp.getObj().setFecha(fecha);
+            dp.getObj().setIdUsuario(idUsuario);
+            dp.getObj().setIdCategoria(idCategoria);
+            if (!dp.update(id - 1)) {
+                throw new Exception("Error al actualizar la Pregunta");
+            }
+        }
+    }
 
-    //Proximamente
+    // Proximamente
     public List<HashMap> lisAll() throws ListEmptyException {
         List<HashMap> list = new ArrayList<>();
         if (!dp.listAll().isEmpty()) {
             Pregunta[] arreglo = dp.listAll().toArray();
             DaoUsuario da = new DaoUsuario();
             DaoCategoria dg = new DaoCategoria();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             for (int i = 0; i < arreglo.length; i++) {
                 HashMap<String, String> aux = new HashMap<>();
                 aux.put("id", arreglo[i].getId().toString());
@@ -109,19 +114,17 @@ public class PreguntaService {
         return lista;
     }
 
-    public List<Pregunta> lisAllPregunta(){
+    public List<Pregunta> lisAllPregunta() {
         return Arrays.asList(dp.listAll().toArray());
-        
+
     }
 
     public List<String> listTipoArchivo() {
         List<String> lista = new ArrayList<>();
         for (TipoArchivo tipo : TipoArchivo.values()) {
-            lista.add(tipo.name()); 
+            lista.add(tipo.name());
         }
         return lista;
     }
-    
-    
-    
+
 }

@@ -51,15 +51,15 @@ function PreguntaEntryForm(props: PreguntaEntryFormProps) {
   const fecha = useSignal('');
   const id_usuario = useSignal('');
   const id_categoria = useSignal('');
- 
+
   const createPregunta = async () => {
     try {
       if (contenido.value.trim().length > 0 && tipo.value.trim().length > 0 && fecha.value.trim().length > 0 && id_usuario.value.trim().length > 0 && id_categoria.value.trim().length > 0) {
         const tipoArchivoVakue = TipoArchivo[tipo.value as keyof typeof TipoArchivo];
         const idUsuarioValue = parseInt(id_usuario.value) + 1;
         const idCategoriaValue = parseInt(id_categoria.value) + 1;
-        
-        await PreguntaService.createPregunta(contenido.value, tipoArchivoVakue , fecha.value, idUsuarioValue, idCategoriaValue);
+
+        await PreguntaService.createPregunta(contenido.value, tipoArchivoVakue, fecha.value, idUsuarioValue, idCategoriaValue);
 
         if (props.onPreguntaCreated) {
           props.onPreguntaCreated();
@@ -90,7 +90,7 @@ function PreguntaEntryForm(props: PreguntaEntryFormProps) {
 
   useEffect(() => {
     PreguntaService.listaCategoriasCombo()
-      .then((result) => setCategorias(result ))
+      .then((result) => setCategorias(result))
       .catch(console.error);
   }, []);
 
@@ -146,7 +146,7 @@ function PreguntaEntryForm(props: PreguntaEntryFormProps) {
               value={contenido.value}
               onValueChanged={(evt) => (contenido.value = evt.detail.value)}
             />
-             <ComboBox
+            <ComboBox
               label="Tipo de Archivo"
               items={TipoArchivoEnum}
               value={tipo.value}
@@ -174,7 +174,7 @@ function PreguntaEntryForm(props: PreguntaEntryFormProps) {
               onValueChanged={(e) => (id_categoria.value = e.detail.value)}
               placeholder="Seleccione el Categoria"
             />
-            
+
           </VerticalLayout>
         </VerticalLayout>
       </Dialog>
@@ -183,162 +183,158 @@ function PreguntaEntryForm(props: PreguntaEntryFormProps) {
   );
 }
 
-// ///update Pregunta 
-// function PreguntaEntryFormUpdate(props: PreguntaEntryFormUpdateProps) {
-//   const dialogOpened = useSignal(false);
-//   const [tipos, setTipos] = useState<String[]>([]);
-//   const [Categorias, setCategorias] = useState<String[]>([]);
-//   const [albums, setAlbums] = useState<String[]>([]);
+///update Pregunta 
+function PreguntaEntryFormUpdate(props: PreguntaEntryFormUpdateProps) {
+  const dialogOpened = useSignal(false);
+  const [usuarios, setUsuarios] = useState<String[]>([]);
+  const [Categorias, setCategorias] = useState<String[]>([]);
+  const [TipoArchivoEnum, setTipoArchivoEnum] = useState<any>({});
 
-//   const open = () => {
-//     dialogOpened.value = true;
-//   };
 
-//   const close = () => {
-//     dialogOpened.value = false;
-//   };
+  const open = () => {
+    dialogOpened.value = true;
+  };
 
-//   const contenido = useSignal(props.arguments.contenido);
-//   const id_Categoria = useSignal(props.arguments.idCategoria);
-//   const ArchivoAdjunto = useSignal(props.arguments.ArchivoAdjunto);
-//   const url = useSignal(props.arguments.url);
-//   const tipo = useSignal(props.arguments.tipo);
-//   const id_album = useSignal(props.arguments.idAlbum);
-//   const ident = useSignal(props.arguments.id);
+  const close = () => {
+    dialogOpened.value = false;
+  };
 
-//   const updatePregunta = async () => {
-//     try {
-//       if (contenido.value.trim().length > 0 && id_Categoria.value.trim().length > 0 && url.value.trim().length > 0 && tipo.value.trim().length > 0 && id_album.value.trim().length > 0) {
-//         const idAlbumValue = parseInt(id_album.value) + 1;
-//         const idGneroValue = parseInt(id_Categoria.value) + 1;
-//         const tipoEnumValue = TipoArchivoEnum[tipo.value as keyof typeof TipoArchivoEnum];
-//         await PreguntaService.updatePregunta(parseInt(ident.value), contenido.value, idGneroValue, parseInt(ArchivoAdjunto.value), url.value, tipoEnumValue, idAlbumValue);
 
-//         if (props.onPreguntaUpdate) {
-//           props.onPreguntaUpdate();
-//         }
-//         contenido.value = '';
-//         id_Categoria.value = '';
-//         ArchivoAdjunto.value = '';
-//         url.value = '';
-//         tipo.value = '';
-//         id_album.value = '';
+  const contenido = useSignal(props.arguments.contenido);
+  const tipo = useSignal(props.arguments.tipo);
+  const fecha = useSignal(props.arguments.fecha);
+  const id_usuario = useSignal(props.arguments.id_usuario);
+  const id_categoria = useSignal(props.arguments.id_categoria);
+  const ident = useSignal(props.arguments.id);
 
-//         dialogOpened.value = false;
-//         Notification.show('Pregunta editada exitosamente', { duration: 5000, position: 'bottom-end', theme: 'success' });
-//       } else {
-//         Notification.show('No se pudo editar, faltan datos', { duration: 5000, position: 'top-center', theme: 'error' });
-//       }
+  const updatePregunta = async () => {
+    try {
+      if (contenido.value.trim().length > 0 && tipo.value.trim().length > 0 && fecha.value.trim().length > 0 && id_usuario.value.trim().length > 0 && id_categoria.value.trim().length > 0) {
+        const tipoArchivoVakue = TipoArchivo[tipo.value as keyof typeof TipoArchivo];
+        const idUsuarioValue = parseInt(id_usuario.value) + 1;
+        const idCategoriaValue = parseInt(id_categoria.value) + 1;
 
-//     } catch (error) {
-//       console.log(error);
-//       handleError(error);
-//     }
-//   };
+        await PreguntaService.updatePregunta(parseInt(ident.value), contenido.value, tipoArchivoVakue, fecha.value, idUsuarioValue, idCategoriaValue);
 
-//   useEffect(() => {
-//     PreguntaService.listTipoArchivo()
-//       .then((result) => setTipos((result || []).filter((tipo): tipo is string => tipo !== undefined)))
-//       .catch(console.error);
-//   }, []);
+        if (props.onPreguntaUpdate) {
+          props.onPreguntaUpdate();
+        }
+        contenido.value = '';
+        tipo.value = '';
+        fecha.value = '';
+        id_usuario.value = '';
+        id_categoria.value = '';
 
-//   useEffect(() => {
-//     PreguntaService.listaCategoriaCombo()
-//       .then((result) => setCategorias(result))
-//       .catch(console.error);
-//   }, []);
+        dialogOpened.value = false;
+        Notification.show('Pregunta editada exitosamente', { duration: 5000, position: 'bottom-end', theme: 'success' });
+      } else {
+        Notification.show('No se pudo editar, faltan datos', { duration: 5000, position: 'top-center', theme: 'error' });
+      }
 
-//   useEffect(() => {
-//     PreguntaService.listaAlbumCombo()
-//       .then((result) => setAlbums(result))
-//       .catch(console.error);
-//   }, []);
+    } catch (error) {
+      console.log(error);
+      handleError(error);
+    }
+  };
 
-//   return (
-//     <>
-//       <Dialog
-//         aria-label="Editar Pregunta"
-//         draggable
-//         modeless
-//         opened={dialogOpened.value}
-//         onOpenedChanged={(event) => {
-//           dialogOpened.value = event.detail.value;
-//         }}
-//         header={
-//           <h2
-//             className="draggable"
-//             style={{
-//               flex: 1,
-//               cursor: 'move',
-//               margin: 0,
-//               fontSize: '1.5em',
-//               fontWeight: 'bold',
-//               padding: 'var(--lumo-space-m) 0',
-//             }}
-//           >
-//             Editar Pregunta
-//           </h2>
-//         }
-//         footerRenderer={() => (
-//           <>
-//             <Button onClick={close}>Cancelar</Button>
-//             <Button theme="primary" onClick={updatePregunta}>
-//               Actualiar
-//             </Button>
-//           </>
-//         )}
-//       >
-//         <VerticalLayout
-//           theme="spacing"
-//           style={{ width: '300px', maxWidth: '100%', alignItems: 'stretch' }}
-//         >
-//           <VerticalLayout style={{ alignItems: 'stretch' }}>
-//             <TextField label="contenido"
-//               placeholder='Ingrese el contenido de la Pregunta'
-//               aria-label='Ingrese el contenido de la Pregunta'
-//               value={contenido.value}
-//               onValueChanged={(evt) => (contenido.value = evt.detail.value)}
-//             />
-//             <TextField label="ArchivoAdjunto"
-//               placeholder='Ingrese la ArchivoAdjunto de la Pregunta'
-//               aria-label='Ingrese la ArchivoAdjunto de la Pregunta'
-//               value={ArchivoAdjunto.value}
-//               onValueChanged={(evt) => (ArchivoAdjunto.value = evt.detail.value)}
-//             />
-//             <TextField label="Url"
-//               placeholder='Ingrese la url de la Pregunta'
-//               aria-label='Ingrese la url de la Pregunta'
-//               value={url.value}
-//               onValueChanged={(evt) => (url.value = evt.detail.value)}
-//             />
-//             <ComboBox
-//               label="Tipo"
-//               items={tipos}
-//               value={tipo.value}
-//               onValueChanged={(e) => (tipo.value = e.detail.value)}
-//               placeholder="Seleccione el tipo de archivo"
-//             />
-//             <ComboBox
-//               label="Categoria"
-//               items={Categorias}
-//               value={id_Categoria.value}
-//               onValueChanged={(e) => (id_Categoria.value = e.detail.value)}
-//               placeholder="Seleccione el Categoria"
-//             />
-//             <ComboBox
-//               label="Album"
-//               items={albums}
-//               value={id_album.value}
-//               onValueChanged={(e) => (id_album.value = e.detail.value)}
-//               placeholder="Seleccione el Album"
-//             />
-//           </VerticalLayout>
-//         </VerticalLayout>
-//       </Dialog>
-//       <Button onClick={open}>Editar</Button>
-//     </>
-//   );
-// }
+  useEffect(() => {
+    PreguntaService.listTipoArchivo()
+      .then((result) => setTipoArchivoEnum((result || []).filter((tipo): tipo is string => tipo !== undefined)))
+      .catch(console.error);
+  }, []);
+
+  useEffect(() => {
+    PreguntaService.listaCategoriasCombo()
+      .then((result) => setCategorias(result))
+      .catch(console.error);
+  }, []);
+
+  useEffect(() => {
+    PreguntaService.listaUsuariosCombo()
+      .then((result) => setUsuarios(result))
+      .catch(console.error);
+  }, []);
+
+  return (
+    <>
+      <Dialog
+        aria-label="Editar Pregunta"
+        draggable
+        modeless
+        opened={dialogOpened.value}
+        onOpenedChanged={(event) => {
+          dialogOpened.value = event.detail.value;
+        }}
+        header={
+          <h2
+            className="draggable"
+            style={{
+              flex: 1,
+              cursor: 'move',
+              margin: 0,
+              fontSize: '1.5em',
+              fontWeight: 'bold',
+              padding: 'var(--lumo-space-m) 0',
+            }}
+          >
+            Editar Pregunta
+          </h2>
+        }
+        footerRenderer={() => (
+          <>
+            <Button onClick={close}>Cancelar</Button>
+            <Button theme="primary" onClick={updatePregunta}>
+              Actualiar
+            </Button>
+          </>
+        )}
+      >
+        <VerticalLayout
+          theme="spacing"
+          style={{ width: '300px', maxWidth: '100%', alignItems: 'stretch' }}
+        >
+          <VerticalLayout style={{ alignItems: 'stretch' }}>
+            <TextField label="contenido"
+              placeholder='Ingrese el contenido de la Pregunta'
+              aria-label='Ingrese el contenido de la Pregunta'
+              value={contenido.value}
+              onValueChanged={(evt) => (contenido.value = evt.detail.value)}
+            />
+            <ComboBox
+              label="Tipo de Archivo"
+              items={TipoArchivoEnum}
+              value={tipo.value}
+              onValueChanged={(e) => (tipo.value = e.detail.value)}
+              placeholder="Seleccione el tipo de archivo"
+            />
+            <DatePicker
+              label="Fecha"
+              placeholder="Seleccione una fecha"
+              aria-label="Seleccione una fecha"
+              value={fecha.value ?? undefined}
+              onValueChanged={(evt) => (fecha.value = evt.detail.value)}
+            />
+            <ComboBox
+              label="Usuario"
+              items={usuarios}
+              value={id_usuario.value}
+              onValueChanged={(e) => (id_usuario.value = e.detail.value)}
+              placeholder="Seleccione el Usuario"
+            />
+            <ComboBox
+              label="Categoria"
+              items={Categorias}
+              value={id_categoria.value}
+              onValueChanged={(e) => (id_categoria.value = e.detail.value)}
+              placeholder="Seleccione el Categoria"
+            />
+          </VerticalLayout>
+        </VerticalLayout>
+      </Dialog>
+      <Button onClick={open}>Editar</Button>
+    </>
+  );
+}
 
 
 function index({ model }: { model: GridItemModel<Pregunta> }) {
@@ -370,7 +366,7 @@ export default function PreguntaListView() {
   function link({ item }: { item: Pregunta }) {
     return (
       <span>
-        <PreguntaEntryForm arguments={item} onPreguntaUpdate={dataProvider.refresh} />
+        <PreguntaEntryFormUpdate arguments={item} onPreguntaUpdate={dataProvider.refresh} />
       </span>
     );
   }
@@ -385,7 +381,7 @@ export default function PreguntaListView() {
       <Grid dataProvider={dataProvider.dataProvider}>
         <GridColumn header="Nro" renderer={index} />
         <GridColumn path="contenido" header="contenido" />
-        <GridColumn path="idArchivoadjunto" header="ArchivoAdjunto" />
+        {/* <GridColumn path="idArchivoadjunto" header="ArchivoAdjunto" /> */}
         <GridColumn header="fecha" renderer={fechaRenderer} />
         <GridColumn path="id_usuario" header=" Usuario" />
         <GridColumn path="id_categoria" header="Categoria" />
