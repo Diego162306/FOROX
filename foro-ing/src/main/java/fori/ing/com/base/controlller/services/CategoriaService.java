@@ -22,7 +22,7 @@ public class CategoriaService {
         db.getObj().setNombre(nombre);
         db.getObj().setDescripcion(descripcion);
         if(!db.save()){
-            throw new Exception("No se puede guardar los datos de artista");
+            throw new Exception("No se puede guardar los datos de categoria");
         }
     }
 
@@ -31,7 +31,7 @@ public class CategoriaService {
         db.getObj().setNombre(nombre);
         db.getObj().setDescripcion(descripcion);
         if(!db.update(id-1)){
-            throw new Exception("No se puede guardar los datos de artista");
+            throw new Exception("No se puede guardar los datos de categoria");
         }
     }
 
