@@ -37,19 +37,21 @@ public class AdapterDao <T> implements InterfaceDao <T> {
     }
 
     private void saveFIle(String data) throws Exception {
-    File dir = new File(base_path);
-    if (!dir.exists()) {
-        dir.mkdirs(); // Crea la carpeta si no existe
+        File file= new File(base_path + clazz.getSimpleName() + ".json");
+        if (!file.exists()) {
+            //  
+            file.createNewFile();
+            
+        }
+        //if (!file.exists()) {
+            FileWriter fw = new FileWriter(file);
+            fw.write(data);
+            fw.flush();
+            fw.close();
+        //}
+        
+
     }
-    File file = new File(base_path + clazz.getSimpleName() + ".json");
-    if (!file.exists()) {
-        file.createNewFile();
-    }
-    FileWriter fw = new FileWriter(file);
-    fw.write(data);
-    fw.flush();
-    fw.close();
-}
 
     @Override
     public Linkendlist<T> listAll() {
