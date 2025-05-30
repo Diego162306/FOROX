@@ -1,11 +1,17 @@
 package fori.ing.com.base.controlller.dao.dao_models;
 
+import fori.ing.com.base.controlller.DataStruc.List.Linkendlist;
 import fori.ing.com.base.controlller.dao.AdapterDao;
 import fori.ing.com.base.models.Categoria;
 
 public class DaoCategoria extends AdapterDao<Categoria>{
+    
+    private Linkendlist<Categoria> listAll;
     private Categoria obj;
 
+     public DaoCategoria(){
+        super(Categoria.class);
+    }
     //getter anda setter
     public Categoria getObj() {
         if (obj == null) {
@@ -19,9 +25,6 @@ public class DaoCategoria extends AdapterDao<Categoria>{
         this.obj = obj;
     }
 
-    public DaoCategoria(){
-        super(Categoria.class);
-    }
 
     public Boolean save() {
         try {
@@ -47,6 +50,13 @@ public class DaoCategoria extends AdapterDao<Categoria>{
             // TODO: handle exception
         }
     }
+
+     public Linkendlist<Categoria> getListAll() {
+        if (listAll == null) {
+            listAll = listAll();
+        }
+        return listAll;
+    }
     
     public static void main(String[] args){
         DaoCategoria da= new DaoCategoria();
@@ -59,6 +69,6 @@ public class DaoCategoria extends AdapterDao<Categoria>{
         } else {
             System.out.println("Error al guardar");
         }
+        System.out.println(da.getListAll().print());
     }
-    
 }
