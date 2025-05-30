@@ -3,6 +3,7 @@ package fori.ing.com.base.controlller.services;
 import java.util.Arrays;
 import java.util.List;
 
+
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import com.vaadin.hilla.BrowserCallable;
 
@@ -36,8 +37,7 @@ public class CategoriaService {
     }
 
     public List<Categoria>listAllCategoria(){
-        return(List<Categoria>)Arrays.asList(db.listAll().toArray());
+        return Arrays.asList(db.listAll().toArray());   
     }
-
 }
 
