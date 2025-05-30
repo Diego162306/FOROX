@@ -45,4 +45,6 @@ public class CategoriaService {
     public List<Categoria>listAllCategoria(){
         return(List<Categoria>)Arrays.asList(db.listAll().toArray());
     }
+
 }
+
