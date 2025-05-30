@@ -15,6 +15,17 @@
         "title": "Main"
       },
       {
+        "route": "Categoria-list",
+        "title": "Categoria",
+        "menu": {
+          "icon": "vaadin:clipboard-check",
+          "order": 3,
+          "title": "Categoria"
+        },
+        "flowLayout": false,
+        "params": {}
+      },
+      {
         "route": "pregunta-list",
         "title": "Pregunta",
         "menu": {

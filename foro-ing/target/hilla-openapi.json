@@ -286,55 +286,6 @@
         }
       }
     },
-    "/CategoriaService/list" : {
-      "post" : {
-        "tags" : [
-          "CategoriaService"
-        ],
-        "operationId" : "CategoriaService_list_POST",
-        "requestBody" : {
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "type" : "object",
-                "properties" : {
-                  "pageable" : {
-                    "nullable" : true,
-                    "anyOf" : [
-                      {
-                        "$ref" : "#/components/schemas/com.vaadin.hilla.mappedtypes.Pageable"
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses" : {
-          "200" : {
-            "description" : "",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "array",
-                  "nullable" : true,
-                  "items" : {
-                    "nullable" : true,
-                    "anyOf" : [
-                      {
-                        "$ref" : "#/components/schemas/fori.ing.com.base.models.Categoria"
-                      }
-                    ]
-                  },
-                  "x-java-type" : "java.util.List"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/CategoriaService/listAll" : {
       "post" : {
         "tags" : [
@@ -388,25 +339,17 @@
                     "nullable" : true,
                     "x-validation-constraints" : [
                       {
-                        "simpleName" : "NotEmpty"
-                      },
-                      {
                         "simpleName" : "NotBlank"
                       },
                       {
-                        "simpleName" : "NotNull"
+                        "simpleName" : "NotEmpty"
                       }
                     ],
                     "x-java-type" : "java.lang.String"
                   },
-                  "descripcion" : {
+                  "decripcion" : {
                     "type" : "string",
                     "nullable" : true,
-                    "x-validation-constraints" : [
-                      {
-                        "simpleName" : "NotEmpty"
-                      }
-                    ],
                     "x-java-type" : "java.lang.String"
                   }
                 }
@@ -1242,28 +1185,6 @@
           }
         }
       },
-      "com.vaadin.hilla.mappedtypes.Pageable" : {
-        "type" : "object",
-        "properties" : {
-          "pageNumber" : {
-            "type" : "integer",
-            "format" : "int32",
-            "x-java-type" : "int"
-          },
-          "pageSize" : {
-            "type" : "integer",
-            "format" : "int32",
-            "x-java-type" : "int"
-          },
-          "sort" : {
-            "anyOf" : [
-              {
-                "$ref" : "#/components/schemas/com.vaadin.hilla.mappedtypes.Sort"
-              }
-            ]
-          }
-        }
-      },
       "fori.ing.com.base.models.Categoria" : {
         "type" : "object",
         "properties" : {
@@ -1461,6 +1382,28 @@
             "type" : "string",
             "nullable" : true,
             "x-java-type" : "java.lang.String"
+          }
+        }
+      },
+      "com.vaadin.hilla.mappedtypes.Pageable" : {
+        "type" : "object",
+        "properties" : {
+          "pageNumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "x-java-type" : "int"
+          },
+          "pageSize" : {
+            "type" : "integer",
+            "format" : "int32",
+            "x-java-type" : "int"
+          },
+          "sort" : {
+            "anyOf" : [
+              {
+                "$ref" : "#/components/schemas/com.vaadin.hilla.mappedtypes.Sort"
+              }
+            ]
           }
         }
       },
