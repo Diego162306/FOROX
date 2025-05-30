@@ -9,7 +9,6 @@ import handleError from 'Frontend/views/_ErrorHandler';
 import { Group, ViewToolbar } from 'Frontend/components/ViewToolbar';
 
 import { useDataProvider } from '@vaadin/hilla-react-crud';
-import { createCategoria } from 'Frontend/generated/CategoriaService';
 import { useEffect } from 'react';
 import Categoria from 'Frontend/generated/fori/ing/com/base/models/Categoria';
 
