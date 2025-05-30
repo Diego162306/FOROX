@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 CategoriaService.ts
 TaskService.ts
 fori/ing/com/base/models/Categoria.ts
+=======
+PreguntaService.ts
+RespuestaService.ts
+TaskService.ts
+fori/ing/com/base/models/Pregunta.ts
+fori/ing/com/base/models/Respuesta.ts
+>>>>>>> main
 com/vaadin/hilla/mappedtypes/Pageable.ts
 fori/ing/com/taskmanagement/domain/Task.ts
 com/vaadin/hilla/mappedtypes/Sort.ts
@@ -10,7 +18,12 @@ org/springframework/data/domain/Sort/Direction.ts
 org/springframework/data/domain/Sort/NullHandling.ts
 connect-client.default.ts
 endpoints.ts
+<<<<<<< HEAD
 fori/ing/com/base/models/CategoriaModel.ts
+=======
+fori/ing/com/base/models/PreguntaModel.ts
+fori/ing/com/base/models/RespuestaModel.ts
+>>>>>>> main
 com/vaadin/hilla/mappedtypes/PageableModel.ts
 fori/ing/com/taskmanagement/domain/TaskModel.ts
 com/vaadin/hilla/mappedtypes/SortModel.ts

@@ -12,8 +12,17 @@
   ],
   "tags" : [
     {
+<<<<<<< HEAD
       "name" : "CategoriaService",
       "x-class-name" : "fori.ing.com.base.controlller.services.CategoriaService"
+=======
+      "name" : "PreguntaService",
+      "x-class-name" : "fori.ing.com.base.controlller.services.PreguntaService"
+    },
+    {
+      "name" : "RespuestaService",
+      "x-class-name" : "fori.ing.com.base.controlller.services.RespuestaService"
+>>>>>>> main
     },
     {
       "name" : "TaskService",
@@ -21,28 +30,48 @@
     }
   ],
   "paths" : {
+<<<<<<< HEAD
     "/CategoriaService/create" : {
       "post" : {
         "tags" : [
           "CategoriaService"
         ],
         "operationId" : "CategoriaService_create_POST",
+=======
+    "/PreguntaService/createPregunta" : {
+      "post" : {
+        "tags" : [
+          "PreguntaService"
+        ],
+        "operationId" : "PreguntaService_createPregunta_POST",
+>>>>>>> main
         "requestBody" : {
           "content" : {
             "application/json" : {
               "schema" : {
                 "type" : "object",
                 "properties" : {
+<<<<<<< HEAD
                   "nombre" : {
+=======
+                  "contenido" : {
+>>>>>>> main
                     "type" : "string",
                     "nullable" : true,
                     "x-validation-constraints" : [
                       {
+<<<<<<< HEAD
+=======
+                        "simpleName" : "NotBlank"
+                      },
+                      {
+>>>>>>> main
                         "simpleName" : "NotEmpty"
                       }
                     ],
                     "x-java-type" : "java.lang.String"
                   },
+<<<<<<< HEAD
                   "descripcion" : {
                     "type" : "string",
                     "nullable" : true,
@@ -52,6 +81,31 @@
                       }
                     ],
                     "x-java-type" : "java.lang.String"
+=======
+                  "idTipoArchivo" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "fecha" : {
+                    "type" : "string",
+                    "format" : "date",
+                    "nullable" : true,
+                    "x-java-type" : "java.util.Date"
+                  },
+                  "idUsuario" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "idCategoria" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+>>>>>>> main
                   }
                 }
               }
@@ -65,12 +119,21 @@
         }
       }
     },
+<<<<<<< HEAD
     "/CategoriaService/listAllCategoria" : {
       "post" : {
         "tags" : [
           "CategoriaService"
         ],
         "operationId" : "CategoriaService_listAllCategoria_POST",
+=======
+    "/PreguntaService/lisAllPregunta" : {
+      "post" : {
+        "tags" : [
+          "PreguntaService"
+        ],
+        "operationId" : "PreguntaService_lisAllPregunta_POST",
+>>>>>>> main
         "responses" : {
           "200" : {
             "description" : "",
@@ -83,7 +146,11 @@
                     "nullable" : true,
                     "anyOf" : [
                       {
+<<<<<<< HEAD
                         "$ref" : "#/components/schemas/fori.ing.com.base.models.Categoria"
+=======
+                        "$ref" : "#/components/schemas/fori.ing.com.base.models.Pregunta"
+>>>>>>> main
                       }
                     ]
                   },
@@ -95,12 +162,21 @@
         }
       }
     },
+<<<<<<< HEAD
     "/CategoriaService/update" : {
       "post" : {
         "tags" : [
           "CategoriaService"
         ],
         "operationId" : "CategoriaService_update_POST",
+=======
+    "/PreguntaService/updatePregunta" : {
+      "post" : {
+        "tags" : [
+          "PreguntaService"
+        ],
+        "operationId" : "PreguntaService_updatePregunta_POST",
+>>>>>>> main
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -113,6 +189,7 @@
                     "nullable" : true,
                     "x-java-type" : "java.lang.Integer"
                   },
+<<<<<<< HEAD
                   "nombre" : {
                     "type" : "string",
                     "nullable" : true,
@@ -132,6 +209,186 @@
                       }
                     ],
                     "x-java-type" : "java.lang.String"
+=======
+                  "contenido" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "idTipoArchivo" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "fecha" : {
+                    "type" : "string",
+                    "format" : "date",
+                    "nullable" : true,
+                    "x-java-type" : "java.util.Date"
+                  },
+                  "idUsuario" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "idCategoria" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        }
+      }
+    },
+    "/RespuestaService/createRespuesta" : {
+      "post" : {
+        "tags" : [
+          "RespuestaService"
+        ],
+        "operationId" : "RespuestaService_createRespuesta_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "contenido" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotBlank"
+                      },
+                      {
+                        "simpleName" : "NotEmpty"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "idTipoArchivo" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "fecha" : {
+                    "type" : "string",
+                    "format" : "date",
+                    "nullable" : true,
+                    "x-java-type" : "java.util.Date"
+                  },
+                  "idPregunta" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "idUsuario" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        }
+      }
+    },
+    "/RespuestaService/lisAllRespuesta" : {
+      "post" : {
+        "tags" : [
+          "RespuestaService"
+        ],
+        "operationId" : "RespuestaService_lisAllRespuesta_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "nullable" : true,
+                    "anyOf" : [
+                      {
+                        "$ref" : "#/components/schemas/fori.ing.com.base.models.Respuesta"
+                      }
+                    ]
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/RespuestaService/updateRespuesta" : {
+      "post" : {
+        "tags" : [
+          "RespuestaService"
+        ],
+        "operationId" : "RespuestaService_updateRespuesta_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "id" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "contenido" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "idTipoArchivo" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "fecha" : {
+                    "type" : "string",
+                    "format" : "date",
+                    "nullable" : true,
+                    "x-java-type" : "java.util.Date"
+                  },
+                  "idUsuario" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "idPregunta" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+>>>>>>> main
                   }
                 }
               }
@@ -228,7 +485,11 @@
   },
   "components" : {
     "schemas" : {
+<<<<<<< HEAD
       "fori.ing.com.base.models.Categoria" : {
+=======
+      "fori.ing.com.base.models.Pregunta" : {
+>>>>>>> main
         "type" : "object",
         "properties" : {
           "id" : {
@@ -237,15 +498,85 @@
             "nullable" : true,
             "x-java-type" : "java.lang.Integer"
           },
+<<<<<<< HEAD
           "nombre" : {
+=======
+          "contenido" : {
+>>>>>>> main
             "type" : "string",
             "nullable" : true,
             "x-java-type" : "java.lang.String"
           },
+<<<<<<< HEAD
           "descripcion" : {
             "type" : "string",
             "nullable" : true,
             "x-java-type" : "java.lang.String"
+=======
+          "idArchivoadjunto" : {
+            "type" : "integer",
+            "format" : "int32",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Integer"
+          },
+          "fecha" : {
+            "type" : "string",
+            "format" : "date",
+            "nullable" : true,
+            "x-java-type" : "java.util.Date"
+          },
+          "idUsuario" : {
+            "type" : "integer",
+            "format" : "int32",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Integer"
+          },
+          "idCategoria" : {
+            "type" : "integer",
+            "format" : "int32",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Integer"
+          }
+        }
+      },
+      "fori.ing.com.base.models.Respuesta" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Integer"
+          },
+          "contenido" : {
+            "type" : "string",
+            "nullable" : true,
+            "x-java-type" : "java.lang.String"
+          },
+          "idtipoArchivo" : {
+            "type" : "integer",
+            "format" : "int32",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Integer"
+          },
+          "fecha" : {
+            "type" : "string",
+            "format" : "date",
+            "nullable" : true,
+            "x-java-type" : "java.util.Date"
+          },
+          "idPregunta" : {
+            "type" : "integer",
+            "format" : "int32",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Integer"
+          },
+          "idUsuario" : {
+            "type" : "integer",
+            "format" : "int32",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Integer"
+>>>>>>> main
           }
         }
       },
