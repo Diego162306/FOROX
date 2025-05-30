@@ -132,11 +132,11 @@ function CategoriaEntryFormUpdate(props: CategoriaEntryFormUpdateProps) {
   const ident =useSignal(props.arguments.id);
 
   
-  useEffect(() =>{
-    nombre.value= props.arguments.nombre;
-    descripcion.value= props.arguments.descripcion;
-    ident.value= props.arguments.id;
-  }, [props.arguments]);
+  //useEffect(() =>{
+   // nombre.value= props.arguments.nombre;
+    //descripcion.value= props.arguments.descripcion;
+    //ident.value= props.arguments.id;
+  //}, [props.arguments]);
 
   const updateCategoria = async () => {
     try {

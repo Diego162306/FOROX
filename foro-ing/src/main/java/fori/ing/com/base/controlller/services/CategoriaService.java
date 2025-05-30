@@ -14,7 +14,7 @@ import jakarta.validation.constraints.NotEmpty;
 @BrowserCallable
 @AnonymousAllowed
 public class CategoriaService {
-     private DaoCategoria db;
+    private DaoCategoria db;
     public CategoriaService(){
         db= new DaoCategoria();
     }
