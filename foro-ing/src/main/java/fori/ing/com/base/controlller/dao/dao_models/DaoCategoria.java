@@ -60,4 +60,5 @@ public class DaoCategoria extends AdapterDao<Categoria>{
             System.out.println("Error al guardar");
         }
     }
+    
 }
