@@ -21,7 +21,7 @@ public class CategoriaService {
         db= new DaoCategoria();
     }
 
-    public void createCategoria(@NotEmpty String nombre, @NotEmpty String descripcion) throws Exception{
+    public void create(@NotEmpty String nombre, @NotEmpty String descripcion) throws Exception{
         db.getObj().setNombre(nombre);
         db.getObj().setDescripcion(descripcion);
         if(!db.save()){
@@ -29,7 +29,7 @@ public class CategoriaService {
         }
     }
 
-    public void updateCategoria(Integer id, @NotEmpty @NotBlank @NotNull String nombre, @NotEmpty String descripcion) throws Exception{
+    public void update(Integer id, @NotEmpty @NotBlank @NotNull String nombre, @NotEmpty String descripcion) throws Exception{
         if(id != null && id > 0 && nombre.trim().length() > 0 && descripcion.trim().length() > 0);
         db.getObj().setNombre(nombre);
         db.getObj().setDescripcion(descripcion);
@@ -42,7 +42,7 @@ public class CategoriaService {
         return Arrays.asList(db.listAll().toArray());
     }
 
-    public List<Categoria>listAll(){
+    public List<Categoria>listAllCategoria(){
         return(List<Categoria>)Arrays.asList(db.listAll().toArray());
     }
 }
