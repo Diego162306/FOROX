@@ -1,7 +1,7 @@
 CategoriaService.ts
 TaskService.ts
-com/vaadin/hilla/mappedtypes/Pageable.ts
 fori/ing/com/base/models/Categoria.ts
+com/vaadin/hilla/mappedtypes/Pageable.ts
 fori/ing/com/taskmanagement/domain/Task.ts
 com/vaadin/hilla/mappedtypes/Sort.ts
 fori/ing/com/base/domain/AbstractEntity.ts
@@ -10,8 +10,8 @@ org/springframework/data/domain/Sort/Direction.ts
 org/springframework/data/domain/Sort/NullHandling.ts
 connect-client.default.ts
 endpoints.ts
-com/vaadin/hilla/mappedtypes/PageableModel.ts
 fori/ing/com/base/models/CategoriaModel.ts
+com/vaadin/hilla/mappedtypes/PageableModel.ts
 fori/ing/com/taskmanagement/domain/TaskModel.ts
 com/vaadin/hilla/mappedtypes/SortModel.ts
 fori/ing/com/base/domain/AbstractEntityModel.ts

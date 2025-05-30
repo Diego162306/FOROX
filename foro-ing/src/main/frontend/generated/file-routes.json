@@ -15,6 +15,17 @@
         "title": "Main"
       },
       {
+        "route": "categoria-list",
+        "title": "Categoria",
+        "menu": {
+          "icon": "vaadin:clipboard-check",
+          "order": 1,
+          "title": "Categoria"
+        },
+        "flowLayout": false,
+        "params": {}
+      },
+      {
         "route": "task-list",
         "title": "Task List",
         "menu": {
