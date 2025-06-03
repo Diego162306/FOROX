@@ -1,6 +1,0 @@
-import { EndpointRequestInit as EndpointRequestInit_1 } from "@vaadin/hilla-frontend";
-import client_1 from "./connect-client.default.js";
-import type Cuenta_1 from "./fori/ing/com/base/models/Cuenta.js";
-async function createCuenta_1(correo: string | undefined, clave: string | undefined, estado: boolean, init?: EndpointRequestInit_1): Promise<void> { return client_1.call("CuentaService", "createCuenta", { correo, clave, estado }, init); }
-async function lisAllCuenta_1(init?: EndpointRequestInit_1): Promise<Array<Cuenta_1 | undefined> | undefined> { return client_1.call("CuentaService", "lisAllCuenta", {}, init); }
-export { createCuenta_1 as createCuenta, lisAllCuenta_1 as lisAllCuenta };
