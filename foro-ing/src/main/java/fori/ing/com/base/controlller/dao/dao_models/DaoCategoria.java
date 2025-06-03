@@ -1,10 +1,12 @@
 package fori.ing.com.base.controlller.dao.dao_models;
 
+import fori.ing.com.base.controlller.DataStruc.List.Linkendlist;
 import fori.ing.com.base.controlller.dao.AdapterDao;
 import fori.ing.com.base.models.Categoria;
 
 public class DaoCategoria extends AdapterDao<Categoria>{
     private Categoria obj;
+    private Linkendlist<Categoria> aux;
 
     //getter anda setter
     public Categoria getObj() {
@@ -46,6 +48,13 @@ public class DaoCategoria extends AdapterDao<Categoria>{
             return false;
             // TODO: handle exception
         }
+    }
+
+    public Linkendlist<Categoria> getListAll() {
+        if (aux == null) {
+            this.aux = listAll();
+        }
+        return aux;
     }
     
     public static void main(String[] args){

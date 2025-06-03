@@ -15,12 +15,32 @@
         "title": "Main"
       },
       {
+<<<<<<< HEAD
         "route": "cuenta-list",
         "title": "Cuenta",
         "menu": {
           "icon": "vaadin:clipboard-check",
           "order": 3,
           "title": "Cuenta"
+=======
+        "route": "Categoria-list",
+        "title": "Categoria",
+        "menu": {
+          "icon": "vaadin:clipboard-check",
+          "order": 3,
+          "title": "Categoria"
+        },
+        "flowLayout": false,
+        "params": {}
+      },
+      {
+        "route": "pregunta-list",
+        "title": "Pregunta",
+        "menu": {
+          "icon": "vaadin:clipboard-check",
+          "order": 2,
+          "title": "Pregunta"
+>>>>>>> Juan-Veintimilla
         },
         "flowLayout": false,
         "params": {}

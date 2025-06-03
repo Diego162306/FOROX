@@ -5,7 +5,7 @@ import java.util.Date;
 public class Pregunta {
     private Integer id;
     private String contenido;
-    private Integer idArchivoadjunto;
+    private TipoArchivo idArchivoadjunto;
     private Date fecha;
     private Integer idUsuario;
     private Integer idCategoria;
@@ -23,10 +23,10 @@ public class Pregunta {
     public void setContenido(String contenido) {
         this.contenido = contenido;
     }
-    public Integer getIdArchivoadjunto() {
+    public TipoArchivo getIdArchivoadjunto() {
         return idArchivoadjunto;
     }
-    public void setIdArchivoadjunto(Integer idArchivoadjunto) {
+    public void setIdArchivoadjunto(TipoArchivo idArchivoadjunto) {
         this.idArchivoadjunto = idArchivoadjunto;
     }
     public Date getFecha() {

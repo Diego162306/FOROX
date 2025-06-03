@@ -1,1 +1,13 @@
+<<<<<<< HEAD
 [{"id":1,"nombre":"Juan","apellido":"Pérez","telefono":"123456789","dni":"123456789"}]
+=======
+[
+    {
+        "id": 1,
+        "nombre": "Juan",
+        "apellido": "Pérez",
+        "telefono": "123456789",
+        "dni": "123456789"
+    }
+]
+>>>>>>> Juan-Veintimilla
