@@ -9,7 +9,7 @@
   "devBundleOutput": "/home/juan/Documentos/FOROX/foro-ing/target/dev-bundle/webapp",
   "devBundleStatsOutput": "/home/juan/Documentos/FOROX/foro-ing/target/dev-bundle/config",
   "jarResourcesFolder": "/home/juan/Documentos/FOROX/foro-ing/src/main/frontend/generated/jar-resources",
-  "themeName": "default",
+  "themeName": "",
   "clientServiceWorkerSource": "/home/juan/Documentos/FOROX/foro-ing/target/sw.ts",
   "pwaEnabled": false,
   "offlineEnabled": false,
