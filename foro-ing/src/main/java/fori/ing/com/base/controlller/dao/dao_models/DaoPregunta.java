@@ -4,6 +4,7 @@ import java.util.Date;
 import fori.ing.com.base.controlller.DataStruc.List.Linkendlist;
 import fori.ing.com.base.controlller.dao.AdapterDao;
 import fori.ing.com.base.models.Pregunta;
+import fori.ing.com.base.models.TipoArchivo;
 
 
 public class DaoPregunta extends AdapterDao<Pregunta> {
@@ -62,7 +63,7 @@ public class DaoPregunta extends AdapterDao<Pregunta> {
         DaoPregunta dp = new DaoPregunta();
         dp.getObj().setId(dp.listAll().getLength() + 1);
         dp.getObj().setContenido( "Hola");
-        dp.getObj().setIdArchivoadjunto(1);
+        dp.getObj().setIdArchivoadjunto(TipoArchivo.AUDIO);
         dp.getObj().setFecha(new Date());
         dp.getObj().setIdUsuario(1);
         dp.getObj().setIdCategoria(2);
