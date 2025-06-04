@@ -5,5 +5,13 @@
         "apellido": "Pérez",
         "telefono": "123456789",
         "dni": "123456789"
+    },
+
+    {
+        "id": 1,
+        "nombre": "Wagner",
+        "apellido": "Pérez",
+        "telefono": "123456789",
+        "dni": "123456789"
     }
 ]

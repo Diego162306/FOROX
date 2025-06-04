@@ -26,6 +26,17 @@
         "params": {}
       },
       {
+        "route": "cuenta-list",
+        "title": "Cuenta",
+        "menu": {
+          "icon": "vaadin:clipboard-check",
+          "order": 3,
+          "title": "Cuenta"
+        },
+        "flowLayout": false,
+        "params": {}
+      },
+      {
         "route": "pregunta-list",
         "title": "Pregunta",
         "menu": {

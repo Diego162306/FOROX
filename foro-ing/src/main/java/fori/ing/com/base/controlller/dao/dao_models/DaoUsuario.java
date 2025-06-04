@@ -55,7 +55,7 @@ public class DaoUsuario extends AdapterDao<Usuario> {
     public static void main(String[] args) {
         DaoUsuario dp = new DaoUsuario();
         dp.getObj().setId(dp.listAll().getLength() + 1);
-        dp.getObj().setNombre("Juan");
+        dp.getObj().setNombre("Wagner");
         dp.getObj().setApellido("Pérez");
         dp.getObj().setTelefono("123456789");   
         dp.getObj().setDni("123456789");
