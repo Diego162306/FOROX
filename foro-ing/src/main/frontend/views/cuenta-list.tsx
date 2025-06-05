@@ -82,9 +82,9 @@ function CuentaEntryForm(props: CuentaEntryFormProps) {
       .then((result) => setUsuarios(result))
       .catch(console.error);
   }, []);
-   
 
-  
+
+
 
 
   return (
@@ -154,14 +154,14 @@ function CuentaEntryForm(props: CuentaEntryFormProps) {
               value={rol.value}
               onValueChanged={(e) => (rol.value = e.detail.value)}
             />
-           <ComboBox
+            <ComboBox
               label="Usuarios"
               items={usuarios}
               value={id_usuario.value}
               onValueChanged={(e) => (id_usuario.value = e.detail.value)}
               placeholder="Seleccione la Persona"
-            />  
-          
+            />
+
 
 
           </VerticalLayout>
@@ -177,7 +177,7 @@ function CuentaEntryForm(props: CuentaEntryFormProps) {
 
 function CuentaEntryFormUpdate(props: CuentaEntryFormUpdateProps) {
   const dialogOpened = useSignal(false);
-  const [Usuarios, setUsuarios] = useState<String[]>([]);
+  const [usuarios, setUsuarios] = useState<String[]>([]);
 
   const open = () => {
     dialogOpened.value = true;
@@ -188,19 +188,18 @@ function CuentaEntryFormUpdate(props: CuentaEntryFormUpdateProps) {
   };
 
   const clave = useSignal(props.arguments.clave);
-  const estado = useSignal(props.arguments.estado);
   const ident = useSignal(props.arguments.id);
   const id_usuario = useSignal(props.arguments.id_usuario);
-  const rol = useSignal(props.arguments.rol);   
+  const rol = useSignal(props.arguments.rol);
 
 
 
   const updateCuenta = async () => {
     try {
-      if (clave.value.trim().length > 0 && estado.value.trim().length > 0) {
+      if (clave.value.trim().length > 0 && rol.value.trim().length > 0) {
         const idUsuariovalue = parseInt(id_usuario.value) + 1;
 
-        await CuentaService.updateCuenta(parseInt(ident.value), clave.value,idUsuariovalue, estado.value, rol.value);
+        await CuentaService.updateCuenta(parseInt(ident.value), clave.value, idUsuariovalue, rol.value);
         if (props.onCuentaUpdate) {
           props.onCuentaUpdate();
         }
@@ -221,7 +220,7 @@ function CuentaEntryFormUpdate(props: CuentaEntryFormUpdateProps) {
 
 
   };
-  
+
 
 
   return (
@@ -262,8 +261,8 @@ function CuentaEntryFormUpdate(props: CuentaEntryFormUpdateProps) {
           theme="spacing"
           style={{ width: '300px', maxWidth: '100%', alignItems: 'stretch' }}
         >
-           <VerticalLayout style={{ alignItems: 'stretch' }}>
-           
+          <VerticalLayout style={{ alignItems: 'stretch' }}>
+
             <PasswordField
               label="Clave"
               placeholder="Ingrese la clave de la Cuenta"
@@ -274,14 +273,27 @@ function CuentaEntryFormUpdate(props: CuentaEntryFormUpdateProps) {
               invalid={clave.value.length > 0 && clave.value.length < 6}
             />
 
-            
-          <ComboBox
+            <ComboBox
+              label="Rol"
+              placeholder="Seleccione el rol de la Cuenta"
+              items={[
+                { label: 'Administrador', value: 'ADMIN' },
+                { label: 'Usuario', value: 'USER' }
+              ]}
+              itemLabelPath="label"
+              itemValuePath="value"
+              value={rol.value}
+              onValueChanged={(e) => (rol.value = e.detail.value)}
+            />
+            <ComboBox
               label="Usuarios"
-              items={Usuarios}
+              items={usuarios}
               value={id_usuario.value}
               onValueChanged={(e) => (id_usuario.value = e.detail.value)}
-              placeholder="Seleccione el tipo de archivo"
+              placeholder="Seleccione la Persona"
             />
+
+
           </VerticalLayout>
         </VerticalLayout>
       </Dialog>
@@ -335,7 +347,7 @@ export default function CuentaLisView() {
           header="Clave"
           renderer={({ item }) => <span>{'*'.repeat(item.clave.length)}</span>}
         />
-       
+
         <GridColumn path="id_usuario" header=" Usuario" />
         <GridColumn path="rol" header="Rol" />
 
