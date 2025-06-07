@@ -1,5 +1,5 @@
 import { ViewConfig } from '@vaadin/hilla-file-router/types.js';
-import { Button, ComboBox, DatePicker, Dialog, Grid, GridColumn, GridItemModel, TextField, VerticalLayout } from '@vaadin/react-components';
+import { Button, ComboBox, DatePicker, Dialog, Grid, GridColumn, GridItemModel, GridSortColumn, HorizontalLayout, Icon, Select, TextField, VerticalLayout } from '@vaadin/react-components';
 import { Notification } from '@vaadin/react-components/Notification';
 
 import { useSignal } from '@vaadin/hilla-react-signals';
@@ -359,14 +359,77 @@ function fechaRenderer({ item }: { item: Pregunta }) {
 
 
 export default function PreguntaListView() {
-  const dataProvider = useDataProvider<Pregunta>({
-    list: () => PreguntaService.lisAll(),
-  });
+    const callData = () => {
+    PreguntaService.lisAll().then(function (data) {
+      setItems(data);
+    });
+  }
+
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    callData();
+  }, []);
+
+  const order = (event, columnID) => {
+    console.log(event);
+    const direction = event.detail.value;
+
+    var dir = (direction === 'asc' ? 1 : -1);
+    PreguntaService.order(columnID, dir).then(function (data) {
+      setItems(data);
+    });
+  }
+
+  const orderByFecha = (event) => {
+    const direction = event.detail.value;
+    const dir = direction === 'asc' ? 1 : -1; 
+    PreguntaService.orderbyDte(dir).then((data) => {
+      setItems(data);
+    });
+  };
+
+
+  const criterio = useSignal('');
+  const texto = useSignal('');
+
+  const itemSelect = [
+    {
+      label: 'Contenido',
+      value: 'contenido',
+    },
+    {
+      label: 'Usuario',
+      value: 'id_usuario',
+    },
+    {
+      label: 'Categoria',
+      value: 'id_categoria',
+    },
+  ];
+
+  const search = async () => {
+    try {
+      console.log(criterio.value + " " + texto.value);
+      PreguntaService.search(criterio.value, texto.value, 0).then(function (data) {
+        setItems(data);
+      });
+
+      criterio.value = '';
+      texto.value = '';
+
+      Notification.show('Busqueda realizada', { duration: 5000, position: 'bottom-end', theme: 'success' });
+
+
+    } catch (error) {
+      console.log(error);
+      handleError(error);
+    }
+  };
 
   function link({ item }: { item: Pregunta }) {
     return (
       <span>
-        <PreguntaEntryFormUpdate arguments={item} onPreguntaUpdate={dataProvider.refresh} />
+        <PreguntaEntryFormUpdate arguments={item} onPreguntaUpdate={callData} />
       </span>
     );
   }
@@ -375,16 +438,37 @@ export default function PreguntaListView() {
     <main className="w-full h-full flex flex-col box-border gap-s p-m">
       <ViewToolbar title="Preguntas">
         <Group>
-          <PreguntaEntryForm onPreguntaCreated={dataProvider.refresh} />
+          <PreguntaEntryForm onPreguntaCreated={callData} />
         </Group>
       </ViewToolbar>
-      <Grid dataProvider={dataProvider.dataProvider}>
+      <HorizontalLayout theme="spacing">
+        <Select items={itemSelect}
+          value={criterio.value}
+          onValueChanged={(evt) => (criterio.value = evt.detail.value)}
+          placeholder="Selecione un cirterio">
+
+
+        </Select>
+
+        <TextField
+          placeholder="Search"
+          style={{ width: '50%' }}
+          value={texto.value}
+          onValueChanged={(evt) => (texto.value = evt.detail.value)}
+        >
+          <Icon slot="prefix" icon="vaadin:search" />
+        </TextField>
+        <Button onClick={search} theme="primary">
+          BUSCAR
+        </Button>
+      </HorizontalLayout>
+      <Grid items={items}>
         <GridColumn header="Nro" renderer={index} />
-        <GridColumn path="contenido" header="contenido" />
+        <GridSortColumn onDirectionChanged={(e) => order(e, "contenido")} path="contenido" header="contenido" />
         {/* <GridColumn path="idArchivoadjunto" header="ArchivoAdjunto" /> */}
-        <GridColumn header="fecha" renderer={fechaRenderer} />
-        <GridColumn path="id_usuario" header=" Usuario" />
-        <GridColumn path="id_categoria" header="Categoria" />
+        <GridSortColumn path="fecha" header="Fecha de creación" renderer={fechaRenderer} onDirectionChanged={orderByFecha} />
+        <GridSortColumn onDirectionChanged={(e) => order(e, "id_usuario")} path="id_usuario" header=" Usuario" />
+        <GridSortColumn onDirectionChanged={(e) => order(e, "id_categoria")} path="id_categoria" header="Categoria" />
         <GridColumn header="Acciones" renderer={link} />
       </Grid>
     </main>

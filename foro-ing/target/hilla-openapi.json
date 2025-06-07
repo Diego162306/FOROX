@@ -716,6 +716,166 @@
         }
       }
     },
+    "/PreguntaService/order" : {
+      "post" : {
+        "tags" : [
+          "PreguntaService"
+        ],
+        "operationId" : "PreguntaService_order_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "atributo" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "type" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "string",
+                      "nullable" : true,
+                      "x-java-type" : "java.lang.String"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/PreguntaService/orderbyDte" : {
+      "post" : {
+        "tags" : [
+          "PreguntaService"
+        ],
+        "operationId" : "PreguntaService_orderbyDte_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "type" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "string",
+                      "nullable" : true,
+                      "x-java-type" : "java.lang.String"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/PreguntaService/search" : {
+      "post" : {
+        "tags" : [
+          "PreguntaService"
+        ],
+        "operationId" : "PreguntaService_search_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "attribute" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "text" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "type" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/PreguntaService/updatePregunta" : {
       "post" : {
         "tags" : [

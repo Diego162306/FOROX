@@ -10,6 +10,7 @@ import java.util.List;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import com.vaadin.hilla.BrowserCallable;
 
+import fori.ing.com.base.controlller.DataStruc.List.Linkendlist;
 import fori.ing.com.base.controlller.dao.dao_models.DaoCategoria;
 import fori.ing.com.base.controlller.dao.dao_models.DaoPregunta;
 import fori.ing.com.base.controlller.dao.dao_models.DaoUsuario;
@@ -62,28 +63,6 @@ public class PreguntaService {
         }
     }
 
-    // Proximamente
-    public List<HashMap> lisAll() throws ListEmptyException {
-        List<HashMap> list = new ArrayList<>();
-        if (!dp.listAll().isEmpty()) {
-            Pregunta[] arreglo = dp.listAll().toArray();
-            DaoUsuario da = new DaoUsuario();
-            DaoCategoria dg = new DaoCategoria();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            for (int i = 0; i < arreglo.length; i++) {
-                HashMap<String, String> aux = new HashMap<>();
-                aux.put("id", arreglo[i].getId().toString());
-                aux.put("contenido", arreglo[i].getContenido());
-                aux.put("tipo", arreglo[i].getIdArchivoadjunto().getDeclaringClass().getSimpleName());
-                aux.put("fecha", sdf.format(arreglo[i].getFecha()));
-                aux.put("id_usuario", da.listAll().get(arreglo[i].getIdUsuario() - 1).getNombre());
-                aux.put("id_categoria", dg.listAll().get(arreglo[i].getIdCategoria() - 1).getNombre());
-                list.add(aux);
-            }
-        }
-        return list;
-    }
-
     public List<HashMap> listaUsuariosCombo() {
         List<HashMap> lista = new ArrayList<>();
         DaoUsuario da = new DaoUsuario();
@@ -125,6 +104,36 @@ public class PreguntaService {
             lista.add(tipo.name());
         }
         return lista;
+    }
+
+    public List<HashMap> lisAll() throws ListEmptyException {
+        return Arrays.asList(dp.All().toArray());
+    }
+
+    public List<HashMap<String, String>> order(String atributo, Integer type) {
+        try {
+            return Arrays.asList(dp.orderByAttribute(type, atributo).toArray());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    public List<HashMap<String, String>> orderbyDte(Integer type) {
+        try {
+            return Arrays.asList(dp.orderByDate(type).toArray());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    public List<HashMap> search(String attribute, String text, Integer type) throws Exception {
+        Linkendlist<HashMap<String, String>> lista = dp.search(attribute, text, type);
+        if (!lista.isEmpty())
+            return Arrays.asList(lista.toArray());
+        else
+            return new ArrayList<>();
     }
 
 }
