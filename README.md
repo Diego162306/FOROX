@@ -49,6 +49,6 @@ Desarrollar un sistema de foro académico interactivo que permita a los estudian
 
 ## 📐 Diagrama UML (Modelo general)
 
+![Captura desde 2025-06-06 22-30-28](https://github.com/user-attachments/assets/ddf9b75a-bed9-4560-9a57-2e3220511fb7)
 
-/home/wfb23/Imágenes/Capturas de pantalla/
 )
