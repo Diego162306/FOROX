@@ -50,5 +50,5 @@ Desarrollar un sistema de foro académico interactivo que permita a los estudian
 ## 📐 Diagrama UML (Modelo general)
 
 
-![Diagrama UML del Proyecto FOROX](![image](https://github.com/user-attachments/assets/84c4ff2a-9f9d-4ed4-bb4e-39c4893f7b8d)
+/home/wfb23/Imágenes/Capturas de pantalla/
 )
