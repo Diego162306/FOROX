@@ -140,6 +140,7 @@ public class Linkendlist<E> {
         length = 0;
 
     }
+    
 
     protected E deleteFirst () throws ListEmptyException {
         if (isEmpty()) {

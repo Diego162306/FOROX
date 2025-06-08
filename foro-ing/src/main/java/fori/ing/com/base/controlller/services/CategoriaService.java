@@ -26,7 +26,7 @@ public class CategoriaService {
             db.getObj().setNombre(nombre);
             db.getObj().setDescripcion(descripcion);
             if (!db.save()) {
-                throw new Exception("No se puede guardar los datos de artista");
+                throw new Exception("No se puede guardar los datos de categoría");
             }
         }
     }
@@ -37,12 +37,23 @@ public class CategoriaService {
             db.getObj().setNombre(nombre);
             db.getObj().setDescripcion(decripcion);
             if (!db.update(id - 1)) {
-                throw new Exception("Error al actualizar la Pregunta");
+                throw new Exception("Error al actualizar la categoría");
             }
         }
     }
 
     public List<Categoria>listAll(){
         return(List<Categoria>)Arrays.asList(db.listAll().toArray());
+    }
+
+    
+    public List<Categoria> order(String atributo, Integer type) {
+        System.out.println(atributo + "  " + type);
+        if (atributo.equalsIgnoreCase("nombre"))
+            return (List<Categoria>) Arrays.asList(db.orderQ(type).toArray());
+        else if (atributo.equalsIgnoreCase("descripcion"))
+            return (List<Categoria>) Arrays.asList(db.orderLocate(type).toArray());
+        else
+            return (List<Categoria>) Arrays.asList(db.listAll().toArray());
     }
 }

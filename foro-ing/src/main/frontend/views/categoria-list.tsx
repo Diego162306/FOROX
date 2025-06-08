@@ -1,5 +1,5 @@
 import { ViewConfig } from '@vaadin/hilla-file-router/types.js';
-import { Button, DatePicker, Dialog, Grid, GridColumn, GridItemModel, TextField, VerticalLayout } from '@vaadin/react-components';
+import { Button, DatePicker, Dialog, Grid, GridColumn, GridItemModel, GridSortColumn, TextField, VerticalLayout } from '@vaadin/react-components';
 import { Notification } from '@vaadin/react-components/Notification';
 
 import { CategoriaService } from 'Frontend/generated/endpoints';
@@ -9,7 +9,7 @@ import handleError from 'Frontend/views/_ErrorHandler';
 import { Group, ViewToolbar } from 'Frontend/components/ViewToolbar';
 
 import { useDataProvider } from '@vaadin/hilla-react-crud';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Categoria from 'Frontend/generated/fori/ing/com/base/models/Categoria';
 
 export const config: ViewConfig = {
@@ -47,14 +47,14 @@ function CategoriaEntryForm(props: CategoriaEntryFormProps) {
 
   const createCategoria = async () => {
     try {
-      if (nombre.value.trim().length > 0 && descripcion.value.trim().length > 0 ) {
+      if (nombre.value.trim().length > 0 && descripcion.value.trim().length > 0) {
         await CategoriaService.createCategoria(nombre.value, descripcion.value);
         if (props.onCategoriaCreated) {
           props.onCategoriaCreated();
         }
         nombre.value = '';
         descripcion.value = '';
-        
+
         dialogOpened.value = false;
         Notification.show('Categoria creada exitosamente', { duration: 5000, position: 'bottom-end', theme: 'success' });
       } else {
@@ -143,11 +143,11 @@ function CategoriaEntryFormUpdate(props: CategoriaEntryFormUpdateProps) {
   const nombre = useSignal(props.arguments.nombre);
   const descripcion = useSignal(props.arguments.descripcion);
   const ident = useSignal(props.arguments.id);
- 
+
   const updateCategoria = async () => {
     try {
-      if (nombre.value.trim().length > 0 && descripcion.value.trim().length > 0 ) {
-        
+      if (nombre.value.trim().length > 0 && descripcion.value.trim().length > 0) {
+
         await CategoriaService.updateCategoria(parseInt(ident.value), nombre.value, descripcion.value);
 
         if (props.onCategoriaUpdate) {
@@ -155,7 +155,7 @@ function CategoriaEntryFormUpdate(props: CategoriaEntryFormUpdateProps) {
         }
         nombre.value = '';
         descripcion.value = '';
-        
+
         dialogOpened.value = false;
         Notification.show('Categoria editada exitosamente', { duration: 5000, position: 'bottom-end', theme: 'success' });
       } else {
@@ -227,47 +227,71 @@ function CategoriaEntryFormUpdate(props: CategoriaEntryFormUpdateProps) {
 }
 
 
-function index({ model }: { model: GridItemModel<Categoria> }) {
-  return (
-    <span>
-      {model.index + 1}
-    </span>
-  );
-}
-
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
   dateStyle: 'medium',
 });
 
 
+//LISTA DE ARTISTAS
+export default function CategoriaView() {
+  const [items, setItems] = useState([]);
+  const callData = () => {
+    console.log("Hola call data");
+    CategoriaService.listAll().then(function(data){
+      //items.values = data;
+      setItems(data);
+    });
+  };
+  useEffect(() => {
+    callData();
+  },[]);
+  
+  const order = (event, columnId) => {
+    console.log(event);
+    const direction = event.detail.value;
+    console.log(`Sort direction changed for column ${columnId} to ${direction}`);
 
+    var dir = (direction == 'asc') ? 1 : 2;
+    CategoriaService.order(columnId, dir).then(function (data) {
+      setItems(data);
+    });  
+  }
 
-export default function CategoriaListView() {
-  const dataProvider = useDataProvider<Categoria>({
-    list: () => CategoriaService.listAll(),
-  });
+  function indexLink({ item }: { item: Categoria }) {
 
-  function link({ item }: { item: Categoria }) {
     return (
       <span>
-        <CategoriaEntryFormUpdate arguments={item} onCategoriaUpdate={dataProvider.refresh} />
+        <CategoriaEntryFormUpdate  arguments={item}  onCategoriaUpdate={callData}>
+
+        </CategoriaEntryFormUpdate>
+      </span>
+    );
+  }
+
+  function indexIndex({ model }: { model: GridItemModel<Categoria> }) {
+    return (
+      <span>
+        {model.index + 1}
       </span>
     );
   }
 
   return (
+
     <main className="w-full h-full flex flex-col box-border gap-s p-m">
-      <ViewToolbar title="Categorias">
+
+      <ViewToolbar title="Lista de categorias">
         <Group>
-          <CategoriaEntryForm onCategoriaCreated={dataProvider.refresh} />
+          <CategoriaEntryForm onCategoriaCreated={callData}/>
         </Group>
       </ViewToolbar>
-      <Grid dataProvider={dataProvider.dataProvider}>
-        <GridColumn header="Nro" renderer={index} />
-        <GridColumn path="nombre" header="Nombre" />
-        <GridColumn path="descripcion" header="Descripcion" />
-        <GridColumn header="Acciones" renderer={link} />
+      <Grid items={items}>
+        <GridColumn renderer={indexIndex} header="Nro" />
+        <GridSortColumn path="nombre" header="Nombre de la categoria" onDirectionChanged={(e) => order(e, 'nombre')} />
+        <GridSortColumn path="descripcion" header="descripicon de la categoria" onDirectionChanged={(e) => order(e, 'descripcion')} />
+        <GridColumn header="Acciones" renderer={indexLink} />
       </Grid>
+      
     </main>
   );
 }
