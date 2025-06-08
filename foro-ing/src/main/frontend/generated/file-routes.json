@@ -19,7 +19,7 @@
         "title": "Categoria",
         "menu": {
           "icon": "vaadin:clipboard-check",
-          "order": 1,
+          "order": 3,
           "title": "Categoria"
         },
         "flowLayout": false,
