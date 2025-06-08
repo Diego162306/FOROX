@@ -48,10 +48,7 @@ function CategoriaEntryForm(props: CategoriaEntryFormProps) {
   const createCategoria = async () => {
     try {
       if (nombre.value.trim().length > 0 && descripcion.value.trim().length > 0 ) {
-        
-
         await CategoriaService.createCategoria(nombre.value, descripcion.value);
-
         if (props.onCategoriaCreated) {
           props.onCategoriaCreated();
         }
@@ -63,14 +60,11 @@ function CategoriaEntryForm(props: CategoriaEntryFormProps) {
       } else {
         Notification.show('No se pudo crear, faltan datos', { duration: 5000, position: 'top-center', theme: 'error' });
       }
-
     } catch (error) {
       console.log(error);
       handleError(error);
     }
   };
-
- 
 
   return (
     <>
@@ -173,9 +167,6 @@ function CategoriaEntryFormUpdate(props: CategoriaEntryFormUpdateProps) {
       handleError(error);
     }
   };
-
-  
-
   return (
     <>
       <Dialog
@@ -248,13 +239,7 @@ const dateFormatter = new Intl.DateTimeFormat(undefined, {
   dateStyle: 'medium',
 });
 
-function fechaRenderer({ item }: { item: Categoria }) {
-  return (
-    <span>
-      {item.fecha ? dateFormatter.format(new Date(item.fecha)) : ''}
-    </span>
-  );
-}
+
 
 
 export default function CategoriaListView() {
