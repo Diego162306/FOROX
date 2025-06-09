@@ -4,6 +4,7 @@ package fori.ing.com.base.controlller.services;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -104,6 +105,25 @@ public class CuentaService {
         return Arrays.asList(db.listAll().toArray());
         
     }
+
+    // public List<HashMap<String, String>> order(String atributo, Integer type) {
+    //     try {
+    //         return Arrays.asList(db.orderByAttribute(type, atributo).toArrary());
+    //     } catch (Exception e) {
+    //         e.printStackTrace();
+    //         return new ArrayList<>();
+    //     }
+    // }
+
+  
+
+    // public List<HashMap> search(String attribute, String text, Integer type) throws Exception {
+    //     LinkedList<HashMap<String, String>> lista = db.search(attribute, text, type);
+    //     if (!lista.isEmpty())
+    //         return Arrays.asList(lista.toArray());
+    //     else
+    //         return new ArrayList<>();
+    // }
 
  
     
