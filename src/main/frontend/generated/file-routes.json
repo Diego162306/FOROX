@@ -1,0 +1,63 @@
+[
+  {
+    "route": "",
+    "flowLayout": false,
+    "params": {},
+    "title": "Main Layout",
+    "children": [
+      {
+        "route": "",
+        "menu": {
+          "exclude": true
+        },
+        "flowLayout": false,
+        "params": {},
+        "title": "Main"
+      },
+      {
+        "route": "archivoAdjunto-list",
+        "title": "Archivos Adjuntos",
+        "menu": {
+          "icon": "vaadin:clipboard-check",
+          "order": 1,
+          "title": "ARCHIVOS ADJUNTOS"
+        },
+        "flowLayout": false,
+        "params": {}
+      },
+      {
+        "route": "task-list",
+        "title": "Task List",
+        "menu": {
+          "icon": "vaadin:clipboard-check",
+          "order": 1,
+          "title": "Task List"
+        },
+        "flowLayout": false,
+        "params": {}
+      },
+      {
+        "route": "usuario-list",
+        "title": "Usuario",
+        "menu": {
+          "icon": "vaadin:clipboard-check",
+          "order": 1,
+          "title": "USUARIOS"
+        },
+        "flowLayout": false,
+        "params": {}
+      },
+      {
+        "route": "usuarioRespuesta-list",
+        "title": "Usuario Respuestas",
+        "menu": {
+          "icon": "vaadin:clipboard-check",
+          "order": 1,
+          "title": "USUARIO RESPUESTAS"
+        },
+        "flowLayout": false,
+        "params": {}
+      }
+    ]
+  }
+]
