@@ -6,14 +6,10 @@
 ---
 
 ## 🎯 Objetivo del Proyecto
-
 Desarrollar un sistema de foro académico interactivo que permita a los estudiantes:
-
 - Publicar preguntas relacionadas con temas educativos.
 - Responder de forma colaborativa.
 - Consultar información útil organizada eficientemente con estructuras de datos.
-
----
 
 ## 🛠️ Tecnologías y Enfoque
 
@@ -27,8 +23,6 @@ Desarrollar un sistema de foro académico interactivo que permita a los estudian
   - Árboles
 - Persistencia de datos: **JSON** o archivos planos
 
----
-
 ## 📌 Características principales
 
 - Registro y gestión de usuarios
@@ -36,16 +30,12 @@ Desarrollar un sistema de foro académico interactivo que permita a los estudian
 - Clasificación por materias o temas
 - Búsqueda eficiente mediante estructuras de datos
 
----
-
 ## 👥 Integrantes del equipo
 
 - Juan Ventimilla  
 - Wagner Balcázar  
 - Roberto Lliguín  
 - Carlos Guajala  
-
----
 
 ## 📐 Diagrama UML (Modelo general)
 
