@@ -255,8 +255,7 @@ function index({ model }: { model: GridItemModel<Categoria> }) {
 export default function CategoriaListView() {
   const callData = () => {
     CategoriaService.listAllCategoria().then(function (data) {
-    console.log('Datos cargados:', data); // <-- Asegúrate de ver esto
-    setItems(data);
+    console.log('Datos cargados:', data);
     });
   }
 
