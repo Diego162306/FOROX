@@ -1,5 +1,5 @@
 import { ViewConfig } from '@vaadin/hilla-file-router/types.js';
-import { Button, ComboBox, DatePicker, Dialog, Grid, GridColumn, GridItemModel, TextField, VerticalLayout } from '@vaadin/react-components';
+import { Button, ComboBox, DatePicker, Dialog, Grid, GridColumn, GridItemModel, GridSortColumn, HorizontalLayout, Icon, Select, TextField, VerticalLayout } from '@vaadin/react-components';
 import { Notification } from '@vaadin/react-components/Notification';
 
 import { useSignal } from '@vaadin/hilla-react-signals';
@@ -11,6 +11,7 @@ import { CategoriaService } from 'Frontend/generated/endpoints';
 import { useEffect, useState } from 'react';
 import Categoria from 'Frontend/generated/fori/ing/com/base/models/Categoria';
 import TipoArchivo from 'Frontend/generated/fori/ing/com/base/models/TipoArchivo';
+import { order } from 'Frontend/generated/CategoriaService';
 
 
 export const config: ViewConfig = {
@@ -51,8 +52,8 @@ function CategoriaEntryForm(props: CategoriaEntryFormProps) {
 
   const createCategoria = async () => {
     try {
-      if (nombre.value.trim().length > 0 && descripcion.value.trim().length > 0 ) {
-        
+      if (nombre.value.trim().length > 0 && descripcion.value.trim().length > 0) {
+
 
         await CategoriaService.createCategoria(nombre.value, descripcion.value);
 
@@ -61,7 +62,7 @@ function CategoriaEntryForm(props: CategoriaEntryFormProps) {
         }
         nombre.value = '';
         descripcion.value = '';
-        
+
         dialogOpened.value = false;
         Notification.show('Categoria creada exitosamente', { duration: 5000, position: 'bottom-end', theme: 'success' });
       } else {
@@ -74,7 +75,7 @@ function CategoriaEntryForm(props: CategoriaEntryFormProps) {
     }
   };
 
- 
+
 
   return (
     <>
@@ -115,7 +116,7 @@ function CategoriaEntryForm(props: CategoriaEntryFormProps) {
           style={{ width: '300px', maxWidth: '100%', alignItems: 'stretch' }}
         >
           <VerticalLayout style={{ alignItems: 'stretch' }}>
-            <TextField label="NOmbre"
+            <TextField label="Nombre"
               placeholder='Ingrese el nombre de la Categoria'
               aria-label='Ingrese el nombre de la Categoria'
               value={nombre.value}
@@ -127,7 +128,6 @@ function CategoriaEntryForm(props: CategoriaEntryFormProps) {
               value={descripcion.value}
               onValueChanged={(evt) => (descripcion.value = evt.detail.value)}
             />
-
           </VerticalLayout>
         </VerticalLayout>
       </Dialog>
@@ -156,11 +156,11 @@ function CategoriaEntryFormUpdate(props: CategoriaEntryFormUpdateProps) {
   const nombre = useSignal(props.arguments.nombre);
   const descripcion = useSignal(props.arguments.descripcion);
   const ident = useSignal(props.arguments.id);
- 
+
   const updateCategoria = async () => {
     try {
-      if (nombre.value.trim().length > 0 && descripcion.value.trim().length > 0 ) {
-        
+      if (nombre.value.trim().length > 0 && descripcion.value.trim().length > 0) {
+
         await CategoriaService.updateCategoria(parseInt(ident.value), nombre.value, descripcion.value);
 
         if (props.onCategoriaUpdate) {
@@ -168,7 +168,7 @@ function CategoriaEntryFormUpdate(props: CategoriaEntryFormUpdateProps) {
         }
         nombre.value = '';
         descripcion.value = '';
-        
+
         dialogOpened.value = false;
         Notification.show('Categoria editada exitosamente', { duration: 5000, position: 'bottom-end', theme: 'success' });
       } else {
@@ -181,7 +181,7 @@ function CategoriaEntryFormUpdate(props: CategoriaEntryFormUpdateProps) {
     }
   };
 
-  
+
 
   return (
     <>
@@ -251,45 +251,102 @@ function index({ model }: { model: GridItemModel<Categoria> }) {
   );
 }
 
-const dateFormatter = new Intl.DateTimeFormat(undefined, {
-  dateStyle: 'medium',
-});
-
-function fechaRenderer({ item }: { item: Categoria }) {
-  return (
-    <span>
-      {item.fecha ? dateFormatter.format(new Date(item.fecha)) : ''}
-    </span>
-  );
-}
-
 
 export default function CategoriaListView() {
-  const dataProvider = useDataProvider<Categoria>({
-    list: () => CategoriaService.listAll(),
-  });
+  const callData = () => {
+    CategoriaService.listAllCategoria().then(function (data) {
+    console.log('Datos cargados:', data); // <-- Asegúrate de ver esto
+    setItems(data);
+    });
+  }
+
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    callData();
+  }, []);
+
+  const order = (event, columnID) => {
+    console.log(event);
+    const direction = event.detail.value;
+
+    var dir = (direction === 'asc' ? 1 : -1);
+    CategoriaService.order(columnID).then(function (data) {
+      setItems(data);
+    });
+  }
+  const criterio = useSignal('');
+  const texto = useSignal('');
+
+  const itemSelect = [
+    {
+      label: 'Nombre',
+      value: 'nombre',
+    },
+    {
+      label: 'Descripcion',
+      value: 'descripcion',
+    },
+  ];
+
+  const search = async () => {
+    try {
+      console.log(criterio.value + " " + texto.value);
+      CategoriaService.search(criterio.value, texto.value, 0).then(function (data) {
+        setItems(data);
+      });
+      criterio.value = '';
+      texto.value = '';
+      Notification.show('Busqueda realizada', { duration: 5000, position: 'bottom-end', theme: 'success' });
+    } catch (error) {
+      console.log(error);
+      handleError(error);
+    }
+  };
 
   function link({ item }: { item: Categoria }) {
     return (
       <span>
-        <CategoriaEntryFormUpdate arguments={item} onCategoriaUpdate={dataProvider.refresh} />
+        <CategoriaEntryFormUpdate arguments={item} onCategoriaUpdate={callData} />
       </span>
     );
   }
 
   return (
     <main className="w-full h-full flex flex-col box-border gap-s p-m">
-      <ViewToolbar title="Categorias">
+      <ViewToolbar title="Categoria">
         <Group>
-          <CategoriaEntryForm onCategoriaCreated={dataProvider.refresh} />
+          <CategoriaEntryForm onCategoriaCreated={callData} />
         </Group>
       </ViewToolbar>
-      <Grid dataProvider={dataProvider.dataProvider}>
-        <GridColumn header="Nro" renderer={index} />
-        <GridColumn path="nombre" header="Nombre" />
-        <GridColumn path="descripcion" header="Descripcion" />
-        <GridColumn header="Acciones" renderer={link} />
-      </Grid>
-    </main>
-  );
+      <HorizontalLayout theme="spacing">
+        <Select items={itemSelect}
+          value={criterio.value}
+          onValueChanged={(evt) => (criterio.value = evt.detail.value)}
+          placeholder="Selecione un cirterio">
+
+
+        </Select>
+
+        <TextField
+          placeholder="Search"
+          style={{ width: '50%' }}
+          value={texto.value}
+          onValueChanged={(evt) => (texto.value = evt.detail.value)}
+        >
+          <Icon slot="prefix" icon="vaadin:search" />
+        </TextField>
+        <Button onClick={search} theme="primary">
+          BUSCAR
+        </Button>
+      </HorizontalLayout>
+      <Grid items={items}>
+      <GridColumn header="Nro" renderer={index} />
+      <GridSortColumn path="nombre" header="Nombre" onDirectionChanged={(e) => order(e, 'nombre')} />
+      <GridSortColumn path="descripcion" header="Descripcion" onDirectionChanged={(e) => order(e, 'descripcion')} />
+      <GridColumn header="Acciones" renderer={link} />
+    </Grid>
+     </main >
+   );
 }
+
+
