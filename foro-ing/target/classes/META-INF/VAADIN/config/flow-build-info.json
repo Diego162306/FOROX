@@ -1,0 +1,19 @@
+{
+  "productionMode": false,
+  "eagerServerLoad": false,
+  "npmFolder": "/home/usuario/Descargas/FOROX/foro-ing",
+  "node.version": "v22.14.0",
+  "frontend.hotdeploy": true,
+  "node.download.root": "https://nodejs.org/dist/",
+  "frontendFolder": "/home/usuario/Descargas/FOROX/foro-ing/src/main/frontend",
+  "connect.javaSourceFolder": "/home/usuario/Descargas/FOROX/foro-ing/src/main/java",
+  "javaResourceFolder": "/home/usuario/Descargas/FOROX/foro-ing/src/main/resources",
+  "connect.applicationProperties": "/home/usuario/Descargas/FOROX/foro-ing/src/main/resources/application.properties",
+  "connect.openApiFile": "/home/usuario/Descargas/FOROX/foro-ing/target/generated-resources/openapi.json",
+  "project.frontend.generated": "/home/usuario/Descargas/FOROX/foro-ing/src/main/frontend/generated",
+  "pnpm.enable": false,
+  "bun.enable": false,
+  "require.home.node": false,
+  "build.folder": "target",
+  "react.enable": true
+}

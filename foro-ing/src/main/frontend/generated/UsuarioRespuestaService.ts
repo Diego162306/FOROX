@@ -1,0 +1,17 @@
+import { EndpointRequestInit as EndpointRequestInit_1 } from "@vaadin/hilla-frontend";
+import client_1 from "./connect-client.default.js";
+import type UsuarioRespuesta_1 from "./fori/ing/com/base/models/UsuarioRespuesta.js";
+async function createUsuarioRespuesta_1(idUsuario: number | undefined, idRespuesta: number | undefined, idPregunta: number | undefined, contenido: string | undefined, init?: EndpointRequestInit_1): Promise<void> { return client_1.call("UsuarioRespuestaService", "createUsuarioRespuesta", { idUsuario, idRespuesta, idPregunta, contenido }, init); }
+async function listAll_1(init?: EndpointRequestInit_1): Promise<Array<Record<string, unknown> | undefined> | undefined> { return client_1.call("UsuarioRespuestaService", "listAll", {}, init); }
+async function listAllUsuarioRespuesta_1(init?: EndpointRequestInit_1): Promise<Array<UsuarioRespuesta_1 | undefined> | undefined> { return client_1.call("UsuarioRespuestaService", "listAllUsuarioRespuesta", {}, init); }
+async function listaPregunta_1(init?: EndpointRequestInit_1): Promise<Array<Record<string, unknown> | undefined> | undefined> { return client_1.call("UsuarioRespuestaService", "listaPregunta", {}, init); }
+async function listaRespuesta_1(init?: EndpointRequestInit_1): Promise<Array<Record<string, unknown> | undefined> | undefined> { return client_1.call("UsuarioRespuestaService", "listaRespuesta", {}, init); }
+async function listaUsuario_1(init?: EndpointRequestInit_1): Promise<Array<Record<string, unknown> | undefined> | undefined> { return client_1.call("UsuarioRespuestaService", "listaUsuario", {}, init); }
+async function order_1(attribute: string | undefined, type: number | undefined, init?: EndpointRequestInit_1): Promise<Array<Record<string, unknown> | undefined> | undefined> { return client_1.call("UsuarioRespuestaService", "order", { attribute, type }, init); }
+async function search_1(attribute: string | undefined, text: string | undefined, type: number | undefined, init?: EndpointRequestInit_1): Promise<Array<Record<string, unknown> | undefined> | undefined> { return client_1.call("UsuarioRespuestaService", "search", { attribute, text, type }, init); }
+<<<<<<< HEAD:foro-ing/src/main/frontend/generated/UsuarioRespuestaService.ts
+async function updateUsuarioRespuesta_1(id: number | undefined, idUsuario: number | undefined, idRespuesta: number | undefined, idPregunta: number | undefined, contenido: string | undefined, init?: EndpointRequestInit_1): Promise<void> { return client_1.call("UsuarioRespuestaService", "updateUsuarioRespuesta", { id, idUsuario, idRespuesta, idPregunta, contenido }, init); }
+export { createUsuarioRespuesta_1 as createUsuarioRespuesta, listAll_1 as listAll, listAllUsuarioRespuesta_1 as listAllUsuarioRespuesta, listaPregunta_1 as listaPregunta, listaRespuesta_1 as listaRespuesta, listaUsuario_1 as listaUsuario, order_1 as order, search_1 as search, updateUsuarioRespuesta_1 as updateUsuarioRespuesta };
+=======
+export { createUsuarioRespuesta_1 as createUsuarioRespuesta, listAll_1 as listAll, listAllUsuarioRespuesta_1 as listAllUsuarioRespuesta, listaPregunta_1 as listaPregunta, listaRespuesta_1 as listaRespuesta, listaUsuario_1 as listaUsuario, order_1 as order, search_1 as search };
+>>>>>>> origin/Roberto-Lliguin:src/main/frontend/generated/UsuarioRespuestaService.ts
