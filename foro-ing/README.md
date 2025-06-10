@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-# FOROX
-foro académico, proyecto de estructura de datos con la finalidad de mejorar la calidad de la educación en los estudiantes
-
-
-=======
 # Foro Ing README
 
 - [ ] TODO Replace or update this README with instructions relevant to your application
@@ -27,4 +21,3 @@ The [Getting Started](https://vaadin.com/docs/latest/getting-started) guide will
 Foro Ing implementation. You'll learn how to set up your development environment, understand the project 
 structure, and find resources to help you add muscles to your skeleton — transforming it into a fully-featured 
 application.
->>>>>>> origin/Roberto-Lliguin
