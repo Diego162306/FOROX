@@ -72,7 +72,7 @@ public class DaoCategoria extends AdapterDao<Categoria>{
         return list;
     }
 
-     private HashMap<String, String> toDic(Categoria arreglo) throws ListEmptyException {
+    private HashMap<String, String> toDic(Categoria arreglo) throws ListEmptyException {
         HashMap<String, String> aux = new HashMap<>();
         aux.put("id", arreglo.getId().toString());
         aux.put("nombre", arreglo.getNombre());
