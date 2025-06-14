@@ -328,7 +328,7 @@ export default function UsuarioRespuestaListView() {
     });
   }, []);
   const reloadUsuarioRespuestas = () => {
-    UsuarioRespuestaService.listAllUsuarioRespuesta().then((data) => setItems(data));
+    UsuarioRespuestaService.listAll().then((data) => setItems(data));
   };
   const order = (event, columnId) => {
     console.log(event);
@@ -353,6 +353,10 @@ export default function UsuarioRespuestaListView() {
     {
       label: 'Pregunta',
       value: 'pregunta',
+    },
+    {
+      label: 'Contenido',
+      value: 'contenido',
     },
   ];
   const search = async () => {
@@ -400,6 +404,7 @@ export default function UsuarioRespuestaListView() {
         <Group>
           <UsuarioRespuestaEntryForm onUsuarioRespuestaCreated={reloadUsuarioRespuestas} />
         </Group>
+
         <HorizontalLayout theme="spacing">
           <Select items={itemSelect}
             value={criterio.value}
@@ -421,6 +426,7 @@ export default function UsuarioRespuestaListView() {
             BUSCAR
           </Button>
         </HorizontalLayout>
+        
       </ViewToolbar>
       <Grid items={items} theme="row-stripes">
         {/*<GridColumn path="id" header="ID" />*/}

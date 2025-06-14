@@ -1,1 +1,68 @@
-[{"id":1,"nombre":"xw","url":"cw","tipoArchivo":"DOCUMENTO","idRespuesta":1,"idPregunta":2},{"id":2,"nombre":"FGHJ","url":"DFGHJK","tipoArchivo":"AUDIO","idRespuesta":2,"idPregunta":2},{"id":3,"nombre":"h hl l","url":"w k.com","tipoArchivo":"AUDIO","idRespuesta":2,"idPregunta":1}]
+
+
+[
+    {
+        "id": 1,
+        "nombre": "Documento1",
+        "url": "https://ejemplo.com/doc1.pdf",
+        "tipoArchivo": "DOCUMENTO",
+        "idRespuesta": 1,
+        "idPregunta": 1
+    },
+    {
+        "id": 2,
+        "nombre": "Audio1",
+        "url": "https://ejemplo.com/audio1.mp3",
+        "tipoArchivo": "AUDIO",
+        "idRespuesta": 2,
+        "idPregunta": 2
+    },
+    {
+        "id": 3,
+        "nombre": "Imagen1",
+        "url": "https://ejemplo.com/img1.png",
+        "tipoArchivo": "IMAGEN",
+        "idRespuesta": 3,
+        "idPregunta": 3
+    },
+    {
+        "id": 4,
+        "nombre": "Documento2",
+        "url": "https://ejemplo.com/doc2.pdf",
+        "tipoArchivo": "DOCUMENTO",
+        "idRespuesta": 4,
+        "idPregunta": 4
+    },
+    {
+        "id": 5,
+        "nombre": "Audio2",
+        "url": "https://ejemplo.com/audio2.mp3",
+        "tipoArchivo": "AUDIO",
+        "idRespuesta": 5,
+        "idPregunta": 5
+    },
+    {
+        "id": 6,
+        "nombre": "Imagen2",
+        "url": "https://ejemplo.com/img2.png",
+        "tipoArchivo": "IMAGEN",
+        "idRespuesta": 6,
+        "idPregunta": 6
+    },
+    {
+        "id": 7,
+        "nombre": "Documento3",
+        "url": "https://ejemplo.com/doc3.pdf",
+        "tipoArchivo": "DOCUMENTO",
+        "idRespuesta": 7,
+        "idPregunta": 7
+    },
+    {
+        "id": 8,
+        "nombre": "Audio3",
+        "url": "https://ejemplo.com/audio3.mp3",
+        "tipoArchivo": "AUDIO",
+        "idRespuesta": 8,
+        "idPregunta": 8
+    }
+]

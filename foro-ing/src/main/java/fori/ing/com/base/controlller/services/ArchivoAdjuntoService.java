@@ -10,6 +10,7 @@ import org.hibernate.validator.constraints.URL;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import com.vaadin.hilla.BrowserCallable;
 
+import fori.ing.com.base.controlller.DataStruc.List.Linkendlist;
 import fori.ing.com.base.controlller.dao.dao_models.DaoArchivoAdjunto;
 import fori.ing.com.base.controlller.dao.dao_models.DaoPregunta;
 import fori.ing.com.base.controlller.dao.dao_models.DaoRespuesta;
@@ -101,31 +102,29 @@ public class ArchivoAdjuntoService {
         return lista;
     }
 
-    public List<HashMap> listAllArchivoAdjunto() {
-        List<HashMap> lista = new ArrayList<>();
-        if (!dp.listAll().isEmpty()) {
-            ArchivoAdjunto[] arreglo = dp.listAll().toArray();
-            for (int i = 0; i < arreglo.length; i++) {
-                HashMap<String, String> aux = new HashMap<>();
-                aux.put("id", arreglo[i].getId().toString(i));
-                aux.put("nombre", arreglo[i].getNombre());
-                aux.put("url", arreglo[i].getUrl());
-                aux.put("tipoArchivo", arreglo[i].getTipoArchivo().toString());
-                aux.put("respuesta", new DaoRespuesta().listAll().get(arreglo[i].getIdRespuesta() -1 ).getContenido());
-                aux.put("idRespuesta", new DaoRespuesta().listAll().get(arreglo[i].getIdRespuesta() - 1).getId().toString());
-                aux.put("idPregunta", new DaoPregunta().listAll().get(arreglo[i].getIdPregunta() - 1).getId().toString());
-                aux.put("pregunta", new DaoPregunta().listAll().get(arreglo[i].getIdPregunta() - 1).getContenido());
-                lista.add(aux);
-            }
-        }
 
+        public List<HashMap> order(String attribute, Integer type) throws Exception {
+        return Arrays.asList(dp.orderByAttribute(type, attribute).toArray());
+    }
 
-        return lista;
+    public List<HashMap> search(String attribute, String text, Integer type) throws Exception {
+        Linkendlist<HashMap<String, String>> lista = dp.search(attribute, text, type);
+        if (!lista.isEmpty())
+            return Arrays.asList(lista.toArray());
+        else
+            return new ArrayList<>();
+    }
+    
+       public List<HashMap> lisAll() throws Exception {
+        return Arrays.asList(dp.all().toArray());
+
     }
 
     public List<ArchivoAdjunto> lisAllArchivoAdjunto() {
         return Arrays.asList(dp.listAll().toArray());
 
     }
+
+
 
 }

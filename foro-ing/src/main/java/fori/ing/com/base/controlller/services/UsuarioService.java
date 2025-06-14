@@ -40,7 +40,7 @@ public class UsuarioService {
     }
 
     public List<HashMap> order(String attribute, Integer type) throws Exception {
-        return Arrays.asList(db.orderByUsuario(type, attribute).toArray());
+        return Arrays.asList(db.orderByAttribute(type, attribute).toArray());
     }
 
     public List<HashMap> search(String attribute, String text, Integer type) throws Exception {

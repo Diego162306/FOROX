@@ -1,1 +1,42 @@
-[{"id":1,"nombre":"GTDVCDCBCB","descripcion":"DJDHJDHHD"},{"id":2,"nombre":"GTDVCDCBCB","descripcion":"DJDHJDHHD"}]
+[
+    {
+        "id": 1,
+        "nombre": "Programación",
+        "descripcion": "Preguntas sobre lenguajes y técnicas de programación"
+    },
+    {
+        "id": 2,
+        "nombre": "Bases de Datos",
+        "descripcion": "Consultas sobre bases de datos y SQL"
+    },
+    {
+        "id": 3,
+        "nombre": "Redes",
+        "descripcion": "Temas relacionados con redes y protocolos"
+    },
+    {
+        "id": 4,
+        "nombre": "Sistemas Operativos",
+        "descripcion": "Preguntas sobre Windows, Linux, etc."
+    },
+    {
+        "id": 5,
+        "nombre": "Desarrollo Web",
+        "descripcion": "Todo sobre desarrollo web y frameworks"
+    },
+    {
+        "id": 6,
+        "nombre": "Seguridad",
+        "descripcion": "Temas de ciberseguridad y buenas prácticas"
+    },
+    {
+        "id": 7,
+        "nombre": "Inteligencia Artificial",
+        "descripcion": "Preguntas sobre IA, machine learning y data science"
+    },
+    {
+        "id": 8,
+        "nombre": "Otros",
+        "descripcion": "Temas generales o no clasificados"
+    }
+]

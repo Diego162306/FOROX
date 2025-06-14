@@ -1,5 +1,5 @@
 import { ViewConfig } from '@vaadin/hilla-file-router/types.js';
-import { Button, ComboBox, DatePicker, Dialog, Grid, GridColumn, GridItemModel, TextField, VerticalLayout } from '@vaadin/react-components';
+import { Button, ComboBox, DatePicker, Dialog, Grid, GridColumn, GridItemModel, GridSortColumn, HorizontalLayout, Icon, Select, TextField, VerticalLayout } from '@vaadin/react-components';
 import { Notification } from '@vaadin/react-components/Notification';
 import { ArchivoAdjuntoService, TaskService, UsuarioService } from 'Frontend/generated/endpoints';
 import { useSignal } from '@vaadin/hilla-react-signals';
@@ -331,9 +331,63 @@ function UsuarioEntryFormUpdate(props: UsuarioEntryFormUpdateProps) {
 //===============================================================
 //LISTA de ARCHIVOS ADJUNTOS
 export default function ArchivoAdjuntoListView () {
-  const dataProvider = useDataProvider<ArchivoAdjunto>({
-    list: () => ArchivoAdjuntoService.listAllArchivoAdjunto(),
-  });
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    ArchivoAdjuntoService.lisAll().then((data) => {
+      setItems(data);
+    });
+  }, []);
+  const reloadArchivoAdjunto = () => {
+    ArchivoAdjuntoService.lisAll().then((data) => setItems(data));
+  };
+  const order = (event, columnId) => {
+    console.log(event);
+    const direction = event.detail.value;
+    console.log(`sorting by ${columnId} to ${direction}`);
+    var dir = (direction == "asc") ? 1 : 2;
+    ArchivoAdjuntoService.order(columnId, dir).then((data) => {
+      setItems(data);
+    });
+  };
+  const criterio = useSignal('');
+  const texto = useSignal('');
+  const itemSelect = [
+    {
+      label: 'Nombre',
+      value: 'nombre',
+    },
+    {
+      label: 'Archivo',
+      value: 'tipoArchivo',
+    },
+    {
+      label: 'Respuesta',
+      value: 'respuesta',
+    },
+    {
+      label: 'Pregunta',
+      value: 'pregunta',
+    },
+  ];
+  const search = async () => {
+    try {
+      console.log(criterio.value + " " + texto.value);
+      ArchivoAdjuntoService.search(criterio.value, texto.value, 0).then(function (data) {
+        setItems(data);
+      });
+
+      criterio.value = '';
+      texto.value = '';
+
+      Notification.show('Busqueda realizada', { duration: 5000, position: 'bottom-end', theme: 'success' });
+
+
+    } catch (error) {
+      console.log(error);
+      handleError(error);
+    }
+  };
+
 
   function indexIndex({ model }: { model: GridItemModel<Usuario> }) {
     return (
@@ -346,7 +400,8 @@ export default function ArchivoAdjuntoListView () {
   function link({ item }: { item: Usuario }) {
     return (
       <span>
-        Editar
+        <Button>Editar</Button>
+        
         {/*<BandaEntryFormUpdate arguments={item} onArtistaUpdateted={dataProvider.refresh} />*/}
       </span>
     )
@@ -356,34 +411,39 @@ export default function ArchivoAdjuntoListView () {
     <main className="w-full h-full flex flex-col box-border gap-s p-m">
       <ViewToolbar title="Archivos Adjuntos">
         <Group>
-          <ArchivoAdjuntoEntryForm onArchivoAdjuntoCreated={dataProvider.refresh} />
+          <ArchivoAdjuntoEntryForm onArchivoAdjuntoCreated={reloadArchivoAdjunto} />
         </Group>
+                <HorizontalLayout theme="spacing">
+          <Select items={itemSelect}
+            value={criterio.value}
+            onValueChanged={(evt) => (criterio.value = evt.detail.value)}
+            placeholder="Selecione un cirterio">
+
+
+          </Select>
+
+          <TextField
+            placeholder="Search"
+            style={{ width: '50%' }}
+            value={texto.value}
+            onValueChanged={(evt) => (texto.value = evt.detail.value)}
+          >
+            <Icon slot="prefix" icon="vaadin:search" />
+          </TextField>
+          <Button onClick={search} theme="primary">
+            BUSCAR
+          </Button>
+        </HorizontalLayout>
       </ViewToolbar>
-      <Grid dataProvider={dataProvider.dataProvider} theme="row-stripes">
+      <Grid items={items} theme="row-stripes">
         {/*<GridColumn path="id" header="ID" />*/}
         <GridColumn renderer={indexIndex} header='Nro' />
-        <GridColumn path="nombre" header="Nombre" />
-        <GridColumn path="url" header="URL" />
-        <GridColumn path="tipoArchivo" header="Tipo" />
-        <GridColumn path={'respuesta'} header="Respuesta " />
-         <GridColumn path={'pregunta'} header="Pregunta " >
+        <GridSortColumn onDirectionChanged={(e) => order(e, "nombre")}  path="nombre" header="Nombre" />
+        <GridSortColumn onDirectionChanged={(e) => order(e, "url")}  path="url" header="URL" />
+        <GridSortColumn onDirectionChanged={(e) => order(e, "tipoArchivo")}  path="tipoArchivo" header="Tipo" />
+        <GridSortColumn onDirectionChanged={(e) => order(e, "respuesta")}  path={'respuesta'} header="Respuesta " />
+        <GridSortColumn onDirectionChanged={(e) => order(e, "pregunta")}  path={'pregunta'} header="Pregunta " />
 
-        {/* <GridColumn
-          header="Imagen"
-          renderer={({ item }) => {
-            return (
-              <img
-                src={item.imagen || 'https://via.placeholder.com/150'} // Imagen por defecto si no hay URL
-                alt={`Imagen de ${item.nombre}`}
-                style={{ width: '80px', height: '80px', objectFit: 'cover', borderRadius: '50%' }}
-              />
-            );
-          }}
-        >*/}
-        
-
-
-        </GridColumn>
         <GridColumn renderer={link} header='Acciones' />
       </Grid>
 

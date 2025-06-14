@@ -1,1 +1,58 @@
-[{"id":1,"correo":"correo","clave":"clave","id_usuario":1,"rol":"rol"},{"id":2,"correo":"correo","clave":"clave","id_usuario":1,"rol":"rol"}]
+[
+    {
+        "id": 1,
+        "correo": "juan.perez@email.com",
+        "clave": "clave1",
+        "id_usuario": 1,
+        "rol": "usuario"
+    },
+    {
+        "id": 2,
+        "correo": "ana.gomez@email.com",
+        "clave": "clave2",
+        "id_usuario": 2,
+        "rol": "usuario"
+    },
+    {
+        "id": 3,
+        "correo": "luis.martinez@email.com",
+        "clave": "clave3",
+        "id_usuario": 3,
+        "rol": "usuario"
+    },
+    {
+        "id": 4,
+        "correo": "maria.lopez@email.com",
+        "clave": "clave4",
+        "id_usuario": 4,
+        "rol": "usuario"
+    },
+    {
+        "id": 5,
+        "correo": "carlos.sanchez@email.com",
+        "clave": "clave5",
+        "id_usuario": 5,
+        "rol": "usuario"
+    },
+    {
+        "id": 6,
+        "correo": "lucia.ramirez@email.com",
+        "clave": "clave6",
+        "id_usuario": 6,
+        "rol": "usuario"
+    },
+    {
+        "id": 7,
+        "correo": "pedro.fernandez@email.com",
+        "clave": "clave7",
+        "id_usuario": 7,
+        "rol": "usuario"
+    },
+    {
+        "id": 8,
+        "correo": "sofia.diaz@email.com",
+        "clave": "clave8",
+        "id_usuario": 8,
+        "rol": "usuario"
+    }
+]

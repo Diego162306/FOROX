@@ -96,6 +96,36 @@
         }
       }
     },
+    "/ArchivoAdjuntoService/lisAll" : {
+      "post" : {
+        "tags" : [
+          "ArchivoAdjuntoService"
+        ],
+        "operationId" : "ArchivoAdjuntoService_lisAll_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/ArchivoAdjuntoService/lisAllArchivoAdjunto" : {
       "post" : {
         "tags" : [
@@ -117,36 +147,6 @@
                         "$ref" : "#/components/schemas/fori.ing.com.base.models.ArchivoAdjunto"
                       }
                     ]
-                  },
-                  "x-java-type" : "java.util.List"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/ArchivoAdjuntoService/listAllArchivoAdjunto" : {
-      "post" : {
-        "tags" : [
-          "ArchivoAdjuntoService"
-        ],
-        "operationId" : "ArchivoAdjuntoService_listAllArchivoAdjunto_POST",
-        "responses" : {
-          "200" : {
-            "description" : "",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "array",
-                  "nullable" : true,
-                  "items" : {
-                    "type" : "object",
-                    "additionalProperties" : {
-                      "type" : "object"
-                    },
-                    "nullable" : true,
-                    "x-java-type" : "java.util.HashMap"
                   },
                   "x-java-type" : "java.util.List"
                 }
@@ -219,6 +219,115 @@
           "ArchivoAdjuntoService"
         ],
         "operationId" : "ArchivoAdjuntoService_listaRespuesta_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ArchivoAdjuntoService/order" : {
+      "post" : {
+        "tags" : [
+          "ArchivoAdjuntoService"
+        ],
+        "operationId" : "ArchivoAdjuntoService_order_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "attribute" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "type" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ArchivoAdjuntoService/search" : {
+      "post" : {
+        "tags" : [
+          "ArchivoAdjuntoService"
+        ],
+        "operationId" : "ArchivoAdjuntoService_search_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "attribute" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "text" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "type" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses" : {
           "200" : {
             "description" : "",

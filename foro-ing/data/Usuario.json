@@ -1,1 +1,58 @@
-[{"id":1,"nombre":"cwe","apellido":"3rf","telefono":"cwr","dni":"wr"},{"id":2,"nombre":"nmn","apellido":"dfgh","telefono":"56789","dni":"e b"},{"id":3,"nombre":"verve","apellido":"cwr","telefono":"we23","dni":"23"},{"id":4,"nombre":"n m","apellido":"hv hv","telefono":"ygvu","dni":"uvu"},{"id":5,"nombre":"Juan j","apellido":"Pérez","telefono":"123456789","dni":"123456789"},{"id":6,"nombre":"ER","apellido":"F3","telefono":"42","dni":"222"},{"id":7,"nombre":"Juan . j","apellido":"Pérez","telefono":"123476789","dni":"123456789"}]
+[
+    {
+        "id": 1,
+        "nombre": "Juan",
+        "apellido": "Perez",
+        "telefono": "123456789",
+        "dni": "123456789"
+    },
+    {
+        "id": 2,
+        "nombre": "Ana",
+        "apellido": "Gomez",
+        "telefono": "987654321",
+        "dni": "987654321"
+    },
+    {
+        "id": 3,
+        "nombre": "Luis",
+        "apellido": "Martinez",
+        "telefono": "555123456",
+        "dni": "555123456"
+    },
+    {
+        "id": 4,
+        "nombre": "Maria",
+        "apellido": "Lopez",
+        "telefono": "444555666",
+        "dni": "444555666"
+    },
+    {
+        "id": 5,
+        "nombre": "Carlos",
+        "apellido": "Sanchez",
+        "telefono": "333222111",
+        "dni": "333222111"
+    },
+    {
+        "id": 6,
+        "nombre": "Lucia",
+        "apellido": "Ramirez",
+        "telefono": "222333444",
+        "dni": "222333444"
+    },
+    {
+        "id": 7,
+        "nombre": "Pedro",
+        "apellido": "Fernandez",
+        "telefono": "111222333",
+        "dni": "111222333"
+    },
+    {
+        "id": 8,
+        "nombre": "Sofia",
+        "apellido": "Diaz",
+        "telefono": "999888777",
+        "dni": "999888777"
+    }
+]

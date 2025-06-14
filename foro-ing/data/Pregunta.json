@@ -1,1 +1,66 @@
-[{"id":1,"contenido":"2exr","idArchivoadjunto":1,"fecha":"May 28, 2025, 07:56:22 AM","idUsuario":1,"idCategoria":2},{"id":2,"contenido":"vgv hvh","idArchivoadjunto":1,"fecha":"May 28, 2025, 07:56:33 AM","idUsuario":1,"idCategoria":2}]
+[
+    {
+        "id": 1,
+        "contenido": "¿Qué es Java?",
+        "idArchivoadjunto": 1,
+        "fecha": "May 28, 2025, 07:56:22 AM",
+        "idUsuario": 1,
+        "idCategoria": 1
+    },
+    {
+        "id": 2,
+        "contenido": "¿Cómo funciona una LinkedList?",
+        "idArchivoadjunto": 2,
+        "fecha": "May 28, 2025, 07:57:00 AM",
+        "idUsuario": 2,
+        "idCategoria": 2
+    },
+    {
+        "id": 3,
+        "contenido": "¿Qué es un archivo adjunto?",
+        "idArchivoadjunto": 3,
+        "fecha": "May 28, 2025, 07:58:00 AM",
+        "idUsuario": 3,
+        "idCategoria": 1
+    },
+    {
+        "id": 4,
+        "contenido": "¿Cómo se usa Gson en Java?",
+        "idArchivoadjunto": 4,
+        "fecha": "May 28, 2025, 07:59:00 AM",
+        "idUsuario": 4,
+        "idCategoria": 2
+    },
+    {
+        "id": 5,
+        "contenido": "¿Qué es una excepción en Java?",
+        "idArchivoadjunto": 5,
+        "fecha": "May 28, 2025, 08:00:00 AM",
+        "idUsuario": 5,
+        "idCategoria": 1
+    },
+    {
+        "id": 6,
+        "contenido": "¿Cómo crear un archivo JSON?",
+        "idArchivoadjunto": 6,
+        "fecha": "May 28, 2025, 08:01:00 AM",
+        "idUsuario": 6,
+        "idCategoria": 2
+    },
+    {
+        "id": 7,
+        "contenido": "¿Qué es una API REST?",
+        "idArchivoadjunto": 7,
+        "fecha": "May 28, 2025, 08:02:00 AM",
+        "idUsuario": 7,
+        "idCategoria": 1
+    },
+    {
+        "id": 8,
+        "contenido": "¿Cómo funciona Spring Boot?",
+        "idArchivoadjunto": 8,
+        "fecha": "May 28, 2025, 08:03:00 AM",
+        "idUsuario": 8,
+        "idCategoria": 2
+    }
+]

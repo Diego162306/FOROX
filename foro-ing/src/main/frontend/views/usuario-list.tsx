@@ -297,7 +297,7 @@ export default function UsuarioListView() {
       setItems(data);
     });
   }, []);
-  const reloadUsuarioRespuestas = () => {
+  const reloadUsuario = () => {
     UsuarioService.listAllUsuario().then((data) => setItems(data));
   };
   const order = (event, columnId) => {
@@ -367,7 +367,7 @@ export default function UsuarioListView() {
     <main className="w-full h-full flex flex-col box-border gap-s p-m">
       <ViewToolbar title="Usuarios">
         <Group>
-          <UsuarioEntryForm onUsuarioCreated={reloadUsuarioRespuestas} />
+          <UsuarioEntryForm onUsuarioCreated={reloadUsuario} />
         </Group>
         <HorizontalLayout theme="spacing">
           <Select items={itemSelect}
