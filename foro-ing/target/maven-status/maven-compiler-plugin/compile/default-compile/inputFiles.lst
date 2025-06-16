@@ -5,6 +5,7 @@
 /home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/DataStruc/queque/Queue.java
 /home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/DataStruc/stack/Stack.java
 /home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/DataStruc/stack/StackImpementation.java
+/home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/Utiles.java
 /home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/dao/AdapterDao.java
 /home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/dao/InterfaceDao.java
 /home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/dao/dao_models/DaoArchivoAdjunto.java
@@ -24,7 +25,6 @@
 /home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/services/RespuestaService.java
 /home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/services/UsuarioRespuestaService.java
 /home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/services/UsuarioService.java
-/home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/services/Utiles.java
 /home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/java/fori/ing/com/base/domain/AbstractEntity.java
 /home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/java/fori/ing/com/base/domain/package-info.java
 /home/carlos/Documentos/PROYECTO/FOROX/foro-ing/src/main/java/fori/ing/com/base/models/ArchivoAdjunto.java

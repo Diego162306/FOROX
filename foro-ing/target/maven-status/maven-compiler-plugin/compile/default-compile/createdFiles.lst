@@ -1,6 +1,7 @@
 fori/ing/com/taskmanagement/service/TaskService.class
 fori/ing/com/Application.class
 fori/ing/com/base/domain/AbstractEntity.class
+fori/ing/com/base/controlller/services/Utiles.class
 fori/ing/com/taskmanagement/domain/Task.class
 fori/ing/com/taskmanagement/domain/package-info.class
 fori/ing/com/taskmanagement/domain/TaskRepository.class
