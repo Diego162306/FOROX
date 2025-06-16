@@ -16,6 +16,7 @@ fori/ing/com/base/models/UsuarioRespuesta.ts
 fori/ing/com/base/models/Usuario.ts
 com/vaadin/hilla/mappedtypes/Pageable.ts
 fori/ing/com/taskmanagement/domain/Task.ts
+fori/ing/com/base/models/TipoArchivo.ts
 com/vaadin/hilla/mappedtypes/Sort.ts
 fori/ing/com/base/domain/AbstractEntity.ts
 com/vaadin/hilla/mappedtypes/Order.ts
@@ -33,6 +34,7 @@ fori/ing/com/base/models/UsuarioRespuestaModel.ts
 fori/ing/com/base/models/UsuarioModel.ts
 com/vaadin/hilla/mappedtypes/PageableModel.ts
 fori/ing/com/taskmanagement/domain/TaskModel.ts
+fori/ing/com/base/models/TipoArchivoModel.ts
 com/vaadin/hilla/mappedtypes/SortModel.ts
 fori/ing/com/base/domain/AbstractEntityModel.ts
 com/vaadin/hilla/mappedtypes/OrderModel.ts

@@ -6,6 +6,10 @@ import * as Page_2 from "../views/Categoria-list.js";
 import * as Page_3 from "../views/cuenta-list.js";
 import * as Page_4 from "../views/pregunta-list.js";
 import * as Page_5 from "../views/task-list.js";
+import * as Page_2 from "../views/archivoAdjunto-list.js";
+import * as Page_3 from "../views/task-list.js";
+import * as Page_4 from "../views/usuario-list.js";
+import * as Page_5 from "../views/usuarioRespuesta-list.js";
 const routes: readonly AgnosticRoute_1[] = [
     createRoute_1("", Layout_1, [
         createRoute_1("", Page_1),
@@ -13,6 +17,10 @@ const routes: readonly AgnosticRoute_1[] = [
         createRoute_1("cuenta-list", Page_3),
         createRoute_1("pregunta-list", Page_4),
         createRoute_1("task-list", Page_5)
+        createRoute_1("archivoAdjunto-list", Page_2),
+        createRoute_1("task-list", Page_3),
+        createRoute_1("usuario-list", Page_4),
+        createRoute_1("usuarioRespuesta-list", Page_5)
     ])
 ];
 export default routes;

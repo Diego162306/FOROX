@@ -62,7 +62,7 @@ public class DaoRespuesta extends AdapterDao<Respuesta> {
     public static void main(String[] args) {
         DaoRespuesta dp = new DaoRespuesta();
         dp.getObj().setId(dp.listAll().getLength() + 1);
-        dp.getObj().setContenido( "Wagner gey");
+        dp.getObj().setContenido( "Wagner gey   UWU");
         dp.getObj().setIdtipoArchivo(2);
         dp.getObj().setFecha(new Date());
         dp.getObj().setIdUsuario(1);
