@@ -6,7 +6,7 @@ public class Cuenta {
     private String correo;
     private String clave;
     private Integer id_usuario;
-    private String rol;
+ 
 
     
     public Integer getId() {
@@ -40,11 +40,6 @@ public class Cuenta {
     public void setId_usuario(Integer id_usuario) {
         this.id_usuario = id_usuario;
     }
-    public String getRol() {
-        return this.rol;
-    }
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
+   
     
 }

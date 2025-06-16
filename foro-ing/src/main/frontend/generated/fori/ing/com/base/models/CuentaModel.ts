@@ -14,8 +14,5 @@ class CuentaModel<T extends Cuenta_1 = Cuenta_1> extends ObjectModel_1<T> {
     get id_usuario(): NumberModel_1 {
         return this[_getPropertyModel_1]("id_usuario", (parent, key) => new NumberModel_1(parent, key, true, { meta: { javaType: "java.lang.Integer" } }));
     }
-    get rol(): StringModel_1 {
-        return this[_getPropertyModel_1]("rol", (parent, key) => new StringModel_1(parent, key, true, { meta: { javaType: "java.lang.String" } }));
-    }
 }
 export default CuentaModel;

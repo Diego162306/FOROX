@@ -407,11 +407,6 @@
                     "format" : "int32",
                     "nullable" : true,
                     "x-java-type" : "java.lang.Integer"
-                  },
-                  "rol" : {
-                    "type" : "string",
-                    "nullable" : true,
-                    "x-java-type" : "java.lang.String"
                   }
                 }
               }
@@ -455,6 +450,66 @@
         }
       }
     },
+    "/CuentaService/listAll" : {
+      "post" : {
+        "tags" : [
+          "CuentaService"
+        ],
+        "operationId" : "CuentaService_listAll_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CuentaService/listaUsuarioCombo" : {
+      "post" : {
+        "tags" : [
+          "CuentaService"
+        ],
+        "operationId" : "CuentaService_listaUsuarioCombo_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/CuentaService/updateCuenta" : {
       "post" : {
         "tags" : [
@@ -488,11 +543,6 @@
                     "format" : "int32",
                     "nullable" : true,
                     "x-java-type" : "java.lang.Integer"
-                  },
-                  "rol" : {
-                    "type" : "string",
-                    "nullable" : true,
-                    "x-java-type" : "java.lang.String"
                   }
                 }
               }
@@ -1390,11 +1440,6 @@
             "format" : "int32",
             "nullable" : true,
             "x-java-type" : "java.lang.Integer"
-          },
-          "rol" : {
-            "type" : "string",
-            "nullable" : true,
-            "x-java-type" : "java.lang.String"
           }
         }
       },
