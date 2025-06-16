@@ -4,7 +4,7 @@ package fori.ing.com.base.controlller.services;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.LinkedList;
+
 import java.util.List;
 
 
@@ -29,11 +29,11 @@ public class CuentaService {
     public CuentaService() {
         db = new DaoCuenta();
     }
-    public void createCuenta(@Email @NotEmpty @NotBlank String correo, @NotEmpty String clave, Integer idUsuario, String rol) throws Exception {
-        if (correo.trim().length() > 0 && clave.trim().length() > 0 && idUsuario > 0 && rol.trim().length() > 0) {
+    public void createCuenta(@Email @NotEmpty @NotBlank String correo, @NotEmpty String clave, Integer idUsuario) throws Exception {
+        if (correo.trim().length() > 0 && clave.trim().length() > 0 && idUsuario > 0 ) {
             db.getObj().setCorreo(correo);
             db.getObj().setId_usuario(idUsuario);
-            db.getObj().setRol(rol);
+          
             db.getObj().setClave(clave);
           
             
@@ -44,13 +44,13 @@ public class CuentaService {
         }
     }
                 
-    public void updateCuenta(Integer id,@NotEmpty String clave, Integer idUsuario, String rol) throws Exception {
-        if (id != null && id > 0 && clave.trim().length() > 0 && idUsuario > 0 && rol.trim().length() > 0) {
+    public void updateCuenta(Integer id,@NotEmpty String clave, Integer idUsuario) throws Exception {
+        if (id != null && id > 0 && clave.trim().length() > 0 && idUsuario > 0 ) {
             db.setObj(db.listAll().get(id-1));
     
             db.getObj().setClave(clave);
             db.getObj().setId_usuario(idUsuario);
-            db.getObj().setRol(rol);
+           
 
             
 
@@ -70,7 +70,7 @@ public class CuentaService {
                 aux.put("id", arreglo[i].getId().toString());
                 aux.put("correo", arreglo[i].getCorreo());
                 aux.put("clave", arreglo[i].getClave());
-                aux.put("rol", arreglo[i].getRol());
+               
                 aux.put("id_usuario", dbUsuario.listAll().get(arreglo[i].getId_usuario()-1).getNombre());
                 list.add(aux);
         

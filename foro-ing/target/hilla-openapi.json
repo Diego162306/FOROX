@@ -407,11 +407,6 @@
                     "format" : "int32",
                     "nullable" : true,
                     "x-java-type" : "java.lang.Integer"
-                  },
-                  "rol" : {
-                    "type" : "string",
-                    "nullable" : true,
-                    "x-java-type" : "java.lang.String"
                   }
                 }
               }
@@ -548,11 +543,6 @@
                     "format" : "int32",
                     "nullable" : true,
                     "x-java-type" : "java.lang.Integer"
-                  },
-                  "rol" : {
-                    "type" : "string",
-                    "nullable" : true,
-                    "x-java-type" : "java.lang.String"
                   }
                 }
               }
@@ -1290,11 +1280,6 @@
             "format" : "int32",
             "nullable" : true,
             "x-java-type" : "java.lang.Integer"
-          },
-          "rol" : {
-            "type" : "string",
-            "nullable" : true,
-            "x-java-type" : "java.lang.String"
           }
         }
       },

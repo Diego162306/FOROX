@@ -5,6 +5,7 @@
 /home/wfb23/Escritorio/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/DataStruc/queque/Queue.java
 /home/wfb23/Escritorio/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/DataStruc/stack/Stack.java
 /home/wfb23/Escritorio/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/DataStruc/stack/StackImpementation.java
+/home/wfb23/Escritorio/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/SecurityConfig.java
 /home/wfb23/Escritorio/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/dao/AdapterDao.java
 /home/wfb23/Escritorio/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/dao/InterfaceDao.java
 /home/wfb23/Escritorio/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/dao/dao_models/DaoArchivoAdjunto.java
@@ -24,6 +25,7 @@
 /home/wfb23/Escritorio/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/services/RespuestaService.java
 /home/wfb23/Escritorio/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/services/UsuarioRespuestaService.java
 /home/wfb23/Escritorio/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/services/UsuarioService.java
+/home/wfb23/Escritorio/FOROX/foro-ing/src/main/java/fori/ing/com/base/controlller/services/Utiles.java
 /home/wfb23/Escritorio/FOROX/foro-ing/src/main/java/fori/ing/com/base/domain/AbstractEntity.java
 /home/wfb23/Escritorio/FOROX/foro-ing/src/main/java/fori/ing/com/base/domain/package-info.java
 /home/wfb23/Escritorio/FOROX/foro-ing/src/main/java/fori/ing/com/base/models/ArchivoAdjunto.java

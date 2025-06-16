@@ -61,7 +61,7 @@ public class DaoCuenta extends AdapterDao<Cuenta> {
         map.put("correo", c.getCorreo());
         map.put("id", c.getId());
         map.put("usuario", dp.getObj().getNombre());
-        map.put("rol", c.getRol());
+        
         return map;
     }
 
@@ -76,7 +76,7 @@ public class DaoCuenta extends AdapterDao<Cuenta> {
      
         map.put("usuario", dp.getObj().getNombre());
       
-        map.put("rol", c.getRol());
+        
         return map;
     }
 
@@ -190,7 +190,7 @@ public class DaoCuenta extends AdapterDao<Cuenta> {
         dp.getObj().setCorreo("correo");
         dp.getObj().setClave("clave");
         dp.getObj().setId_usuario(1);
-        dp.getObj().setRol("rol");
+        
         
         if (dp.save()) {
             System.out.println("Guardado");

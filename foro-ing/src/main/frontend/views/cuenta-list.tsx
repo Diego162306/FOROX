@@ -54,9 +54,9 @@ function CuentaEntryForm(props: CuentaEntryFormProps) {
 
   const createCuenta = async () => {
     try {
-      if (correo.value.trim().length > 0 && clave.value.trim().length > 0 && id_usuario.value.trim().length > 0 && rol.value.trim().length > 0) {
+      if (correo.value.trim().length > 0 && clave.value.trim().length > 0 && id_usuario.value.trim().length > 0 ) {
         const id_usuariovalue = parseInt(id_usuario.value) + 1;
-        await CuentaService.createCuenta(correo.value, clave.value, id_usuariovalue, rol.value);
+        await CuentaService.createCuenta(correo.value, clave.value, id_usuariovalue);
 
 
 
@@ -66,7 +66,7 @@ function CuentaEntryForm(props: CuentaEntryFormProps) {
         correo.value = '';
         clave.value = '';
         id_usuario.value = '';
-        rol.value = '';
+        
         dialogOpened.value = false;
         Notification.show('Cuenta creada exitosamente', { duration: 5000, position: 'bottom-end', theme: 'success' });
       } else {
@@ -142,18 +142,7 @@ function CuentaEntryForm(props: CuentaEntryFormProps) {
               invalid={clave.value.length > 0 && clave.value.length < 6}
             />
 
-            <ComboBox
-              label="Rol"
-              placeholder="Seleccione el rol de la Cuenta"
-              items={[
-                { label: 'Administrador', value: 'ADMIN' },
-                { label: 'Usuario', value: 'USER' }
-              ]}
-              itemLabelPath="label"
-              itemValuePath="value"
-              value={rol.value}
-              onValueChanged={(e) => (rol.value = e.detail.value)}
-            />
+           
             <ComboBox
               label="Usuarios"
               items={usuarios}
@@ -190,22 +179,22 @@ function CuentaEntryFormUpdate(props: CuentaEntryFormUpdateProps) {
   const clave = useSignal(props.arguments.clave);
   const ident = useSignal(props.arguments.id);
   const id_usuario = useSignal(props.arguments.id_usuario);
-  const rol = useSignal(props.arguments.rol);
+  
 
 
 
   const updateCuenta = async () => {
     try {
-      if (clave.value.trim().length > 0 && rol.value.trim().length > 0) {
+      if (clave.value.trim().length > 0 ) {
         const idUsuariovalue = parseInt(id_usuario.value) + 1;
 
-        await CuentaService.updateCuenta(parseInt(ident.value), clave.value, idUsuariovalue, rol.value);
+        await CuentaService.updateCuenta(parseInt(ident.value), clave.value, idUsuariovalue);
         if (props.onCuentaUpdate) {
           props.onCuentaUpdate();
         }
         clave.value = '';
         id_usuario.value = '';
-        rol.value = '';
+       
         dialogOpened.value = false;
 
         Notification.show('Cuenta actualizada exitosamente', { duration: 5000, position: 'bottom-end', theme: 'success' });
@@ -273,18 +262,7 @@ function CuentaEntryFormUpdate(props: CuentaEntryFormUpdateProps) {
               invalid={clave.value.length > 0 && clave.value.length < 6}
             />
 
-            <ComboBox
-              label="Rol"
-              placeholder="Seleccione el rol de la Cuenta"
-              items={[
-                { label: 'Administrador', value: 'ADMIN' },
-                { label: 'Usuario', value: 'USER' }
-              ]}
-              itemLabelPath="label"
-              itemValuePath="value"
-              value={rol.value}
-              onValueChanged={(e) => (rol.value = e.detail.value)}
-            />
+           
             <ComboBox
               label="Usuarios"
               items={usuarios}
@@ -349,7 +327,7 @@ export default function CuentaLisView() {
         />
 
         <GridColumn path="id_usuario" header=" Usuario" />
-        <GridColumn path="rol" header="Rol" />
+        
 
 
         <GridColumn header="Acciones" renderer={link} />
