@@ -466,31 +466,12 @@
         }
       }
     },
-    "/CategoriaService/list" : {
+    "/CategoriaService/listAll" : {
       "post" : {
         "tags" : [
           "CategoriaService"
         ],
-        "operationId" : "CategoriaService_list_POST",
-        "requestBody" : {
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "type" : "object",
-                "properties" : {
-                  "pageable" : {
-                    "nullable" : true,
-                    "anyOf" : [
-                      {
-                        "$ref" : "#/components/schemas/com.vaadin.hilla.mappedtypes.Pageable"
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
+        "operationId" : "CategoriaService_listAll_POST",
         "responses" : {
           "200" : {
             "description" : "",
@@ -515,12 +496,12 @@
         }
       }
     },
-    "/CategoriaService/listAll" : {
+    "/CategoriaService/listAllCategoria" : {
       "post" : {
         "tags" : [
           "CategoriaService"
         ],
-        "operationId" : "CategoriaService_listAll_POST",
+        "operationId" : "CategoriaService_listAllCategoria_POST",
         "responses" : {
           "200" : {
             "description" : "",
@@ -536,6 +517,117 @@
                         "$ref" : "#/components/schemas/fori.ing.com.base.models.Categoria"
                       }
                     ]
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CategoriaService/order" : {
+      "post" : {
+        "tags" : [
+          "CategoriaService"
+        ],
+        "operationId" : "CategoriaService_order_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "atributo" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "type" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "string",
+                      "nullable" : true,
+                      "x-java-type" : "java.lang.String"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CategoriaService/search" : {
+      "post" : {
+        "tags" : [
+          "CategoriaService"
+        ],
+        "operationId" : "CategoriaService_search_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "attribute" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "text" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "type" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
                   },
                   "x-java-type" : "java.util.List"
                 }
@@ -568,25 +660,17 @@
                     "nullable" : true,
                     "x-validation-constraints" : [
                       {
-                        "simpleName" : "NotEmpty"
-                      },
-                      {
                         "simpleName" : "NotBlank"
                       },
                       {
-                        "simpleName" : "NotNull"
+                        "simpleName" : "NotEmpty"
                       }
                     ],
                     "x-java-type" : "java.lang.String"
                   },
-                  "descripcion" : {
+                  "decripcion" : {
                     "type" : "string",
                     "nullable" : true,
-                    "x-validation-constraints" : [
-                      {
-                        "simpleName" : "NotEmpty"
-                      }
-                    ],
                     "x-java-type" : "java.lang.String"
                   }
                 }
@@ -644,11 +728,6 @@
                     "format" : "int32",
                     "nullable" : true,
                     "x-java-type" : "java.lang.Integer"
-                  },
-                  "rol" : {
-                    "type" : "string",
-                    "nullable" : true,
-                    "x-java-type" : "java.lang.String"
                   }
                 }
               }
@@ -692,6 +771,66 @@
         }
       }
     },
+    "/CuentaService/listAll" : {
+      "post" : {
+        "tags" : [
+          "CuentaService"
+        ],
+        "operationId" : "CuentaService_listAll_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CuentaService/listaUsuarioCombo" : {
+      "post" : {
+        "tags" : [
+          "CuentaService"
+        ],
+        "operationId" : "CuentaService_listaUsuarioCombo_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/CuentaService/updateCuenta" : {
       "post" : {
         "tags" : [
@@ -725,11 +864,6 @@
                     "format" : "int32",
                     "nullable" : true,
                     "x-java-type" : "java.lang.Integer"
-                  },
-                  "rol" : {
-                    "type" : "string",
-                    "nullable" : true,
-                    "x-java-type" : "java.lang.String"
                   }
                 }
               }
@@ -2085,122 +2219,6 @@
           }
         }
       },
-      "com.vaadin.hilla.mappedtypes.Pageable" : {
-        "type" : "object",
-        "properties" : {
-          "pageNumber" : {
-            "type" : "integer",
-            "format" : "int32",
-            "x-java-type" : "int"
-          },
-          "pageSize" : {
-            "type" : "integer",
-            "format" : "int32",
-            "x-java-type" : "int"
-          },
-          "sort" : {
-            "anyOf" : [
-              {
-                "$ref" : "#/components/schemas/com.vaadin.hilla.mappedtypes.Sort"
-              }
-            ]
-          }
-        }
-      },
-      "fori.ing.com.base.models.Categoria" : {
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "type" : "integer",
-            "format" : "int32",
-            "nullable" : true,
-            "x-java-type" : "java.lang.Integer"
-          },
-          "nombre" : {
-            "type" : "string",
-            "nullable" : true,
-            "x-java-type" : "java.lang.String"
-          },
-          "descripcion" : {
-            "type" : "string",
-            "nullable" : true,
-            "x-java-type" : "java.lang.String"
-          }
-        }
-      },
-      "fori.ing.com.base.models.Cuenta" : {
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "type" : "integer",
-            "format" : "int32",
-            "nullable" : true,
-            "x-java-type" : "java.lang.Integer"
-          },
-          "correo" : {
-            "type" : "string",
-            "nullable" : true,
-            "x-java-type" : "java.lang.String"
-          },
-          "clave" : {
-            "type" : "string",
-            "nullable" : true,
-            "x-java-type" : "java.lang.String"
-          },
-          "id_usuario" : {
-            "type" : "integer",
-            "format" : "int32",
-            "nullable" : true,
-            "x-java-type" : "java.lang.Integer"
-          },
-          "rol" : {
-            "type" : "string",
-            "nullable" : true,
-            "x-java-type" : "java.lang.String"
-          }
-        }
-      },
-      "fori.ing.com.base.models.Pregunta" : {
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "type" : "integer",
-            "format" : "int32",
-            "nullable" : true,
-            "x-java-type" : "java.lang.Integer"
-          },
-          "nombre" : {
-            "type" : "string",
-            "nullable" : true,
-            "x-java-type" : "java.lang.String"
-          },
-          "url" : {
-            "type" : "string",
-            "nullable" : true,
-            "x-java-type" : "java.lang.String"
-          },
-          "tipoArchivo" : {
-            "nullable" : true,
-            "anyOf" : [
-              {
-                "$ref" : "#/components/schemas/fori.ing.com.base.models.TipoArchivo"
-              }
-            ]
-          },
-          "idRespuesta" : {
-            "type" : "integer",
-            "format" : "int32",
-            "nullable" : true,
-            "x-java-type" : "java.lang.Integer"
-          },
-          "idPregunta" : {
-            "type" : "integer",
-            "format" : "int32",
-            "nullable" : true,
-            "x-java-type" : "java.lang.Integer"
-          }
-        }
-      },
       "fori.ing.com.base.models.Categoria" : {
         "type" : "object",
         "properties" : {
@@ -2248,6 +2266,15 @@
             "x-java-type" : "java.lang.Integer"
           }
         }
+      },
+      "fori.ing.com.base.models.TipoArchivo" : {
+        "type" : "string",
+        "enum" : [
+          "IMAGEN",
+          "DOCUMENTO",
+          "AUDIO",
+          "VIDEO"
+        ]
       },
       "fori.ing.com.base.models.Pregunta" : {
         "type" : "object",
@@ -2396,6 +2423,28 @@
           }
         }
       },
+      "com.vaadin.hilla.mappedtypes.Pageable" : {
+        "type" : "object",
+        "properties" : {
+          "pageNumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "x-java-type" : "int"
+          },
+          "pageSize" : {
+            "type" : "integer",
+            "format" : "int32",
+            "x-java-type" : "int"
+          },
+          "sort" : {
+            "anyOf" : [
+              {
+                "$ref" : "#/components/schemas/com.vaadin.hilla.mappedtypes.Sort"
+              }
+            ]
+          }
+        }
+      },
       "fori.ing.com.taskmanagement.domain.Task" : {
         "anyOf" : [
           {
@@ -2450,15 +2499,6 @@
             }
           ]
         }
-      },
-      "fori.ing.com.base.models.TipoArchivo" : {
-        "type" : "string",
-        "enum" : [
-          "IMAGEN",
-          "DOCUMENTO",
-          "AUDIO",
-          "VIDEO"
-        ]
       },
       "com.vaadin.hilla.mappedtypes.Sort" : {
         "type" : "object",

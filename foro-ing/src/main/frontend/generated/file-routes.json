@@ -15,6 +15,17 @@
         "title": "Main"
       },
       {
+        "route": "archivoAdjunto-list",
+        "title": "Archivos Adjuntos",
+        "menu": {
+          "icon": "vaadin:clipboard-check",
+          "order": 1,
+          "title": "ARCHIVOS ADJUNTOS"
+        },
+        "flowLayout": false,
+        "params": {}
+      },
+      {
         "route": "Categoria-list",
         "title": "Categoria",
         "menu": {
@@ -43,17 +54,6 @@
           "icon": "vaadin:clipboard-check",
           "order": 2,
           "title": "Pregunta"
-        },
-        "flowLayout": false,
-        "params": {}
-      },
-      {
-        "route": "archivoAdjunto-list",
-        "title": "Archivos Adjuntos",
-        "menu": {
-          "icon": "vaadin:clipboard-check",
-          "order": 1,
-          "title": "ARCHIVOS ADJUNTOS"
         },
         "flowLayout": false,
         "params": {}
