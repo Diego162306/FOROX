@@ -1,19 +1,11 @@
 [
   {
     "route": "",
+    "loginRequired": true,
     "flowLayout": false,
     "params": {},
     "title": "Main Layout",
     "children": [
-      {
-        "route": "",
-        "menu": {
-          "exclude": true
-        },
-        "flowLayout": false,
-        "params": {},
-        "title": "Main"
-      },
       {
         "route": "archivoAdjunto-list",
         "title": "Archivos Adjuntos",
@@ -46,6 +38,16 @@
         },
         "flowLayout": false,
         "params": {}
+      },
+      {
+        "route": "login",
+        "skipLayouts": true,
+        "menu": {
+          "exclude": true
+        },
+        "flowLayout": false,
+        "params": {},
+        "title": "Login"
       },
       {
         "route": "pregunta-list",

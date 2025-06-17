@@ -7,6 +7,8 @@ public class Usuario {
     private String apellido;
     private String telefono;
     private String dni;
+     private Integer idRol;
+
 
     public Integer getId() {
         return this.id;
@@ -46,6 +48,12 @@ public class Usuario {
 
     public void setDni(String dni) {
         this.dni = dni;
+    }
+    public Integer getIdRol() {
+        return this.idRol;
+    }
+    public void setIdRol(Integer idRol) {
+        this.idRol = idRol;
     }
 
   

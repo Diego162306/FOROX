@@ -6,7 +6,15 @@ public class Cuenta {
     private String correo;
     private String clave;
     private Integer id_usuario;
- 
+    private Boolean estado;
+
+    public Boolean getEstado() {
+        return this.estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
+    }
 
     
     public Integer getId() {
@@ -40,6 +48,6 @@ public class Cuenta {
     public void setId_usuario(Integer id_usuario) {
         this.id_usuario = id_usuario;
     }
-   
+ 
     
 }

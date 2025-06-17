@@ -1,17 +1,36 @@
 [
     {
         "id": 1,
+        "nombre": "Wagner",
+        "apellido": "Balcazar",
+        "telefono": "123456789",
+        "dni": "123456789",
+        "id_rol": 1
+    },
+    {
+        "id": 2,
         "nombre": "Juan",
         "apellido": "Pérez",
         "telefono": "123456789",
-        "dni": "123456789"
-    },
-
+        "dni": "123456789",
+        "id_rol": 2
+    }
+    ,
     {
-        "id": 1,
-        "nombre": "Wagner",
-        "apellido": "Pérez",
-        "telefono": "123456789",
-        "dni": "123456789"
+        "id": 3,
+        "nombre": "Roberto",
+        "apellido": "Gómez",
+        "telefono": "987654321",
+        "dni": "987654321",
+        "id_rol": 1
+    }
+    ,
+    {
+        "id": 4,
+        "nombre": "Carlos",
+        "apellido": "López",
+        "telefono": "456789123",
+        "dni": "456789123",
+        "id_rol": 2
     }
 ]

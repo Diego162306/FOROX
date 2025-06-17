@@ -49,14 +49,15 @@ function CuentaEntryForm(props: CuentaEntryFormProps) {
   const correo = useSignal('');
   const clave = useSignal('');
   const id_usuario = useSignal('');
-  const rol = useSignal('');
+  const estado = useSignal('');
+
 
 
   const createCuenta = async () => {
     try {
-      if (correo.value.trim().length > 0 && clave.value.trim().length > 0 && id_usuario.value.trim().length > 0 ) {
+      if (correo.value.trim().length > 0 && clave.value.trim().length > 0 && id_usuario.value.trim().length > 0 && estado.value.trim().length > 0) {
         const id_usuariovalue = parseInt(id_usuario.value) + 1;
-        await CuentaService.createCuenta(correo.value, clave.value, id_usuariovalue);
+        await CuentaService.createCuenta(correo.value, clave.value, id_usuariovalue, estado.value === 'true');
 
 
 
@@ -66,7 +67,8 @@ function CuentaEntryForm(props: CuentaEntryFormProps) {
         correo.value = '';
         clave.value = '';
         id_usuario.value = '';
-        
+        estado.value = '';
+
         dialogOpened.value = false;
         Notification.show('Cuenta creada exitosamente', { duration: 5000, position: 'bottom-end', theme: 'success' });
       } else {
@@ -142,7 +144,7 @@ function CuentaEntryForm(props: CuentaEntryFormProps) {
               invalid={clave.value.length > 0 && clave.value.length < 6}
             />
 
-           
+
             <ComboBox
               label="Usuarios"
               items={usuarios}
@@ -150,6 +152,19 @@ function CuentaEntryForm(props: CuentaEntryFormProps) {
               onValueChanged={(e) => (id_usuario.value = e.detail.value)}
               placeholder="Seleccione la Persona"
             />
+             <ComboBox
+              label="Estado"
+              placeholder="Seleccione el estado de la Cuenta"
+              items={[
+                { label: 'Activo', value: 'true' },
+                { label: 'Inactivo', value: 'false' }
+              ]}
+              itemLabelPath="label"
+              itemValuePath="value"
+              value={estado.value}
+              onValueChanged={(e) => (estado.value = e.detail.value)}
+            />
+
 
 
 
@@ -168,6 +183,14 @@ function CuentaEntryFormUpdate(props: CuentaEntryFormUpdateProps) {
   const dialogOpened = useSignal(false);
   const [usuarios, setUsuarios] = useState<String[]>([]);
 
+
+   useEffect(() => {
+      CuentaService.listaUsuarioCombo()
+        .then((result) => setUsuarios(result))
+        .catch(console.error);
+    }, []);
+
+
   const open = () => {
     dialogOpened.value = true;
   };
@@ -179,13 +202,13 @@ function CuentaEntryFormUpdate(props: CuentaEntryFormUpdateProps) {
   const clave = useSignal(props.arguments.clave);
   const ident = useSignal(props.arguments.id);
   const id_usuario = useSignal(props.arguments.id_usuario);
-  
+
 
 
 
   const updateCuenta = async () => {
     try {
-      if (clave.value.trim().length > 0 ) {
+      if (clave.value.trim().length > 0) {
         const idUsuariovalue = parseInt(id_usuario.value) + 1;
 
         await CuentaService.updateCuenta(parseInt(ident.value), clave.value, idUsuariovalue);
@@ -194,7 +217,7 @@ function CuentaEntryFormUpdate(props: CuentaEntryFormUpdateProps) {
         }
         clave.value = '';
         id_usuario.value = '';
-       
+
         dialogOpened.value = false;
 
         Notification.show('Cuenta actualizada exitosamente', { duration: 5000, position: 'bottom-end', theme: 'success' });
@@ -206,6 +229,7 @@ function CuentaEntryFormUpdate(props: CuentaEntryFormUpdateProps) {
       handleError(error);
 
     }
+   
 
 
   };
@@ -262,7 +286,7 @@ function CuentaEntryFormUpdate(props: CuentaEntryFormUpdateProps) {
               invalid={clave.value.length > 0 && clave.value.length < 6}
             />
 
-           
+
             <ComboBox
               label="Usuarios"
               items={usuarios}
@@ -327,7 +351,15 @@ export default function CuentaLisView() {
         />
 
         <GridColumn path="id_usuario" header=" Usuario" />
-        
+         <GridColumn
+          header="Estado"
+          renderer={({ item }) => (
+            <span style={{ color: item.estado ? 'blue' : 'red', fontWeight: 'bold' }}>
+              {item.estado ? 'Activo' : 'Inactivo'}
+            </span>
+          )}
+        />
+
 
 
         <GridColumn header="Acciones" renderer={link} />

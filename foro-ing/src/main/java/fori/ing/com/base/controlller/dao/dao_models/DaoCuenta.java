@@ -1,6 +1,7 @@
 package fori.ing.com.base.controlller.dao.dao_models;
 
 import fori.ing.com.base.models.Cuenta;
+import fori.ing.com.base.models.Usuario;
 import fori.ing.com.base.controlller.dao.AdapterDao;
 import fori.ing.com.base.controlller.Utiles;
 
@@ -38,7 +39,7 @@ public class DaoCuenta extends AdapterDao<Cuenta> {
             this.persist(obj);
             return true;
         } catch (Exception e) {
-            
+
             return false;
             // TODO: handle exception
         }
@@ -49,19 +50,27 @@ public class DaoCuenta extends AdapterDao<Cuenta> {
             this.update(obj, pos);
             return true;
         } catch (Exception e) {
-            
+
             return false;
             // TODO: handle exception
         }
     }
-        public HashMap<String, Object> toDict(Cuenta c) throws Exception {
+
+    public HashMap<String, Object> toDict(Cuenta c) throws Exception {
         HashMap<String, Object> map = new HashMap<>();
         DaoUsuario dp = new DaoUsuario();
+        Usuario usuario = dp.get(c.getId_usuario());
+        if (usuario == null) {
+            throw new Exception("No existe la persona con id: " + c.getId_usuario());
+        }
+
         dp.setObj(dp.get(c.getId_usuario()));
         map.put("correo", c.getCorreo());
         map.put("id", c.getId());
         map.put("usuario", dp.getObj().getNombre());
-        
+        //map.put("rol", dp.getObj().getIdRol());
+        map.put("estado", c.getEstado());
+
         return map;
     }
 
@@ -73,10 +82,10 @@ public class DaoCuenta extends AdapterDao<Cuenta> {
         map.put("correo", c.getCorreo());
         map.put("id", c.getId());
         map.put("clave", c.getClave());
-     
+        map.put("estado", c.getEstado());
+
         map.put("usuario", dp.getObj().getNombre());
-      
-        
+
         return map;
     }
 
@@ -133,9 +142,8 @@ public class DaoCuenta extends AdapterDao<Cuenta> {
             quickSort(arr, partitionIndex + 1, end, type, attribute);
         }
     }
-
-
-
+   
+    
     public HashMap<String, Object> login(String correo, String clave) throws Exception {
         if (!listAll().isEmpty()) {
             HashMap<String, Object>[] arreglo = listPrivate().toArray();
@@ -152,16 +160,18 @@ public class DaoCuenta extends AdapterDao<Cuenta> {
         } else
             return null;
     }
+    // 1, 6,
+
     // 1, 6, 9, 12, 14, 16
-    //3, -1
-    //3, 1
+    // 3, -1
+    // 3, 1
     public HashMap<String, Object> BinarySearchRecursive(HashMap<String, Object> arr[], int a, int b, String attribute,
             String value) throws Exception {
         // Base Case to Exit the Recursive Function
-        if (b < 1) {
+        if (b < a) {
             return null;
         }
-        int n = a + (b = 1) / 2;
+        int n = a + (b - a) / 2;
         // If number is found at mean index of start and end
         if (arr[n].get(attribute).toString().equals(value))
             return arr[n];
@@ -180,18 +190,14 @@ public class DaoCuenta extends AdapterDao<Cuenta> {
         return listAll;
     }
 
-
-
-
-    
     public static void main(String[] args) {
         DaoCuenta dp = new DaoCuenta();
         dp.getObj().setId(dp.listAll().getLength() + 1);
-        dp.getObj().setCorreo("correo");
+        dp.getObj().setCorreo("correo@tt.com");
         dp.getObj().setClave("clave");
         dp.getObj().setId_usuario(1);
-        
-        
+        dp.getObj().setEstado(true);
+
         if (dp.save()) {
             System.out.println("Guardado");
         } else {
@@ -199,9 +205,7 @@ public class DaoCuenta extends AdapterDao<Cuenta> {
 
         }
         System.out.println(dp.getListAll().print());
-      
+
     }
 
-   
-    
 }

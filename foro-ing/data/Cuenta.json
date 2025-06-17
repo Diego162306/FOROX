@@ -1,1 +1,31 @@
-[{"id":1,"correo":"correo","clave":"clave","id_usuario":1,"rol":"rol"},{"id":2,"correo":"Wagner@jjj.com","clave":"123456","id_usuario":1,"rol":"USER"},{"id":3,"correo":"hhhh@jjj.com","clave":"222222","id_usuario":2,"rol":"ADMIN"},{"id":4,"correo":"yo@mail.com","clave":"2344444","id_usuario":2,"rol":"ADMIN"}]
+[
+    {
+        "id": 1,
+        "correo": "carlosG@tt.com",
+        "clave": "2222222",
+        "id_usuario": 4,
+        "estado": true
+    },
+    {
+        "id": 2,
+        "correo": "wagnerBalcazar@unl.edu.ec",
+        "clave": "222222",
+        "id_usuario": 1,
+        "estado": true
+    },
+    {
+        "id": 3,
+        "correo": "Roberto@g.com",
+        "clave": "223333",
+        "id_usuario": 3,
+        "estado": true
+    },
+    {
+        "id": 4,
+        "correo": "Juan@lider.com",
+        "clave": "2222222",
+        "id_usuario": 2,
+        "estado": true
+    }
+    
+]

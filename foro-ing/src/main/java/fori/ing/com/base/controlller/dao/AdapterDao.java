@@ -107,12 +107,20 @@ public class AdapterDao <T> implements InterfaceDao<T>{
     }
 
     @Override
+    
+   
     public T get(Integer id) throws Exception {
-       if(!listAll().isEmpty()) {
-            return BinarySearchRecursive(listAll().toArray(), 0, listAll().getLength() - 1, id);
-        } else return null;
+        Linkendlist<T> list = listAll();
+        for (T obj : list.toArray()) {
+            Integer objId = (Integer) clazz.getMethod("getId").invoke(obj);
+            if (objId.equals(id)) {
+                return obj;
+            }
+        }
+        throw new RuntimeException("No se encontró el objeto con id: " + id);
     }
-        public T BinarySearchRecursive(T arr[], int a, int b, Integer id) throws Exception {
+    
+    public T BinarySearchRecursive(T arr[], int a, int b, Integer id) throws Exception {
         // Base Case to Exit the Recursive Function
         if (b < 1) {
             return null;

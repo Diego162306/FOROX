@@ -728,6 +728,10 @@
                     "format" : "int32",
                     "nullable" : true,
                     "x-java-type" : "java.lang.Integer"
+                  },
+                  "estado" : {
+                    "type" : "boolean",
+                    "x-java-type" : "boolean"
                   }
                 }
               }
@@ -737,6 +741,80 @@
         "responses" : {
           "200" : {
             "description" : ""
+          }
+        }
+      }
+    },
+    "/CuentaService/createRoles" : {
+      "post" : {
+        "tags" : [
+          "CuentaService"
+        ],
+        "operationId" : "CuentaService_createRoles_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "additionalProperties" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "nullable" : true,
+                  "x-java-type" : "java.util.HashMap"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CuentaService/getAuthentication" : {
+      "post" : {
+        "tags" : [
+          "CuentaService"
+        ],
+        "operationId" : "CuentaService_getAuthentication_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "nullable" : true,
+                  "anyOf" : [
+                    {
+                      "$ref" : "#/components/schemas/org.springframework.security.core.Authentication"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CuentaService/isLogin" : {
+      "post" : {
+        "tags" : [
+          "CuentaService"
+        ],
+        "operationId" : "CuentaService_isLogin_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "boolean",
+                  "nullable" : true,
+                  "x-java-type" : "java.lang.Boolean"
+                }
+              }
+            }
           }
         }
       }
@@ -824,6 +902,79 @@
                     "x-java-type" : "java.util.HashMap"
                   },
                   "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CuentaService/login" : {
+      "post" : {
+        "tags" : [
+          "CuentaService"
+        ],
+        "operationId" : "CuentaService_login_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "correo" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "Clave" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "additionalProperties" : {
+                    "type" : "object"
+                  },
+                  "nullable" : true,
+                  "x-java-type" : "java.util.HashMap"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CuentaService/logout" : {
+      "post" : {
+        "tags" : [
+          "CuentaService"
+        ],
+        "operationId" : "CuentaService_logout_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "additionalProperties" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "nullable" : true,
+                  "x-java-type" : "java.util.HashMap"
                 }
               }
             }
@@ -2240,6 +2391,40 @@
           }
         }
       },
+      "org.springframework.security.core.Authentication" : {
+        "type" : "object",
+        "properties" : {
+          "principal" : {
+            "type" : "object",
+            "x-java-type" : "java.lang.Object"
+          },
+          "credentials" : {
+            "type" : "object",
+            "x-java-type" : "java.lang.Object"
+          },
+          "details" : {
+            "type" : "object",
+            "x-java-type" : "java.lang.Object"
+          },
+          "authenticated" : {
+            "type" : "boolean",
+            "x-java-type" : "boolean"
+          },
+          "authorities" : {
+            "type" : "array",
+            "nullable" : true,
+            "items" : {
+              "nullable" : true,
+              "anyOf" : [
+                {
+                  "$ref" : "#/components/schemas/org.springframework.security.core.GrantedAuthority"
+                }
+              ]
+            },
+            "x-java-type" : "java.util.Collection"
+          }
+        }
+      },
       "fori.ing.com.base.models.Cuenta" : {
         "type" : "object",
         "properties" : {
@@ -2264,6 +2449,11 @@
             "format" : "int32",
             "nullable" : true,
             "x-java-type" : "java.lang.Integer"
+          },
+          "estado" : {
+            "type" : "boolean",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Boolean"
           }
         }
       },
@@ -2420,6 +2610,12 @@
             "type" : "string",
             "nullable" : true,
             "x-java-type" : "java.lang.String"
+          },
+          "idRol" : {
+            "type" : "integer",
+            "format" : "int32",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Integer"
           }
         }
       },
@@ -2498,6 +2694,16 @@
               "x-java-type" : "java.lang.Long"
             }
           ]
+        }
+      },
+      "org.springframework.security.core.GrantedAuthority" : {
+        "type" : "object",
+        "properties" : {
+          "authority" : {
+            "type" : "string",
+            "nullable" : true,
+            "x-java-type" : "java.lang.String"
+          }
         }
       },
       "com.vaadin.hilla.mappedtypes.Sort" : {
