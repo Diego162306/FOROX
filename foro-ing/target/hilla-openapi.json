@@ -60,33 +60,17 @@
                   "nombre" : {
                     "type" : "string",
                     "nullable" : true,
-                    "x-validation-constraints" : [
-                      {
-                        "simpleName" : "NotBlank"
-                      },
-                      {
-                        "simpleName" : "NotEmpty"
-                      }
-                    ],
                     "x-java-type" : "java.lang.String"
                   },
                   "url" : {
                     "type" : "string",
                     "nullable" : true,
-                    "x-validation-constraints" : [
-                      {
-                        "simpleName" : "NotEmpty"
-                      }
-                    ],
                     "x-java-type" : "java.lang.String"
                   },
                   "tipoArchivo" : {
+                    "type" : "string",
                     "nullable" : true,
-                    "anyOf" : [
-                      {
-                        "$ref" : "#/components/schemas/fori.ing.com.base.models.TipoArchivo"
-                      }
-                    ]
+                    "x-java-type" : "java.lang.String"
                   },
                   "idRespuesta" : {
                     "type" : "integer",
@@ -108,6 +92,36 @@
         "responses" : {
           "200" : {
             "description" : ""
+          }
+        }
+      }
+    },
+    "/ArchivoAdjuntoService/lisAll" : {
+      "post" : {
+        "tags" : [
+          "ArchivoAdjuntoService"
+        ],
+        "operationId" : "ArchivoAdjuntoService_lisAll_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
           }
         }
       }
@@ -169,6 +183,175 @@
         }
       }
     },
+    "/ArchivoAdjuntoService/listaPregunta" : {
+      "post" : {
+        "tags" : [
+          "ArchivoAdjuntoService"
+        ],
+        "operationId" : "ArchivoAdjuntoService_listaPregunta_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ArchivoAdjuntoService/listaRespuesta" : {
+      "post" : {
+        "tags" : [
+          "ArchivoAdjuntoService"
+        ],
+        "operationId" : "ArchivoAdjuntoService_listaRespuesta_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ArchivoAdjuntoService/order" : {
+      "post" : {
+        "tags" : [
+          "ArchivoAdjuntoService"
+        ],
+        "operationId" : "ArchivoAdjuntoService_order_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "attribute" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "type" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ArchivoAdjuntoService/search" : {
+      "post" : {
+        "tags" : [
+          "ArchivoAdjuntoService"
+        ],
+        "operationId" : "ArchivoAdjuntoService_search_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "attribute" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "text" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "type" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/ArchivoAdjuntoService/updateArchivoAdjunto" : {
       "post" : {
         "tags" : [
@@ -211,12 +394,9 @@
                     "x-java-type" : "java.lang.String"
                   },
                   "tipoArchivo" : {
+                    "type" : "string",
                     "nullable" : true,
-                    "anyOf" : [
-                      {
-                        "$ref" : "#/components/schemas/fori.ing.com.base.models.TipoArchivo"
-                      }
-                    ]
+                    "x-java-type" : "java.lang.String"
                   },
                   "idRespuesta" : {
                     "type" : "integer",
@@ -307,6 +487,147 @@
                         "$ref" : "#/components/schemas/fori.ing.com.base.models.Categoria"
                       }
                     ]
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CategoriaService/listAllCategoria" : {
+      "post" : {
+        "tags" : [
+          "CategoriaService"
+        ],
+        "operationId" : "CategoriaService_listAllCategoria_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "nullable" : true,
+                    "anyOf" : [
+                      {
+                        "$ref" : "#/components/schemas/fori.ing.com.base.models.Categoria"
+                      }
+                    ]
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CategoriaService/order" : {
+      "post" : {
+        "tags" : [
+          "CategoriaService"
+        ],
+        "operationId" : "CategoriaService_order_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "atributo" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "type" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "string",
+                      "nullable" : true,
+                      "x-java-type" : "java.lang.String"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CategoriaService/search" : {
+      "post" : {
+        "tags" : [
+          "CategoriaService"
+        ],
+        "operationId" : "CategoriaService_search_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "attribute" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "text" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "type" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
                   },
                   "x-java-type" : "java.util.List"
                 }
@@ -766,6 +1087,166 @@
         }
       }
     },
+    "/PreguntaService/order" : {
+      "post" : {
+        "tags" : [
+          "PreguntaService"
+        ],
+        "operationId" : "PreguntaService_order_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "atributo" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "type" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "string",
+                      "nullable" : true,
+                      "x-java-type" : "java.lang.String"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/PreguntaService/orderbyDte" : {
+      "post" : {
+        "tags" : [
+          "PreguntaService"
+        ],
+        "operationId" : "PreguntaService_orderbyDte_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "type" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "string",
+                      "nullable" : true,
+                      "x-java-type" : "java.lang.String"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/PreguntaService/search" : {
+      "post" : {
+        "tags" : [
+          "PreguntaService"
+        ],
+        "operationId" : "PreguntaService_search_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "attribute" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "text" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "type" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/PreguntaService/updatePregunta" : {
       "post" : {
         "tags" : [
@@ -1042,12 +1523,89 @@
         }
       }
     },
-    "/UsuarioRespuestaService/lisAllUsuarioRespuesta" : {
+    "/UsuarioRespuestaService/createUsuarioRespuesta" : {
       "post" : {
         "tags" : [
           "UsuarioRespuestaService"
         ],
-        "operationId" : "UsuarioRespuestaService_lisAllUsuarioRespuesta_POST",
+        "operationId" : "UsuarioRespuestaService_createUsuarioRespuesta_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "idUsuario" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "idRespuesta" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "idPregunta" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "contenido" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        }
+      }
+    },
+    "/UsuarioRespuestaService/listAll" : {
+      "post" : {
+        "tags" : [
+          "UsuarioRespuestaService"
+        ],
+        "operationId" : "UsuarioRespuestaService_listAll_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UsuarioRespuestaService/listAllUsuarioRespuesta" : {
+      "post" : {
+        "tags" : [
+          "UsuarioRespuestaService"
+        ],
+        "operationId" : "UsuarioRespuestaService_listAllUsuarioRespuesta_POST",
         "responses" : {
           "200" : {
             "description" : "",
@@ -1072,12 +1630,308 @@
         }
       }
     },
-    "/UsuarioService/lisAllUsuario" : {
+    "/UsuarioRespuestaService/listaPregunta" : {
+      "post" : {
+        "tags" : [
+          "UsuarioRespuestaService"
+        ],
+        "operationId" : "UsuarioRespuestaService_listaPregunta_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UsuarioRespuestaService/listaRespuesta" : {
+      "post" : {
+        "tags" : [
+          "UsuarioRespuestaService"
+        ],
+        "operationId" : "UsuarioRespuestaService_listaRespuesta_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UsuarioRespuestaService/listaUsuario" : {
+      "post" : {
+        "tags" : [
+          "UsuarioRespuestaService"
+        ],
+        "operationId" : "UsuarioRespuestaService_listaUsuario_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UsuarioRespuestaService/order" : {
+      "post" : {
+        "tags" : [
+          "UsuarioRespuestaService"
+        ],
+        "operationId" : "UsuarioRespuestaService_order_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "attribute" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "type" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UsuarioRespuestaService/search" : {
+      "post" : {
+        "tags" : [
+          "UsuarioRespuestaService"
+        ],
+        "operationId" : "UsuarioRespuestaService_search_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "attribute" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "text" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "type" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UsuarioRespuestaService/updateUsuarioRespuesta" : {
+      "post" : {
+        "tags" : [
+          "UsuarioRespuestaService"
+        ],
+        "operationId" : "UsuarioRespuestaService_updateUsuarioRespuesta_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "id" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "idUsuario" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "idRespuesta" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "idPregunta" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "contenido" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        }
+      }
+    },
+    "/UsuarioService/createUsuario" : {
       "post" : {
         "tags" : [
           "UsuarioService"
         ],
-        "operationId" : "UsuarioService_lisAllUsuario_POST",
+        "operationId" : "UsuarioService_createUsuario_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "nombre" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "apellido" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "telefono" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "dni" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        }
+      }
+    },
+    "/UsuarioService/listAll" : {
+      "post" : {
+        "tags" : [
+          "UsuarioService"
+        ],
+        "operationId" : "UsuarioService_listAll_POST",
         "responses" : {
           "200" : {
             "description" : "",
@@ -1093,6 +1947,145 @@
                         "$ref" : "#/components/schemas/fori.ing.com.base.models.Usuario"
                       }
                     ]
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UsuarioService/listAllUsuario" : {
+      "post" : {
+        "tags" : [
+          "UsuarioService"
+        ],
+        "operationId" : "UsuarioService_listAllUsuario_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UsuarioService/order" : {
+      "post" : {
+        "tags" : [
+          "UsuarioService"
+        ],
+        "operationId" : "UsuarioService_order_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "attribute" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "type" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UsuarioService/search" : {
+      "post" : {
+        "tags" : [
+          "UsuarioService"
+        ],
+        "operationId" : "UsuarioService_search_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "attribute" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "text" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "type" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
                   },
                   "x-java-type" : "java.util.List"
                 }
@@ -1185,15 +2178,6 @@
   },
   "components" : {
     "schemas" : {
-      "fori.ing.com.base.models.TipoArchivo" : {
-        "type" : "string",
-        "enum" : [
-          "IMAGEN",
-          "DOCUMENTO",
-          "AUDIO",
-          "VIDEO"
-        ]
-      },
       "fori.ing.com.base.models.ArchivoAdjunto" : {
         "type" : "object",
         "properties" : {
@@ -1282,6 +2266,15 @@
             "x-java-type" : "java.lang.Integer"
           }
         }
+      },
+      "fori.ing.com.base.models.TipoArchivo" : {
+        "type" : "string",
+        "enum" : [
+          "IMAGEN",
+          "DOCUMENTO",
+          "AUDIO",
+          "VIDEO"
+        ]
       },
       "fori.ing.com.base.models.Pregunta" : {
         "type" : "object",

@@ -2,7 +2,7 @@ package fori.ing.com.base.controlller.dao.dao_models;
 
 import fori.ing.com.base.models.Cuenta;
 import fori.ing.com.base.controlller.dao.AdapterDao;
-import fori.ing.com.base.controlller.services.Utiles;
+import fori.ing.com.base.controlller.Utiles;
 
 import java.util.HashMap;
 
