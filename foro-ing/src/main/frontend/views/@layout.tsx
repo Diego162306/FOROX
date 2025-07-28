@@ -1,4 +1,5 @@
 import { Outlet, useLocation, useNavigate } from 'react-router';
+import { useAuth } from 'Frontend/security/auth';
 import {
   AppLayout,
   Avatar,
@@ -13,13 +14,16 @@ import {
 } from '@vaadin/react-components';
 import { Suspense } from 'react';
 import { createMenuItems } from '@vaadin/hilla-file-router/runtime.js';
+import { CuentaService } from "Frontend/generated/endpoints";
+import { ViewConfig } from '@vaadin/hilla-file-router/types.js';
+
 
 function Header() {
   // TODO Replace with real application logo and name
   return (
     <div className="flex p-m gap-m items-center" slot="drawer">
       <Icon icon="vaadin:cubes" className="text-primary icon-l" />
-      <span className="font-semibold text-l">Foro Ing</span>
+      <span className="font-semibold text-l">LOGIN</span>
     </div>
   );
 }
@@ -44,7 +48,8 @@ type UserMenuItem = MenuBarItem<{ action?: () => void }>;
 
 function UserMenu() {
   // TODO Replace with real user information and actions
-  const items: Array<UserMenuItem> = [
+  const {logout} = useAuth();
+  const items = [
     {
       component: (
         <>
@@ -52,9 +57,11 @@ function UserMenu() {
         </>
       ),
       children: [
-        { text: 'View Profile', disabled: true, action: () => console.log('View Profile') },
-        { text: 'Manage Settings', disabled: true, action: () => console.log('Manage Settings') },
-        { text: 'Logout', disabled: true, action: () => console.log('Logout') },
+        { text: 'View Profile',  action: () => console.log('View Profile') },
+        { text: 'Manage Settings',  action: () => console.log('Manage Settings') },
+        { text: 'Cerrar Sesion',  action: () => (async () => CuentaService.logout().then(async function(){
+                             await logout();
+        }))() },
       ],
     },
   ];
@@ -66,17 +73,31 @@ function UserMenu() {
   );
 }
 
+//MIO
+export const config : ViewConfig = {
+  loginRequired : true
+}
+
 export default function MainLayout() {
-  return (
-    <AppLayout primarySection="drawer">
-      <Header />
-      <Scroller slot="drawer">
-        <MainMenu />
-      </Scroller>
-      <UserMenu />
-      <Suspense fallback={<ProgressBar indeterminate={true} className="m-0" />}>
-        <Outlet />
-      </Suspense>
-    </AppLayout>
-  );
+  const location = useLocation();
+  //if (location.pathname === "/panelAdmin") {
+    return (
+      <AppLayout primarySection="drawer">
+        <Header />
+        <Scroller slot="drawer">
+          <MainMenu />
+        </Scroller>
+        <UserMenu />
+        <Suspense fallback={<ProgressBar indeterminate={true} className="m-0" />}>
+          <Outlet />
+        </Suspense>
+      </AppLayout>
+   );
+
+
+ /* return (
+    <Suspense fallback={<ProgressBar indeterminate={true} className="m-0" />}>
+      <Outlet />
+    </Suspense>
+  );*/
 }

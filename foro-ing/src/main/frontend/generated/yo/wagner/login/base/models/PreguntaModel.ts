@@ -1,0 +1,28 @@
+import { _getPropertyModel as _getPropertyModel_1, makeObjectEmptyValueCreator as makeObjectEmptyValueCreator_1, NumberModel as NumberModel_1, ObjectModel as ObjectModel_1, StringModel as StringModel_1 } from "@vaadin/hilla-lit-form";
+import ArchivoAdjuntoModel_1 from "./ArchivoAdjuntoModel.js";
+import type Pregunta_1 from "./Pregunta.js";
+class PreguntaModel<T extends Pregunta_1 = Pregunta_1> extends ObjectModel_1<T> {
+    static override createEmptyValue = makeObjectEmptyValueCreator_1(PreguntaModel);
+    get id(): NumberModel_1 {
+        return this[_getPropertyModel_1]("id", (parent, key) => new NumberModel_1(parent, key, true, { meta: { javaType: "java.lang.Integer" } }));
+    }
+    get contenido(): StringModel_1 {
+        return this[_getPropertyModel_1]("contenido", (parent, key) => new StringModel_1(parent, key, true, { meta: { javaType: "java.lang.String" } }));
+    }
+    get tipoArchivo(): StringModel_1 {
+        return this[_getPropertyModel_1]("tipoArchivo", (parent, key) => new StringModel_1(parent, key, true, { meta: { javaType: "java.lang.String" } }));
+    }
+    get fecha(): StringModel_1 {
+        return this[_getPropertyModel_1]("fecha", (parent, key) => new StringModel_1(parent, key, true, { meta: { javaType: "java.util.Date" } }));
+    }
+    get idUsuario(): NumberModel_1 {
+        return this[_getPropertyModel_1]("idUsuario", (parent, key) => new NumberModel_1(parent, key, true, { meta: { javaType: "java.lang.Integer" } }));
+    }
+    get idCategoria(): NumberModel_1 {
+        return this[_getPropertyModel_1]("idCategoria", (parent, key) => new NumberModel_1(parent, key, true, { meta: { javaType: "java.lang.Integer" } }));
+    }
+    get archivoAdjunto(): ArchivoAdjuntoModel_1 {
+        return this[_getPropertyModel_1]("archivoAdjunto", (parent, key) => new ArchivoAdjuntoModel_1(parent, key, true));
+    }
+}
+export default PreguntaModel;

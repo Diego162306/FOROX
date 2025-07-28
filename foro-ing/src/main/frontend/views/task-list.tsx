@@ -5,7 +5,7 @@ import { TaskService } from 'Frontend/generated/endpoints';
 import { useSignal } from '@vaadin/hilla-react-signals';
 import handleError from 'Frontend/views/_ErrorHandler';
 import { Group, ViewToolbar } from 'Frontend/components/ViewToolbar';
-import Task from 'Frontend/generated/fori/ing/com/taskmanagement/domain/Task';
+import Task from 'Frontend/generated/yo/wagner/login/taskmanagement/domain/Task';
 import { useDataProvider } from '@vaadin/hilla-react-crud';
 
 export const config: ViewConfig = {

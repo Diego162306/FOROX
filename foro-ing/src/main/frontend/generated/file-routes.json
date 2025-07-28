@@ -1,6 +1,7 @@
 [
   {
     "route": "",
+    "loginRequired": true,
     "flowLayout": false,
     "params": {},
     "title": "Main Layout",
@@ -15,28 +16,6 @@
         "title": "Main"
       },
       {
-        "route": "archivoAdjunto-list",
-        "title": "Archivos Adjuntos",
-        "menu": {
-          "icon": "vaadin:clipboard-check",
-          "order": 1,
-          "title": "ARCHIVOS ADJUNTOS"
-        },
-        "flowLayout": false,
-        "params": {}
-      },
-      {
-        "route": "Categoria-list",
-        "title": "Categoria",
-        "menu": {
-          "icon": "vaadin:clipboard-check",
-          "order": 3,
-          "title": "Categoria"
-        },
-        "flowLayout": false,
-        "params": {}
-      },
-      {
         "route": "cuenta-list",
         "title": "Cuenta",
         "menu": {
@@ -48,15 +27,37 @@
         "params": {}
       },
       {
-        "route": "pregunta-list",
-        "title": "Pregunta",
+        "route": "login",
+        "skipLayouts": true,
         "menu": {
-          "icon": "vaadin:clipboard-check",
-          "order": 2,
-          "title": "Pregunta"
+          "exclude": true
         },
         "flowLayout": false,
-        "params": {}
+        "params": {},
+        "title": "Login"
+      },
+      {
+        "route": "Preguntas",
+        "params": {},
+        "children": [
+          {
+            "route": "crearPregunta",
+            "title": "Pregunta",
+            "menu": {
+              "icon": "vaadin:clipboard-check",
+              "order": 3,
+              "title": "Pregunta"
+            },
+            "flowLayout": false,
+            "params": {}
+          },
+          {
+            "route": "PreguntaCard",
+            "flowLayout": false,
+            "params": {},
+            "title": "Pregunta Card"
+          }
+        ]
       },
       {
         "route": "task-list",
@@ -65,28 +66,6 @@
           "icon": "vaadin:clipboard-check",
           "order": 1,
           "title": "Task List"
-        },
-        "flowLayout": false,
-        "params": {}
-      },
-      {
-        "route": "usuario-list",
-        "title": "Usuario",
-        "menu": {
-          "icon": "vaadin:clipboard-check",
-          "order": 1,
-          "title": "USUARIOS"
-        },
-        "flowLayout": false,
-        "params": {}
-      },
-      {
-        "route": "usuarioRespuesta-list",
-        "title": "Usuario Respuestas",
-        "menu": {
-          "icon": "vaadin:clipboard-check",
-          "order": 1,
-          "title": "USUARIO RESPUESTAS"
         },
         "flowLayout": false,
         "params": {}
